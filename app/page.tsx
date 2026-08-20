@@ -1,5 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { Nav } from "@/components/Nav";
+import { WhyBlair } from "@/components/sections/WhyBlair";
 import { AreasOfCare } from "@/components/sections/AreasOfCare";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <main className="flex flex-col">
         <Hero />
         <AreasOfCare />
+        <WhyBlair />
       </main>
     </>
   );
