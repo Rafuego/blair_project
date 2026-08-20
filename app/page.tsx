@@ -1,69 +1,74 @@
-import Image from "next/image";
+const SWATCHES = [
+  ["cream", "bg-cream"],
+  ["white", "bg-white"],
+  ["espresso", "bg-espresso"],
+  ["primrose", "bg-primrose"],
+  ["primrose-pale", "bg-primrose-pale"],
+  ["charcoal", "bg-charcoal"],
+  ["secondary", "bg-secondary"],
+  ["taupe", "bg-taupe"],
+  ["peach-100", "bg-peach-100"],
+];
+
+const TYPE = [
+  ["type-h2", "Specialist care", "Marlfield 64/1"],
+  ["type-h3", "Areas of care", "Marlfield 40/1"],
+  ["type-h4", "How it works", "Marlfield 32/1"],
+  ["type-h5", "Your care, in your pocket", "Neue Montreal Medium 24/1.35"],
+  ["type-body-lg", "Blair connects you to specialist-level care.", "NM Regular 20/1.4"],
+  ["type-body", "No referrals. No waitlists.", "NM Regular 16/1.6"],
+  ["type-body-sm", "Book a free intro call", "NM Regular 14/1.6"],
+  ["type-caps", "For employers", "NM Medium 12/1.6"],
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="mx-auto w-full max-w-[1440px] px-18 py-16">
+      <p className="type-caps text-secondary">Foundations</p>
+      <h1 className="type-h2 mt-2">Blair Health design tokens</h1>
+      <p className="type-body-lg mt-4 max-w-[560px] text-secondary">
+        Specimen page — verifies fonts and Figma variables are wired before any
+        section is built. This gets replaced by the real homepage.
+      </p>
+
+      <section className="mt-16">
+        <h2 className="type-h4">Typography</h2>
+        <div className="mt-6 divide-y" style={{ borderColor: "var(--color-border-taupe)" }}>
+          {TYPE.map(([cls, sample, spec]) => (
+            <div key={cls} className="flex items-baseline gap-8 py-5">
+              <span className={cls as string}>{sample}</span>
+              <span className="type-body-sm ml-auto shrink-0 text-secondary">{spec}</span>
+            </div>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="mt-16">
+        <h2 className="type-h4">Color</h2>
+        <div className="mt-6 grid grid-cols-3 gap-4">
+          {SWATCHES.map(([name, cls]) => (
+            <div key={name}>
+              <div
+                className={`${cls} h-24 rounded-medium`}
+                style={{ border: "1px solid var(--color-border-taupe)" }}
+              />
+              <p className="type-body-sm mt-2 text-secondary">{name}</p>
+            </div>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="mt-16">
+        <h2 className="type-h4">Radii</h2>
+        <div className="mt-6 flex gap-4">
+          {["rounded-small", "rounded-medium", "rounded-large", "rounded-circle"].map((r) => (
+            <div key={r} className="text-center">
+              <div className={`${r} bg-primrose h-24 w-40`} />
+              <p className="type-body-sm mt-2 text-secondary">{r}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
   );
 }

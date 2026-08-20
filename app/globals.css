@@ -1,26 +1,127 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------------------------------------------------------------------------
+   Blair Health design tokens — mirrored 1:1 from the Figma variable collection.
+   Figma name              ->  token
+   background/cream        ->  --color-cream
+   text/espresso           ->  --color-espresso
+   ...etc. Keep this in sync; do not hardcode hex values in components.
+--------------------------------------------------------------------------- */
+@theme {
+  /* Surfaces */
+  --color-cream: #fdf9f4;
+  --color-white: #ffffff;
+  --color-espresso: #290b12;
+  --color-primrose: #f5f595;
+  --color-primrose-pale: #efefa8;
+
+  /* Text */
+  --color-charcoal: #242424;
+  --color-secondary: #605b54;
+  --color-taupe: #d3c3ac;
+
+  /* Lines & translucency */
+  --color-border-taupe: #d3c3ac;
+  --color-espresso-40: #290b1266;
+  --color-glass-light-15: #ffffff26;
+
+  /* Gradient stops */
+  --color-peach-0: #deb27100;
+  --color-peach-100: #deb271;
+  --color-primrose-0: #f5f59500;
+  --color-primrose-100: #f5f595;
+
+  /* Radii */
+  --radius-small: 12px;
+  --radius-medium: 16px;
+  --radius-large: 32px;
+  --radius-circle: 100px;
+
+  /* Strokes */
+  --stroke-divider: 0.5px;
+  --stroke-underline: 1px;
+  --stroke-icon: 1.5px;
+
+  /* Families (values come from next/font in fonts.ts) */
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ---------------------------------------------------------------------------
+   Typography scale — Desktop. Family is baked in because it varies per token
+   (Marlfield for H2–H4, Neue Montreal for everything else), which plain
+   font-size tokens can't express.
+--------------------------------------------------------------------------- */
+@utility type-h2 {
+  font-family: var(--font-display);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@utility type-h3 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 1;
+  font-weight: 400;
+}
+@utility type-h4 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 1;
+  font-weight: 400;
+}
+@utility type-h5 {
+  font-family: var(--font-sans);
+  font-size: 24px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+@utility type-body-lg {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+@utility type-body-lg-medium {
+  font-family: var(--font-sans);
+  font-size: 20px;
+  line-height: 1.4;
+  font-weight: 500;
+}
+@utility type-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+@utility type-body-medium {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+@utility type-body-sm {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+@utility type-caps {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+@utility type-button {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.15;
+  font-weight: 500;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream);
+  color: var(--color-espresso);
+  font-family: var(--font-sans);
 }
