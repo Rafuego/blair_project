@@ -1,6 +1,6 @@
 import { Hero } from "@/components/Hero";
 import { Nav } from "@/components/Nav";
-import { WaitGap } from "@/components/sections/WaitGap";
+import { AreasOfCare } from "@/components/sections/AreasOfCare";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
       <Nav />
       <main className="flex flex-col">
         <Hero />
-        <WaitGap />
+        <AreasOfCare />
       </main>
     </>
   );

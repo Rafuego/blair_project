@@ -1,13 +1,14 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-type Variant = "primrose" | "white" | "glass" | "ghost";
+type Variant = "primrose" | "white" | "glass" | "ghost" | "espresso";
 
 const VARIANTS: Record<Variant, string> = {
   primrose: "bg-primrose text-espresso",
   white: "bg-white text-espresso",
   glass: "bg-glass-light-15 text-white backdrop-blur-[20px]",
   ghost: "text-white",
+  espresso: "bg-espresso text-white",
 };
 
 export function Button({
