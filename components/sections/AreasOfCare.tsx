@@ -50,7 +50,9 @@ export function AreasOfCare() {
         </p>
       </div>
 
-      <div className="relative mt-[54px] flex items-stretch gap-6">
+      {/* Figma pins the fourth card to an explicit 498.386 height, so the row
+          is design-sized rather than content-sized. */}
+      <div className="relative mt-[54px] flex min-h-[498.39px] items-stretch gap-6">
         {CARDS.map(({ title, body, image, href }) => (
           <article
             key={Array.isArray(title) ? title.join(" ") : title}
@@ -67,7 +69,7 @@ export function AreasOfCare() {
             </div>
             <div className="flex min-h-px flex-1 flex-col justify-between rounded-b-medium bg-white py-6 pr-15 pl-6">
               <div className="flex w-full flex-col gap-3">
-                <h3 className="type-h4 w-full leading-normal text-espresso">
+                <h3 className="type-h4 w-full leading-[var(--leading-display-auto)] text-espresso">
                   {Array.isArray(title)
                     ? title.map((line, i) => (
                         <span key={line}>

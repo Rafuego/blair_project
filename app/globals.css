@@ -37,6 +37,11 @@
   --radius-large: 32px;
   --radius-circle: 100px;
 
+  /* Marlfield's "Auto" line height as Figma renders it (32px type sets on a
+     38px line). The browser's own `normal` for the trial cut is 1.5, which
+     drifts every heading that uses Auto rather than a fixed token. */
+  --leading-display-auto: 1.1875;
+
   /* Strokes */
   --stroke-divider: 0.5px;
   --stroke-underline: 1px;
