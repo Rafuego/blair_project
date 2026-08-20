@@ -1,4 +1,5 @@
 import { Hero } from "@/components/Hero";
+import { InYourPocket } from "@/components/sections/InYourPocket";
 import { Nav } from "@/components/Nav";
 import { HowItWorks } from "@/components/sections/HowItWorks";
 import { WhyBlair } from "@/components/sections/WhyBlair";
@@ -13,6 +14,7 @@ export default function Home() {
         <AreasOfCare />
         <WhyBlair />
         <HowItWorks />
+        <InYourPocket />
       </main>
     </>
   );
