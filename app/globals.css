@@ -52,6 +52,13 @@
    (Marlfield for H2–H4, Neue Montreal for everything else), which plain
    font-size tokens can't express.
 --------------------------------------------------------------------------- */
+@utility type-h1 {
+  font-family: var(--font-display);
+  font-size: 80px;
+  line-height: 1;
+  font-weight: 400;
+  font-feature-settings: "lnum" 1, "tnum" 1;
+}
 @utility type-h2 {
   font-family: var(--font-display);
   font-size: 64px;
