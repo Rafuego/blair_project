@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "../ui/Button";
+import { Container } from "../ui/Container";
 
 const CARDS = [
   {
@@ -30,7 +31,8 @@ const CARDS = [
 
 export function AreasOfCare() {
   return (
-    <section id="areas-of-care" className="relative w-full overflow-hidden px-18 py-25">
+    <section id="areas-of-care" className="w-full overflow-hidden py-25">
+      <Container className="relative px-6 xl:px-18">
       {/* Primrose glow (Ellipse 5) — sits mostly off the right edge. */}
       <div
         aria-hidden
@@ -67,7 +69,7 @@ export function AreasOfCare() {
                 className="object-cover"
               />
             </div>
-            <div className="flex min-h-px flex-1 flex-col justify-between rounded-b-medium bg-white py-6 pr-15 pl-6">
+            <div className="flex min-h-px flex-1 flex-col justify-between rounded-b-medium bg-white py-6 pr-6 pl-6 xl:pr-15">
               <div className="flex w-full flex-col gap-3">
                 <h3 className="type-h4 w-full leading-[var(--leading-display-auto)] text-espresso">
                   {Array.isArray(title)
@@ -88,6 +90,7 @@ export function AreasOfCare() {
           </article>
         ))}
       </div>
+      </Container>
     </section>
   );
 }

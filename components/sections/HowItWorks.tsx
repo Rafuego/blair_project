@@ -1,4 +1,5 @@
 import { Button, UnderlineLink } from "../ui/Button";
+import { Container } from "../ui/Container";
 
 const STEPS = [
   {
@@ -38,13 +39,14 @@ export function HowItWorks() {
   return (
     <section
       id="how-it-works"
-      className="flex w-full flex-col items-center gap-18 px-40 py-25"
+      className="w-full py-25"
     >
+      <Container className="flex flex-col items-center gap-18 px-6 xl:px-40">
       <h2 className="type-h2 w-full text-center text-espresso">
         Getting started is simple
       </h2>
 
-      <div className="flex w-full items-center gap-9">
+      <div className="flex w-full items-center gap-4 xl:gap-9">
         {STEPS.map(({ title, body }, i) => (
           <div key={title} className="contents">
             {i > 0 && <StepDivider />}
@@ -77,6 +79,7 @@ export function HowItWorks() {
           </UnderlineLink>
         </div>
       </div>
+      </Container>
     </section>
   );
 }

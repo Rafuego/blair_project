@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Container } from "../ui/Container";
 
 /**
  * Figma's "Image Carousel Button" list. Selecting a row expands it with its
@@ -39,8 +40,9 @@ export function InYourPocket() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="flex w-full items-center py-6">
-      <div className="relative h-[777px] w-[700px] shrink-0 overflow-clip rounded-r-large">
+    <section className="w-full py-6">
+      <Container className="flex items-center">
+      <div className="relative h-[777px] w-[48.61%] max-w-[700px] shrink-0 overflow-clip rounded-r-large">
         <div
           aria-hidden
           className="absolute h-[948.385px] w-[846.577px] blur-[10px]"
@@ -68,8 +70,8 @@ export function InYourPocket() {
         </div>
       </div>
 
-      <div className="flex flex-1 self-stretch">
-        <div className="flex min-w-px flex-1 flex-col justify-between p-18">
+      <div className="flex min-w-0 flex-1 self-stretch">
+        <div className="flex min-w-px flex-1 flex-col justify-between gap-10 p-6 xl:p-18">
           <div className="flex w-full flex-col gap-6">
             <h2 className="type-h2 w-full text-espresso">
               Your care,
@@ -110,6 +112,7 @@ export function InYourPocket() {
           </div>
         </div>
       </div>
+      </Container>
     </section>
   );
 }

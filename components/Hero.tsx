@@ -1,10 +1,11 @@
 import Image from "next/image";
 import { ArrowRight } from "./icons";
 import { Button, UnderlineLink } from "./ui/Button";
+import { Container } from "./ui/Container";
 
 export function Hero() {
   return (
-    <section className="relative flex h-[810px] w-full flex-col items-start justify-end overflow-hidden">
+    <section className="relative flex min-h-[810px] w-full flex-col items-start justify-end overflow-hidden">
       {/* Background plate. Crop box and horizontal mirror taken verbatim from
           the Figma image fill (the source photo faces left; the fill mirrors
           it). Percentages are relative to the 1440x810 hero box. */}
@@ -27,8 +28,8 @@ export function Hero() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/40" />
       </div>
 
-      <div className="flex h-[320px] w-full items-start text-white">
-        <div className="flex h-full flex-1 flex-col items-start justify-end gap-6 px-18 py-[54px]">
+      <Container className="flex min-h-[320px] items-start text-white">
+        <div className="flex min-w-0 flex-1 flex-col items-start justify-end gap-6 px-6 py-[54px] xl:px-18">
           <h1 className="type-h1 w-full">Specialist care that keeps up with you</h1>
           <div className="flex items-center gap-2">
             <p className="type-body-medium whitespace-nowrap">For employers?</p>
@@ -39,8 +40,8 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="flex h-full flex-1 flex-col items-start justify-end gap-6 px-18 py-[54px]">
-          <p className="type-body-medium w-[520px]">
+        <div className="flex min-w-0 flex-1 flex-col items-start justify-end gap-6 px-6 py-[54px] xl:px-18">
+          <p className="type-body-medium w-full max-w-[520px]">
             Blair connects you to specialist-level care across women&rsquo;s health
             — perimenopause and menopause, pelvic and urology, postpartum, and
             nutrition — with the tracking and support to keep up with your life.
@@ -55,7 +56,7 @@ export function Hero() {
             </Button>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

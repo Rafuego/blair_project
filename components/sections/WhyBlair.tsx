@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Container } from "../ui/Container";
 
 const TABS = [
   {
@@ -43,12 +44,13 @@ export function WhyBlair() {
   const tab = TABS[active];
 
   return (
-    <section id="what-is-blair" className="w-full px-18">
+    <section id="what-is-blair" className="w-full">
+      <Container className="px-6 xl:px-18">
       <h2 className="type-h2 w-full text-center text-espresso">
         Why women choose Blair
       </h2>
 
-      <div className="relative mt-[54px] flex h-[693.52px] w-full flex-col items-center justify-center gap-8 overflow-clip rounded-large p-10">
+      <div className="relative mt-[54px] flex min-h-[693.52px] w-full flex-col items-center justify-center gap-8 overflow-clip rounded-large p-6 xl:p-10">
         {/* Blurred plate, oversized so the blur never feathers at the edges. */}
         <div
           aria-hidden
@@ -89,22 +91,23 @@ export function WhyBlair() {
           role="tabpanel"
           className="relative flex w-full shrink-0 items-center justify-center gap-8"
         >
-          <div className="flex flex-col items-start justify-center gap-6 text-white">
+          <div className="flex min-w-0 flex-1 flex-col items-start justify-center gap-6 text-white">
             <h3
-              className="type-h2"
-              style={{ width: tab.headingWidth }}
+              style={{ maxWidth: tab.headingWidth }}
+              className="type-h2 w-full"
             >
               {tab.heading}
             </h3>
-            <p className="type-body" style={{ width: tab.bodyWidth }}>
+            <p className="type-body w-full" style={{ maxWidth: tab.bodyWidth }}>
               {tab.body}
             </p>
           </div>
 
           {/* Identity card is still empty in the Figma — kept as the bare plate. */}
-          <div className="h-[531.52px] w-[396px] shrink-0 rounded-medium bg-cream p-6" />
+          <div className="h-[531.52px] w-full max-w-[396px] shrink rounded-medium bg-cream p-6" />
         </div>
       </div>
+      </Container>
     </section>
   );
 }
