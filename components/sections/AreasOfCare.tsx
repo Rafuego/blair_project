@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { ArrowUpRight } from "../icons";
 import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
 
@@ -58,16 +59,22 @@ export function AreasOfCare() {
         {CARDS.map(({ title, body, image, href }) => (
           <article
             key={Array.isArray(title) ? title.join(" ") : title}
-            className="flex min-w-px flex-1 flex-col overflow-clip rounded-[8px]"
+            className="group flex min-w-px flex-1 flex-col overflow-clip rounded-[8px]"
           >
-            <div className="relative aspect-[259/195] w-full shrink-0">
+            <div className="relative aspect-[259/195] w-full shrink-0 overflow-hidden">
               <Image
                 src={image}
                 alt=""
                 fill
                 sizes="(max-width: 1440px) 25vw, 306px"
-                className="object-cover"
+                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
               />
+              <span
+                aria-hidden
+                className="absolute top-4 right-4 flex size-10 translate-y-1 items-center justify-center rounded-circle bg-cream text-espresso opacity-0 transition-[opacity,transform] duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+              >
+                <ArrowUpRight className="size-4" />
+              </span>
             </div>
             <div className="flex min-h-px flex-1 flex-col justify-between rounded-b-medium bg-white py-6 pr-6 pl-6 xl:pr-15">
               <div className="flex w-full flex-col gap-3">
