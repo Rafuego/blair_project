@@ -17,21 +17,23 @@ const TABS = [
     label: "Built on your data",
     heading: "Technology that makes care personal.",
     body: "Assessments, tracking, and insights, so your plan is built on your data, not guesswork.",
-    screen: "/images/mockup/screen-period.png",
+    // 780x3144 scrolling capture — Figma anchors it to the top rather than covering.
+    screen: "/images/mockup/screen-data.png",
+    fit: "top" as const,
   },
   {
     id: "follows-you",
     label: "Care that follows you",
     heading: "Care that follows you.",
     body: "Ongoing follow-ups and unlimited messaging with your provider, across every stage.",
-    screen: "/images/mockup/screen-period.png",
+    screen: "/images/mockup/screen-follows.png",
   },
   {
     id: "community",
     label: "A community behind you",
     heading: "A community behind you.",
     body: "A moderated community and expert-backed resources between visits.",
-    screen: "/images/mockup/screen-period.png",
+    screen: "/images/mockup/screen-community.png",
   },
 ];
 
@@ -40,7 +42,15 @@ const TABS = [
  * screen composites on top of it, then the dynamic island is re-stamped over
  * the screen from the frame artwork — the same stacking Figma uses.
  */
-function PhoneMockup({ screen, alt }: { screen: string; alt: string }) {
+function PhoneMockup({
+  screen,
+  alt,
+  fit = "cover",
+}: {
+  screen: string;
+  alt: string;
+  fit?: "cover" | "top";
+}) {
   return (
     <div className="relative aspect-[340.79/706.1] w-full xl:h-[706.1px] xl:w-[340.79px] xl:shrink-0">
       <Image
@@ -51,12 +61,21 @@ function PhoneMockup({ screen, alt }: { screen: string; alt: string }) {
         className="object-contain"
       />
       <div className="absolute inset-[1.55%_3.98%_1.62%_3.92%] overflow-hidden rounded-[68px]">
-        <Image src={screen} alt={alt} fill sizes="341px" className="object-cover" />
+        {fit === "top" ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={screen}
+            alt={alt}
+            className="absolute top-0 left-0 w-full max-w-none"
+          />
+        ) : (
+          <Image src={screen} alt={alt} fill sizes="341px" className="object-cover" />
+        )}
       </div>
       {/* Home indicator */}
       <div className="absolute inset-[96.96%_34.27%_2.49%_34.06%] overflow-hidden rounded-[68px]">
         <img
-          src={screen}
+          src="/images/mockup/screen-period.png"
           alt=""
           className="absolute max-w-none"
           style={{ height: "17767.38%", width: "292.76%", left: "-96.13%", top: "-17507.15%" }}
@@ -132,7 +151,11 @@ export function WhyBlair() {
               <p className="type-body w-full">{tab.body}</p>
             </div>
             <div className="w-[191px] shrink-0 xl:w-auto">
-              <PhoneMockup screen={tab.screen} alt={`${tab.heading} app screen`} />
+              <PhoneMockup
+                screen={tab.screen}
+                alt={`${tab.heading} app screen`}
+                fit={"fit" in tab ? tab.fit : "cover"}
+              />
             </div>
           </div>
         </div>
