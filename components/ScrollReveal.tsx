@@ -53,15 +53,29 @@ export function ScrollReveal() {
       );
     };
 
-    // One level down when a section wraps everything in a single container,
-    // so the stagger lands on real content rather than the wrapper.
+    // Pick content-sized targets.
+    //
+    // Descend through single-child wrappers (Container etc.) so the stagger
+    // lands on real content, then break up anything still taller than most of
+    // the viewport. A very tall block reveals as soon as its top edge nears the
+    // fold, which means it has finished animating long before you look at it —
+    // the reason the first version read as no effect at all.
+    const TALL = () => window.innerHeight * 0.6;
+
+    const collect = (el: Element, depth = 0): HTMLElement[] => {
+      const kids = Array.from(el.children).filter(animatable) as HTMLElement[];
+      if (!kids.length) return [el as HTMLElement];
+      // Single wrapper: keep descending, it carries no visual weight of its own.
+      if (kids.length === 1 && depth < 4) return collect(kids[0], depth + 1);
+      // Otherwise take the children, splitting any that are still too tall.
+      return kids.flatMap((kid) =>
+        kid.offsetHeight > TALL() && depth < 4 ? collect(kid, depth + 1) : [kid],
+      );
+    };
+
     const targetsFor = (section: Element) => {
-      let kids = Array.from(section.children).filter(animatable);
-      if (kids.length === 1) {
-        const inner = Array.from(kids[0].children).filter(animatable);
-        if (inner.length > 1) kids = inner;
-      }
-      return kids as HTMLElement[];
+      const kids = collect(section);
+      return kids.filter((el) => el !== section);
     };
 
     const groups = Array.from(
@@ -148,7 +162,13 @@ export function ScrollReveal() {
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll, { passive: true });
     document.addEventListener("visibilitychange", sweep);
-    sweep();
+
+    // Commit the hidden state before the first sweep. Without a forced reflow
+    // the browser coalesces "hide" and "show" into one style recalculation and
+    // skips the transition, so the opening screen would snap in rather than
+    // animate.
+    void document.body.offsetHeight;
+    requestAnimationFrame(sweep);
 
     // Last-resort guarantee. If nothing at all has revealed shortly after
     // setup, the detection is not working in this environment — show
