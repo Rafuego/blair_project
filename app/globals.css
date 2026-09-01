@@ -19,12 +19,14 @@
   --color-charcoal: #242424;
   --color-secondary: #605b54;
   --color-taupe: #d3c3ac;
+  --color-secondary-on-dark: #b8b1a8;
 
   /* Lines & translucency */
   --color-border-taupe: #d3c3ac;
   --color-espresso-40: #290b1266;
   --color-glass-light-15: #ffffff26;
   --color-white-40: #ffffff66;
+  --color-white-on-dark-10: #ffffff1a;
 
   /* Gradient stops */
   --color-peach-0: #deb27100;
