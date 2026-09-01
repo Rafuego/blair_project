@@ -15,6 +15,7 @@ export function CareSpecialist({
   leadRest,
   closing,
   assurance,
+  titleWidth = 824,
 }: {
   title: string;
   intro?: string;
@@ -24,12 +25,14 @@ export function CareSpecialist({
   leadRest: string;
   closing: string;
   assurance: string;
+  /** Heading measure differs per page: 824 on peri/meno, 912 on nutrition. */
+  titleWidth?: number;
 }) {
   return (
     <section className="w-full bg-cream">
       <Container className="flex flex-col items-center gap-[54px] px-6 py-20 xl:px-25 xl:py-25">
         <div className="flex flex-col items-center gap-6 text-center">
-          <h2 className="type-h2 text-espresso xl:w-[824px]">{title}</h2>
+          <h2 className="type-h2 text-espresso" style={{ maxWidth: titleWidth }}>{title}</h2>
           {intro && (
             <p className="type-body-lg text-secondary xl:w-[950px]">{intro}</p>
           )}

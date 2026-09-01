@@ -12,6 +12,7 @@ export function CareFinalCta({
   panelHeight = 510,
   primaryLabel = "Sign up",
   primaryHref = "/signup",
+  bodyLarge = false,
 }: {
   title: string;
   body: string;
@@ -19,6 +20,7 @@ export function CareFinalCta({
   panelHeight?: number;
   primaryLabel?: string;
   primaryHref?: string;
+  bodyLarge?: boolean;
 }) {
   return (
     <section className="w-full px-0 pt-4 pb-8">
@@ -35,7 +37,7 @@ export function CareFinalCta({
           <div aria-hidden className="absolute inset-0 rounded-large bg-black/20" />
           <div className="relative flex w-full max-w-[800px] flex-col items-center gap-6 text-center">
             <h2 className="type-h2 w-full text-white">{title}</h2>
-            <p className="type-body-medium max-w-[470px] text-white">{body}</p>
+            <p className={bodyLarge ? "type-body-lg-medium max-w-[594px] text-white" : "type-body-medium max-w-[470px] text-white"}>{body}</p>
           </div>
           <div className="relative flex flex-col items-center gap-3 xl:flex-row xl:gap-5">
             <Button href={primaryHref} variant="primrose">

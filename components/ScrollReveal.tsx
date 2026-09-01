@@ -142,13 +142,24 @@ export function ScrollReveal() {
     );
     for (const el of all) observer.observe(el);
 
+    // rAF for smoothness, plus a timer fallback: rAF is paused entirely in
+    // hidden documents, and a scroll that arrives while hidden (restored tab,
+    // embedded preview) must still eventually reveal content.
     let raf = 0;
+    let timer = 0;
     const onScroll = () => {
-      if (raf) return;
-      raf = requestAnimationFrame(() => {
-        raf = 0;
-        sweep();
-      });
+      if (!raf) {
+        raf = requestAnimationFrame(() => {
+          raf = 0;
+          sweep();
+        });
+      }
+      if (!timer) {
+        timer = window.setTimeout(() => {
+          timer = 0;
+          sweep();
+        }, 150);
+      }
     };
 
     function teardown() {

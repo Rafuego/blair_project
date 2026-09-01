@@ -14,12 +14,16 @@ export function CareHero({
   body,
   image,
   padBottom = false,
+  primary = { label: "Sign up", href: "/signup" },
+  secondary = { label: "Book a free intro call", href: "/intro-call" },
 }: {
   title: string;
   body: string;
   image: string;
   /** Menopause seats the plate in an espresso well with 32px beneath it. */
   padBottom?: boolean;
+  primary?: { label: string; href: string };
+  secondary?: { label: string; href: string };
 }) {
   return (
     <section className="w-full bg-espresso">
@@ -49,11 +53,11 @@ export function CareHero({
               </div>
               <div className="flex flex-col items-start justify-center">
                 <div className="flex flex-wrap items-center gap-2">
-                  <Button href="/signup" variant="primrose">
-                    Sign up
+                  <Button href={primary.href} variant="primrose">
+                    {primary.label}
                   </Button>
-                  <Button href="/intro-call" variant="glass">
-                    Book a free intro call
+                  <Button href={secondary.href} variant="glass">
+                    {secondary.label}
                   </Button>
                 </div>
               </div>
