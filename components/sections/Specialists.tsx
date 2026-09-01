@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Minus, Plus } from "../icons";
 import { Container } from "../ui/Container";
 
 /**
@@ -63,35 +62,39 @@ export function Specialists() {
                 key={name}
                 className="group relative flex h-[388px] w-full shrink-0 flex-col justify-end overflow-hidden rounded-medium bg-white xl:h-[450px] xl:min-w-px xl:flex-1"
               >
-                {isOpen ? (
-                  <div aria-hidden className="absolute inset-0 overflow-hidden">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={image}
-                      alt=""
-                      className="absolute top-1/2 left-1/2 h-[130%] w-auto max-w-none -translate-x-1/2 -translate-y-1/2 scale-125 blur-[12px]"
-                    />
-                    <div className="absolute inset-0 bg-[rgba(33,8,14,0.75)]" />
-                  </div>
-                ) : (
-                  /* Height-fit at 112% and anchored to the top: the subject fills
-                     the card as it does in Figma, and the only thing the overflow
-                     crops is the lower chest, which the name plate covers anyway.
-                     eslint-disable-next-line @next/next/no-img-element */
-                  <img
-                    src={image}
-                    alt={name}
-                    className="absolute top-0 left-1/2 h-[112%] w-auto max-w-none -translate-x-1/2"
-                  />
-                )}
+                {/* One portrait for both states: opening eases the blur and a
+                    slight push-back in, so the photo dissolves into the bio
+                    rather than being swapped for a second copy of itself.
+                    eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={image}
+                  alt={isOpen ? "" : name}
+                  aria-hidden={isOpen}
+                  className={`absolute top-0 left-1/2 h-[112%] w-auto max-w-none -translate-x-1/2 transition-[filter,scale] duration-[600ms] ease-out will-change-[filter,scale] motion-reduce:transition-none ${
+                    isOpen ? "scale-110 blur-[12px]" : "scale-100 blur-0"
+                  }`}
+                />
+                <div
+                  aria-hidden
+                  className={`absolute inset-0 bg-[rgba(33,8,14,0.75)] transition-opacity duration-500 ease-out motion-reduce:transition-none ${
+                    isOpen ? "opacity-100" : "opacity-0"
+                  }`}
+                />
 
-                {isOpen && (
-                  <div className="relative flex min-h-px flex-1 flex-col items-start p-6">
-                    <p className="type-body-lg w-full max-w-[317px] text-white">
-                      {bio}
-                    </p>
-                  </div>
-                )}
+                {/* Bio stays mounted so it can transition; it lifts in just
+                    behind the scrim. */}
+                <div
+                  aria-hidden={!isOpen}
+                  className={`relative flex min-h-px flex-1 flex-col items-start p-6 transition-[opacity,translate] duration-500 ease-out motion-reduce:transition-none ${
+                    isOpen
+                      ? "translate-y-0 opacity-100 delay-150"
+                      : "pointer-events-none translate-y-3 opacity-0"
+                  }`}
+                >
+                  <p className="type-body-lg w-full max-w-[317px] text-white">
+                    {bio}
+                  </p>
+                </div>
 
                 <button
                   type="button"
@@ -102,11 +105,20 @@ export function Specialists() {
                   onClick={() => setOpen(isOpen ? null : i)}
                   className="absolute top-5 right-4 flex size-12 cursor-pointer items-center justify-center rounded-circle bg-primrose text-charcoal transition-colors duration-200 hover:bg-espresso hover:text-primrose"
                 >
-                  {isOpen ? (
-                    <Minus className="size-6" />
-                  ) : (
-                    <Plus className="size-6" />
-                  )}
+                  {/* Plus morphs into a minus: the upright bar collapses while
+                      the badge turns a quarter. */}
+                  <span
+                    className={`relative block size-6 transition-transform duration-500 ease-out motion-reduce:transition-none ${
+                      isOpen ? "rotate-90" : "rotate-0"
+                    }`}
+                  >
+                    <span className="absolute top-1/2 left-1/2 h-[1.5px] w-[16.5px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-current" />
+                    <span
+                      className={`absolute top-1/2 left-1/2 h-[16.5px] w-[1.5px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-current transition-transform duration-500 ease-out motion-reduce:transition-none ${
+                        isOpen ? "scale-y-0" : "scale-y-100"
+                      }`}
+                    />
+                  </span>
                 </button>
 
                 <div className="relative p-1">
