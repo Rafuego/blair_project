@@ -1,3 +1,5 @@
-<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="13.5" height="12" viewBox="0 0 13.5 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path id="Vector" d="M1.75 11.25V6.75H4.75M12.75 11.25H0.75M4.75 11.25V3.75H8.25M8.25 11.25V0.75H11.75V11.25" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon/Track">
+<path id="Vector" d="M3 13.25V8.75004H6M14 13.25H2M6 13.25V5.75004H9.5M9.5 13.25V2.75004H13V13.25" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
 </svg>

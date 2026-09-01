@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { PhoneMockup } from "../PhoneMockup";
 import { Container } from "../ui/Container";
 
 const TABS = [
@@ -36,63 +37,6 @@ const TABS = [
     screen: "/images/mockup/screen-community.png",
   },
 ];
-
-/**
- * Device mockup (Figma node 3323:11325). The frame PNG is opaque, so the app
- * screen composites on top of it, then the dynamic island is re-stamped over
- * the screen from the frame artwork — the same stacking Figma uses.
- */
-function PhoneMockup({
-  screen,
-  alt,
-  fit = "cover",
-}: {
-  screen: string;
-  alt: string;
-  fit?: "cover" | "top";
-}) {
-  return (
-    <div className="relative aspect-[340.79/706.1] w-full xl:h-[706.1px] xl:w-[340.79px] xl:shrink-0">
-      <Image
-        src="/images/mockup/phone-frame.png"
-        alt=""
-        fill
-        sizes="341px"
-        className="object-contain"
-      />
-      <div className="absolute inset-[1.55%_3.98%_1.62%_3.92%] overflow-hidden rounded-[27px] xl:rounded-[48px]">
-        {fit === "top" ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={screen}
-            alt={alt}
-            className="absolute top-0 left-0 w-full max-w-none"
-          />
-        ) : (
-          <Image src={screen} alt={alt} fill sizes="341px" className="object-cover" />
-        )}
-      </div>
-      {/* Home indicator */}
-      <div className="absolute inset-[96.96%_34.27%_2.49%_34.06%] overflow-hidden rounded-full">
-        <img
-          src="/images/mockup/screen-period.png"
-          alt=""
-          className="absolute max-w-none"
-          style={{ height: "17767.38%", width: "292.76%", left: "-96.13%", top: "-17507.15%" }}
-        />
-      </div>
-      {/* Dynamic island */}
-      <div className="absolute inset-[3.11%_35.7%_92.91%_35.74%] overflow-hidden rounded-[19.68px]">
-        <img
-          src="/images/mockup/phone-frame.png"
-          alt=""
-          className="absolute max-w-none"
-          style={{ height: "2510.28%", width: "350.17%", left: "-125.05%", top: "-78.1%" }}
-        />
-      </div>
-    </div>
-  );
-}
 
 export function WhyBlair() {
   const [active, setActive] = useState(0);

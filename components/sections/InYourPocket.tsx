@@ -2,15 +2,13 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { PhoneMockup } from "../PhoneMockup";
 import { Container } from "../ui/Container";
 
 /**
- * Figma's "Image Carousel Button" list. Selecting a row expands it with its
- * description and is meant to swap the phone screen alongside it.
- *
- * Only the "Track and understand" state exists in the design — the other two
- * rows are drawn collapsed, so neither their body copy nor their phone screens
- * have been designed yet. They are wired to the same screen until they are.
+ * Figma's "Image Carousel Button" list (default state 3224:4122, the other two
+ * to its right at 3323:11537 and 3323:11568). Selecting a row expands it with
+ * its description and swaps the phone screen.
  *
  * Mobile stacks title -> plate -> rows; desktop puts the plate on the left with
  * title and rows sharing the right column, so the order is driven by flex
@@ -22,21 +20,21 @@ const ROWS = [
     icon: "/icons/track.svg",
     title: "Track and understand",
     body: "Log how you feel and see the patterns that make every visit smarter.",
-    screen: "/images/pocket/phone-track.png",
+    screen: "/images/mockup/screen-period.png",
   },
   {
     id: "message",
     icon: "/icons/message.svg",
     title: "Message your provider",
-    body: null,
-    screen: "/images/pocket/phone-track.png",
+    body: "Ongoing support between appointments, no waiting room.",
+    screen: "/images/mockup/screen-message.png",
   },
   {
     id: "plan",
     icon: "/icons/pill.svg",
     title: "Your plan, evolving",
-    body: null,
-    screen: "/images/pocket/phone-track.png",
+    body: "Prescriptions and follow-ups that adapt as you do.",
+    screen: "/images/mockup/screen-plan.png",
   },
 ];
 
@@ -57,14 +55,22 @@ export function InYourPocket() {
               className="scale-110 object-cover"
             />
           </div>
-          <div className="absolute top-[17.7px] left-1/2 h-[395.7px] w-[191px] -translate-x-1/2 overflow-hidden rounded-[30px] xl:top-[48.91px] xl:h-[701.401px] xl:w-[333.752px] xl:rounded-[54px]">
-            <Image
-              src={ROWS[active].screen}
-              alt={ROWS[active].title}
-              fill
-              sizes="(max-width: 1280px) 191px, 334px"
-              className="object-cover"
-            />
+          <div className="absolute top-1/2 left-1/2 w-[191px] -translate-x-1/2 -translate-y-1/2 xl:w-[340.79px]">
+            {/* Screens are stacked and cross-faded so switching rows dissolves
+                rather than cutting. */}
+            <div className="relative">
+              {ROWS.map(({ id, screen, title }, i) => (
+                <div
+                  key={id}
+                  aria-hidden={i !== active}
+                  className={`transition-opacity duration-500 ease-out motion-reduce:transition-none ${
+                    i === 0 ? "" : "absolute inset-0"
+                  } ${i === active ? "opacity-100" : "opacity-0"}`}
+                >
+                  <PhoneMockup screen={screen} alt={`${title} app screen`} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -104,27 +110,42 @@ function RowList({
 }) {
   return (
     <>
-      {ROWS.map(({ id, icon, title, body }, i) => (
-        <button
-          key={id}
-          type="button"
-          aria-pressed={i === active}
-          onClick={() => setActive(i)}
-          className={`flex w-full cursor-pointer items-center gap-4 p-px text-left transition-opacity duration-200 ${
-            i === active ? "hover:opacity-80" : "opacity-30 hover:opacity-60"
-          }`}
-        >
-          <span className="relative size-8 shrink-0 rounded-small">
-            <Image src={icon} alt="" fill sizes="32px" />
-          </span>
-          <span className="flex min-w-px flex-1 flex-col items-start gap-1">
-            <span className="type-h5 w-full text-espresso">{title}</span>
-            {i === active && body && (
-              <span className="type-body w-full text-charcoal">{body}</span>
-            )}
-          </span>
-        </button>
-      ))}
+      {ROWS.map(({ id, icon, title, body }, i) => {
+        const isActive = i === active;
+        return (
+          <button
+            key={id}
+            type="button"
+            aria-pressed={isActive}
+            onClick={() => setActive(i)}
+            className={`flex w-full cursor-pointer items-start gap-4 p-px text-left transition-opacity duration-300 ease-out motion-reduce:transition-none ${
+              isActive ? "hover:opacity-80" : "opacity-30 hover:opacity-60"
+            }`}
+          >
+            <span className="relative mt-0.5 size-8 shrink-0 rounded-small">
+              <Image src={icon} alt="" fill sizes="32px" />
+            </span>
+            <span className="flex min-w-px flex-1 flex-col items-start">
+              <span className="type-h5 w-full text-espresso">{title}</span>
+              {/* The body reveals by growing its own row rather than being
+                  mounted, so the list eases instead of jumping. */}
+              <span
+                className={`grid w-full transition-[grid-template-rows,opacity] duration-400 ease-out motion-reduce:transition-none ${
+                  isActive
+                    ? "grid-rows-[1fr] opacity-100"
+                    : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <span className="overflow-hidden">
+                  <span className="type-body block w-full pt-1 text-secondary">
+                    {body}
+                  </span>
+                </span>
+              </span>
+            </span>
+          </button>
+        );
+      })}
     </>
   );
 }
