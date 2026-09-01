@@ -5,8 +5,8 @@ import { Container } from "../ui/Container";
 export function FinalCta() {
   return (
     <section className="w-full px-0 pt-4 pb-8">
-      <Container className="px-6 xl:px-8">
-        <div className="relative flex min-h-[510px] flex-col items-center justify-center gap-12 overflow-clip rounded-large px-6 py-20 xl:px-30 xl:py-35">
+      <Container className="px-4 xl:px-8">
+        <div className="relative flex min-h-[386px] flex-col items-center justify-center gap-8 overflow-clip rounded-large px-6 py-8 xl:min-h-[510px] xl:gap-12 xl:px-30 xl:py-35">
           <Image
             src="/images/bands/final-cta.png"
             alt=""
@@ -23,7 +23,7 @@ export function FinalCta() {
               supported as your needs change, across every stage.
             </p>
           </div>
-          <div className="relative flex items-center gap-5">
+          <div className="relative flex flex-col items-center gap-3 xl:flex-row xl:gap-5">
             <Button href="/signup" variant="primrose">
               Sign up
             </Button>

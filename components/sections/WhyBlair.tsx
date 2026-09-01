@@ -42,7 +42,7 @@ const TABS = [
  */
 function PhoneMockup({ screen, alt }: { screen: string; alt: string }) {
   return (
-    <div className="relative h-[706.1px] w-[340.79px] shrink-0">
+    <div className="relative aspect-[340.79/706.1] w-full xl:h-[706.1px] xl:w-[340.79px] xl:shrink-0">
       <Image
         src="/images/mockup/phone-frame.png"
         alt=""
@@ -81,12 +81,12 @@ export function WhyBlair() {
 
   return (
     <section id="what-is-blair" className="w-full">
-      <Container className="px-6 xl:px-18">
-        <h2 className="type-h2 w-full text-center text-espresso">
+      <Container className="px-4 xl:px-18">
+        <h2 className="type-h2 w-full text-left text-espresso xl:text-center">
           Why women choose Blair
         </h2>
 
-        <div className="relative mt-[54px] flex min-h-[936.1px] w-full flex-col items-center gap-15 overflow-clip rounded-large px-6 py-15 xl:px-10">
+        <div className="relative mt-[54px] flex w-full flex-col items-center gap-8 overflow-clip rounded-large p-4 xl:min-h-[936.1px] xl:gap-15 xl:px-10 xl:py-15">
           {/* Blurred plate, oversized so the blur never feathers at the edges. */}
           <div
             aria-hidden
@@ -103,7 +103,7 @@ export function WhyBlair() {
 
           <div
             role="tablist"
-            className="relative flex shrink-0 flex-wrap content-center items-center gap-2 rounded-circle bg-glass-light-15 p-1 backdrop-blur-[20px]"
+            className="relative grid w-full shrink-0 grid-cols-2 gap-2 rounded-large bg-glass-light-15 p-1 backdrop-blur-[20px] xl:flex xl:w-auto xl:flex-wrap xl:content-center xl:items-center xl:rounded-circle"
           >
             {TABS.map(({ id, label }, i) => (
               <button
@@ -113,7 +113,7 @@ export function WhyBlair() {
                 aria-selected={i === active}
                 aria-controls="why-blair-panel"
                 onClick={() => setActive(i)}
-                className={`type-button flex shrink-0 cursor-pointer items-center justify-center gap-1 rounded-circle px-7 py-3 whitespace-nowrap ${
+                className={`type-button flex h-14 cursor-pointer items-center justify-center gap-1 rounded-medium px-3 text-center text-[14px] xl:h-auto xl:shrink-0 xl:rounded-circle xl:px-7 xl:py-3 xl:text-[16px] xl:whitespace-nowrap ${
                   i === active ? "bg-white text-espresso" : "text-white"
                 }`}
               >
@@ -125,13 +125,15 @@ export function WhyBlair() {
           <div
             id="why-blair-panel"
             role="tabpanel"
-            className="relative flex w-full flex-1 items-center justify-between gap-8 px-6 xl:px-50"
+            className="relative flex w-full flex-1 flex-col items-center gap-8 px-0 xl:flex-row xl:justify-between xl:px-50"
           >
-            <div className="flex w-full max-w-[370px] flex-col gap-6 text-white">
+            <div className="flex w-full flex-col gap-6 text-white xl:max-w-[370px]">
               <h3 className="type-h3 w-full">{tab.heading}</h3>
               <p className="type-body w-full">{tab.body}</p>
             </div>
-            <PhoneMockup screen={tab.screen} alt={`${tab.heading} app screen`} />
+            <div className="w-[191px] shrink-0 xl:w-auto">
+              <PhoneMockup screen={tab.screen} alt={`${tab.heading} app screen`} />
+            </div>
           </div>
         </div>
       </Container>

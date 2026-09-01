@@ -54,9 +54,9 @@ export function Footer() {
   return (
     <footer className="w-full">
       <Container className="px-0">
-        <div className="flex w-full flex-col gap-6 overflow-clip rounded-t-large bg-espresso px-6 pt-22 pb-12 xl:px-18">
+        <div className="flex w-full flex-col gap-6 overflow-clip rounded-t-large bg-espresso px-6 pt-14 pb-10 xl:pt-22 xl:pb-12 xl:px-18">
           <div className="flex w-full flex-col items-start justify-between gap-10 xl:flex-row">
-            <div className="flex w-[260px] shrink-0 flex-col items-start justify-between gap-10 self-stretch">
+            <div className="flex w-full shrink-0 flex-col items-start justify-between gap-6 xl:w-[260px] xl:gap-10 xl:self-stretch">
               <Link href="/" className="flex items-center gap-[15.8px]" aria-label="Blair Health — home">
                 <Image src="/brand/blair-logomark.svg" alt="" width={23} height={28} />
                 <Image src="/brand/blair-wordmark-light.svg" alt="Blair" width={84} height={25} />
@@ -68,7 +68,7 @@ export function Footer() {
               </p>
             </div>
 
-            <div className="flex flex-wrap items-start gap-x-14 gap-y-8">
+            <div className="grid w-full grid-cols-2 items-start gap-x-8 gap-y-8 sm:grid-cols-3 xl:flex xl:w-auto xl:flex-wrap xl:gap-x-14">
               {COLUMNS.map(({ heading, links }) => (
                 <div key={heading} className="flex flex-col items-start gap-1">
                   <p className="type-caps px-2 text-taupe">{heading}</p>

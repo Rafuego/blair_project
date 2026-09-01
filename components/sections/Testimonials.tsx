@@ -47,8 +47,8 @@ export function Testimonials() {
   return (
     <section className="w-full overflow-hidden py-20">
       <Container className="px-6 xl:px-18">
-        <div className="flex w-full flex-col gap-[22px]">
-          <div className="flex w-full items-start justify-between gap-8">
+        <div className="flex w-full flex-col gap-6 xl:gap-[22px]">
+          <div className="flex w-full flex-col-reverse items-start gap-3 xl:flex-row xl:justify-between xl:gap-8">
             <h2 className="type-h2 max-w-[1100px] text-espresso">
               From women who stopped waiting for answers.
             </h2>
@@ -90,7 +90,7 @@ export function Testimonials() {
       <div className="relative mt-[26px]">
         <div
           ref={track}
-          className="flex gap-[31px] overflow-x-auto scroll-smooth px-6 [scrollbar-width:none] xl:px-[calc((100vw-1440px)/2+72px)] [&::-webkit-scrollbar]:hidden"
+          className="flex gap-[31px] overflow-x-auto scroll-smooth px-6 [scrollbar-width:none] xl:px-[max(24px,calc((100vw-1440px)/2+72px))] [&::-webkit-scrollbar]:hidden"
         >
           {QUOTES.map(({ quote, name }) => (
             <article

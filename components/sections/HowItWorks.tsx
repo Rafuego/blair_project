@@ -29,8 +29,11 @@ const STEPS = [
 /** Zero-width rule between steps, so the 36px gaps sit either side of it. */
 function StepDivider() {
   return (
-    <div aria-hidden className="relative h-[166px] w-0 shrink-0">
-      <div className="absolute inset-y-0 left-0 w-[0.5px] bg-border-taupe" />
+    <div
+      aria-hidden
+      className="relative h-[0.5px] w-full shrink-0 bg-border-taupe xl:h-[166px] xl:w-0 xl:bg-transparent"
+    >
+      <div className="absolute inset-y-0 left-0 hidden w-[0.5px] bg-border-taupe xl:block" />
     </div>
   );
 }
@@ -41,17 +44,18 @@ export function HowItWorks() {
       id="how-it-works"
       className="w-full py-25"
     >
-      <Container className="flex flex-col items-center gap-18 px-6 xl:px-40">
+      <Container className="flex flex-col items-center gap-8 px-6 xl:gap-18 xl:px-40">
       <h2 className="type-h2 w-full text-center text-espresso">
         Getting started is simple
       </h2>
 
-      <div className="flex w-full items-center gap-4 xl:gap-9">
+      <div className="flex w-full flex-col gap-6 xl:flex-row xl:items-center xl:gap-9">
         {STEPS.map(({ title, body }, i) => (
           <div key={title} className="contents">
             {i > 0 && <StepDivider />}
-            <div className="flex min-w-px flex-1 flex-col items-start gap-3">
-              <p className="type-h4 w-full leading-[var(--leading-display-auto)] text-taupe">{i + 1}.</p>
+            <div className="flex min-w-px flex-1 flex-row items-start gap-3 xl:flex-col">
+              <p className="type-h4 shrink-0 leading-[var(--leading-display-auto)] text-taupe xl:w-full">{i + 1}.</p>
+              <div className="flex min-w-px flex-1 flex-col gap-1 xl:contents">
               <h3 className="type-h4 w-full leading-[var(--leading-display-auto)] text-espresso">
                 {title}
               </h3>
@@ -63,6 +67,7 @@ export function HowItWorks() {
                   </span>
                 ))}
               </p>
+              </div>
             </div>
           </div>
         ))}

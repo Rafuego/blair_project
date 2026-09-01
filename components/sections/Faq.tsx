@@ -9,7 +9,7 @@ export function Faq({ items, title }: { items: FaqItem[]; title: string }) {
   const [open, setOpen] = useState(0);
 
   return (
-    <section className="w-full py-18">
+    <section className="w-full py-10 xl:py-18">
       <Container className="flex flex-col gap-10 px-6 xl:flex-row xl:gap-[80px] xl:px-18">
         <h2 className="type-h2 w-full text-espresso xl:w-[360px] xl:shrink-0">
           {title}
@@ -21,7 +21,7 @@ export function Faq({ items, title }: { items: FaqItem[]; title: string }) {
             const Icon = isOpen ? Minus : Plus;
             const row = (
               <div className="flex w-full items-center gap-6">
-                <p className="type-body-medium min-w-px flex-1 text-left text-espresso">
+                <p className="type-body-medium min-w-px flex-1 text-left text-[14px] text-espresso xl:text-[16px]">
                   {question}
                 </p>
                 <Icon className="size-4 shrink-0 text-espresso" />

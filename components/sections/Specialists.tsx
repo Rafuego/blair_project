@@ -27,9 +27,9 @@ const SPECIALISTS = [
 
 export function Specialists() {
   return (
-    <section className="w-full py-25">
-      <Container className="flex flex-col items-center gap-18 px-6 xl:px-[73px]">
-        <div className="flex w-full flex-col items-center gap-4 text-center">
+    <section className="w-full py-20 xl:py-25">
+      <Container className="flex flex-col items-center gap-[72px] px-4 xl:gap-18 xl:px-[73px]">
+        <div className="flex w-full flex-col gap-4 text-left xl:items-center xl:text-center">
           <h2 className="type-h2 w-full text-espresso">
             Care designed by specialists who lead their fields.
           </h2>
@@ -42,11 +42,11 @@ export function Specialists() {
           </p>
         </div>
 
-        <div className="flex w-full items-start gap-6">
+        <div className="flex w-full flex-col items-stretch gap-6 xl:flex-row xl:items-start">
           {SPECIALISTS.map(({ name, credentials, image, position }) => (
             <article
               key={name}
-              className="relative flex h-[450px] min-w-px flex-1 flex-col justify-end overflow-hidden rounded-medium bg-white"
+              className="relative flex h-[388px] w-full shrink-0 flex-col justify-end overflow-hidden rounded-medium bg-white xl:h-[450px] xl:min-w-px xl:flex-1"
             >
               <Image
                 src={image}

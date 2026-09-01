@@ -106,3 +106,29 @@ export function Minus({ className }: IconProps) {
     </svg>
   );
 }
+
+export function MenuIcon({ className }: IconProps) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
+      <path
+        d="M4 7h16M4 12h16M4 17h16"
+        stroke="currentColor"
+        strokeWidth="var(--stroke-icon)"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+export function CloseIcon({ className }: IconProps) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
+      <path
+        d="M6 6l12 12M18 6L6 18"
+        stroke="currentColor"
+        strokeWidth="var(--stroke-icon)"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}

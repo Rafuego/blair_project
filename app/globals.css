@@ -57,18 +57,27 @@
    (Marlfield for H2–H4, Neue Montreal for everything else), which plain
    font-size tokens can't express.
 --------------------------------------------------------------------------- */
+/* Mobile values are the base; the desktop scale takes over at xl (1280px).
+   Token names mirror Figma's Mobile/* and Desktop/* text styles. */
 @utility type-h1 {
   font-family: var(--font-display);
-  font-size: 80px;
+  font-size: 56px;
   line-height: 1;
   font-weight: 400;
   font-feature-settings: "lnum" 1, "tnum" 1;
+  @media (width >= 80rem) {
+    font-size: 80px;
+  }
 }
 @utility type-h2 {
   font-family: var(--font-display);
-  font-size: 64px;
-  line-height: 1;
+  font-size: 40px;
+  line-height: 44px;
   font-weight: 400;
+  @media (width >= 80rem) {
+    font-size: 64px;
+    line-height: 1;
+  }
 }
 @utility type-h3 {
   font-family: var(--font-display);
@@ -78,9 +87,12 @@
 }
 @utility type-h4 {
   font-family: var(--font-display);
-  font-size: 32px;
-  line-height: 1;
+  font-size: 24px;
+  line-height: var(--leading-display-auto);
   font-weight: 400;
+  @media (width >= 80rem) {
+    font-size: 32px;
+  }
 }
 @utility type-h5 {
   font-family: var(--font-sans);
@@ -90,17 +102,61 @@
 }
 @utility type-body-lg {
   font-family: var(--font-sans);
-  font-size: 20px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.6;
   font-weight: 400;
+  @media (width >= 80rem) {
+    font-size: 20px;
+    line-height: 1.4;
+  }
 }
 @utility type-body-lg-medium {
   font-family: var(--font-sans);
-  font-size: 20px;
-  line-height: 1.4;
+  font-size: 16px;
+  line-height: 1.6;
   font-weight: 500;
+  @media (width >= 80rem) {
+    font-size: 20px;
+    line-height: 1.4;
+  }
 }
 @utility type-body {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+  @media (width >= 80rem) {
+    font-size: 16px;
+  }
+}
+/* Body/Medium stays 16 on mobile — Figma uses the desktop cut for it. */
+@utility type-body-medium {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+@utility type-body-sm {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+@utility type-caps {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  line-height: 1.6;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+@utility type-button {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.15;
+  font-weight: 400;
+}
+
+body {
   font-family: var(--font-sans);
   font-size: 16px;
   line-height: 1.6;

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { CaretDown } from "./icons";
+import { CaretDown, CloseIcon, MenuIcon } from "./icons";
 import { Button } from "./ui/Button";
 import { Container } from "./ui/Container";
 
@@ -47,19 +47,20 @@ const LINKS: NavItem[] = [
 
 export function Nav() {
   const [open, setOpen] = useState<string | null>(null);
+  const [drawer, setDrawer] = useState(false);
 
   return (
     <header
       className="absolute inset-x-0 top-0 z-50 text-white"
       onMouseLeave={() => setOpen(null)}
     >
-      <Container className="flex h-[74px] items-center justify-between px-6 py-4 xl:px-18">
+      <Container className="flex h-16 items-center justify-between px-6 py-4 xl:h-[74px] xl:px-18">
         <Link href="/" className="flex items-center gap-[15.8px]" aria-label="Blair Health — home">
           <Image src="/brand/blair-logomark.svg" alt="" width={23} height={28} priority />
           <Image src="/brand/blair-wordmark.svg" alt="Blair" width={84} height={25} priority />
         </Link>
 
-        <nav className="flex items-center gap-0.5 xl:gap-4">
+        <nav className="hidden items-center gap-0.5 xl:flex xl:gap-4">
           {LINKS.map(({ label, href, menu }) => (
             <div
               key={label}
@@ -98,11 +99,54 @@ export function Nav() {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="hidden shrink-0 items-center gap-2 xl:flex">
           <Button href="/signup" variant="white">Sign Up</Button>
           <Button href="/login" variant="ghost">Login</Button>
         </div>
+        <button
+          type="button"
+          aria-label={drawer ? "Close menu" : "Open menu"}
+          aria-expanded={drawer}
+          onClick={() => setDrawer((v) => !v)}
+          className="flex size-6 cursor-pointer items-center justify-center text-white xl:hidden"
+        >
+          {drawer ? <CloseIcon className="size-6" /> : <MenuIcon className="size-6" />}
+        </button>
       </Container>
+
+      {drawer && (
+        <div className="border-t border-white/15 bg-espresso px-6 pt-2 pb-6 xl:hidden">
+          {LINKS.map(({ label, href, menu }) => (
+            <div key={label} className="border-b border-white/10 py-1 last:border-0">
+              <Link
+                href={href}
+                onClick={() => setDrawer(false)}
+                className="type-button flex items-center justify-between py-3 text-white"
+              >
+                {label}
+              </Link>
+              {menu && (
+                <div className="flex flex-col pb-2">
+                  {menu.map((item) => (
+                    <Link
+                      key={item.label}
+                      href={item.href}
+                      onClick={() => setDrawer(false)}
+                      className="type-body py-2 pl-4 text-white opacity-75"
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+          <div className="mt-4 flex items-center gap-2">
+            <Button href="/signup" variant="white">Sign Up</Button>
+            <Button href="/login" variant="ghost">Login</Button>
+          </div>
+        </div>
+      )}
     </header>
   );
 }

@@ -12,8 +12,8 @@ const SOCIALS = [
 export function KeepLearning() {
   return (
     <section className="w-full px-0 pt-18 pb-4">
-      <Container className="px-6 xl:px-8">
-        <div className="relative flex flex-col items-center gap-8 overflow-hidden rounded-large px-6 py-10 xl:flex-row xl:gap-16 xl:px-12">
+      <Container className="px-4 xl:px-8">
+        <div className="relative flex flex-col gap-8 overflow-hidden rounded-large px-6 py-10 xl:flex-row xl:items-center xl:gap-16 xl:px-12">
           <Image
             src="/images/bands/lead-capture.png"
             alt=""
@@ -50,7 +50,7 @@ export function KeepLearning() {
             </div>
           </div>
 
-          <form className="relative flex min-w-px flex-1 flex-col gap-6 rounded-medium bg-white p-10">
+          <form className="relative flex w-full min-w-px flex-1 flex-col gap-6 rounded-medium bg-white p-6 xl:p-10">
             <p className="type-h5 w-full text-espresso">Stay in the loop</p>
             <div className="flex w-full flex-col gap-1.5">
               <label htmlFor="newsletter-email" className="type-caps text-espresso">

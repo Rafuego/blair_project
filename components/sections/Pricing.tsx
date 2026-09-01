@@ -15,8 +15,8 @@ export function Pricing({ content }: { content: PricingContent }) {
 
   return (
     <section id="pricing" className="w-full">
-      <Container className="px-6 xl:px-8">
-        <div className="relative flex w-full flex-col items-center gap-18 overflow-hidden rounded-large px-6 py-18">
+      <Container className="px-4 xl:px-8">
+        <div className="relative flex w-full flex-col items-center gap-10 overflow-hidden rounded-large px-4 py-12 xl:gap-18 xl:px-6 xl:py-18">
           <Image
             src="/images/bands/pricing.png"
             alt=""
@@ -30,11 +30,11 @@ export function Pricing({ content }: { content: PricingContent }) {
             <p className="type-body-lg max-w-[987px] text-secondary">{intro}</p>
           </div>
 
-          <div className="relative flex w-full items-center gap-6">
+          <div className="relative flex w-full flex-col items-stretch gap-8 xl:flex-row xl:items-center xl:gap-6">
             {plans.map((plan) => (
               <div
                 key={plan.name}
-                className={`relative flex min-w-px flex-1 flex-col gap-6 rounded-medium bg-white px-8 py-10 ${
+                className={`relative flex min-w-px flex-1 flex-col gap-6 rounded-medium bg-white px-6 py-8 xl:px-8 xl:py-10 ${
                   plan.featured ? "border-4 border-primrose" : ""
                 }`}
               >

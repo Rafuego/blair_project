@@ -32,8 +32,8 @@ const CARDS = [
 
 export function AreasOfCare() {
   return (
-    <section id="areas-of-care" className="w-full overflow-hidden py-25">
-      <Container className="relative px-6 xl:px-18">
+    <section id="areas-of-care" className="w-full overflow-hidden py-20 xl:py-25">
+      <Container className="relative px-4 xl:px-18">
       {/* Primrose glow (Ellipse 5) — sits mostly off the right edge. */}
       <div
         aria-hidden
@@ -55,13 +55,13 @@ export function AreasOfCare() {
 
       {/* Figma pins the fourth card to an explicit 498.386 height, so the row
           is design-sized rather than content-sized. */}
-      <div className="relative mt-[54px] flex min-h-[498.39px] items-stretch gap-6">
+      <div className="relative mt-[54px] flex flex-col gap-2 xl:mt-[54px] xl:min-h-[498.39px] xl:flex-row xl:items-stretch xl:gap-6">
         {CARDS.map(({ title, body, image, href }) => (
           <article
             key={Array.isArray(title) ? title.join(" ") : title}
-            className="group flex min-w-px flex-1 flex-col overflow-clip rounded-[8px]"
+            className="group flex min-w-px flex-1 flex-row overflow-clip rounded-[8px] xl:flex-col"
           >
-            <div className="relative aspect-[259/195] w-full shrink-0 overflow-hidden">
+            <div className="relative w-25 shrink-0 self-stretch overflow-hidden xl:aspect-[259/195] xl:w-full">
               <Image
                 src={image}
                 alt=""
@@ -76,8 +76,8 @@ export function AreasOfCare() {
                 <ArrowUpRight className="size-4" />
               </span>
             </div>
-            <div className="flex min-h-px flex-1 flex-col justify-between rounded-b-medium bg-white py-6 pr-6 pl-6 xl:pr-15">
-              <div className="flex w-full flex-col gap-3">
+            <div className="flex min-h-px min-w-px flex-1 flex-col justify-between gap-3 rounded-r-medium bg-white p-4 xl:rounded-r-none xl:rounded-b-medium xl:py-6 xl:pr-15 xl:pl-6">
+              <div className="flex w-full flex-col gap-2 xl:gap-3">
                 <h3 className="type-h4 w-full leading-[var(--leading-display-auto)] text-espresso">
                   {Array.isArray(title)
                     ? title.map((line, i) => (
@@ -88,9 +88,9 @@ export function AreasOfCare() {
                       ))
                     : title}
                 </h3>
-                <p className="type-body w-full text-charcoal">{body}</p>
+                <p className="type-body w-full text-secondary xl:text-charcoal">{body}</p>
               </div>
-              <Button href={href} variant="espresso" className="self-start">
+              <Button href={href} variant="espresso" className="self-start text-[14px] xl:text-[16px]">
                 Explore care
               </Button>
             </div>
