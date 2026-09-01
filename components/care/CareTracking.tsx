@@ -23,11 +23,13 @@ export function CareTracking({
   titleAccent,
   body,
   rows,
+  plate = "/images/care/tracking-plate.png",
 }: {
   titleLead: string;
   titleAccent: string;
   body: string;
   rows: TrackingRow[];
+  plate?: string;
 }) {
   const [active, setActive] = useState(0);
 
@@ -37,7 +39,7 @@ export function CareTracking({
         <div className="relative flex w-full flex-col items-center justify-center gap-8 overflow-clip rounded-large p-6 xl:p-10">
           <div aria-hidden className="absolute inset-0">
             <Image
-              src="/images/care/tracking-plate.png"
+              src={plate}
               alt=""
               fill
               sizes="(max-width: 1280px) 100vw, 1376px"

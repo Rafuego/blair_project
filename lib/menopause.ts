@@ -79,6 +79,7 @@ export const MENO_TRACKING = {
   titleLead: "Your provider,",
   titleAccent: "a message away.",
   body: "Menopause care isn't one appointment. Between visits, message your provider as often as you need, at no extra cost, and track how you're responding so your plan adjusts sooner.",
+  plate: "/images/menopause/tracking-plate.png",
   rows: [
     {
       icon: "/icons/menopause/message.svg",
@@ -89,11 +90,16 @@ export const MENO_TRACKING = {
     {
       icon: "/icons/track/list-star.svg",
       title: "Menopause Rating Scale",
+      body: "Your symptoms, scored with the Menopause Rating Scale, a validated clinical measure. Watch your score improve as your plan takes effect.",
       screen: "/images/mockup/screen-mrs.png",
     },
     {
+      // Figma's third row is titled "Symptom tracking" in the default frame but
+      // "Your providers see it too" in its expanded state (3224:6178). Keeping
+      // the default frame's title, since that is what the page renders.
       icon: "/icons/menopause/heartbeat.svg",
       title: "Symptom tracking",
+      body: "Changes show up between visits, not just at them, so adjustments happen sooner.",
       screen: "/images/mockup/screen-data.png",
     },
   ],
