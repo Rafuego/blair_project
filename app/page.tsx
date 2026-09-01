@@ -1,3 +1,7 @@
+import { ComesToYou } from "@/components/sections/ComesToYou";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { PRICING_CA } from "@/lib/pricing";
+import { Pricing } from "@/components/sections/Pricing";
 import { Hero } from "@/components/Hero";
 import { InYourPocket } from "@/components/sections/InYourPocket";
 import { LeadCapture } from "@/components/sections/LeadCapture";
@@ -17,6 +21,9 @@ export default function Home() {
         <HowItWorks />
         <InYourPocket />
         <LeadCapture />
+        <ComesToYou />
+        <Testimonials />
+        <Pricing content={PRICING_CA} />
       </main>
     </>
   );
