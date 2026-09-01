@@ -1,8 +1,15 @@
 "use client";
 
-import { useRef, useState } from "react";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 import { ArrowUpRight, Chevron } from "../icons";
 import { Container } from "../ui/Container";
+
+/**
+ * Where a testimonial's arrow sends people. Single constant so it is one edit
+ * when the real destination (Google review profile) is confirmed.
+ */
+const REVIEWS_URL = "/reviews";
 
 const QUOTES = [
   {
@@ -33,19 +40,56 @@ const QUOTES = [
 ];
 
 const STEP = 359; // card 328 + gap 31
+const SPEED = 28; // px per second
 
 export function Testimonials() {
   const track = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
+  const paused = useRef(false);
 
-  function go(delta: number) {
-    const next = Math.min(QUOTES.length - 1, Math.max(0, index + delta));
-    setIndex(next);
-    track.current?.scrollTo({ left: next * STEP, behavior: "smooth" });
+  // Continuous drift. The list is rendered twice, so when the first copy has
+  // fully passed we subtract its width and the loop is seamless.
+  //
+  // The offset is accumulated in a float ref rather than read back from
+  // scrollLeft each frame: scrollLeft rounds to whole pixels, so a sub-pixel
+  // per-frame step would be discarded every time and never move.
+  const offset = useRef(0);
+
+  useEffect(() => {
+    const el = track.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const loop = STEP * QUOTES.length;
+    let raf = 0;
+    let last = performance.now();
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - last) / 1000, 0.1);
+      last = now;
+      if (!paused.current) {
+        offset.current = (offset.current + SPEED * dt) % loop;
+        el.scrollLeft = offset.current;
+        setIndex(Math.floor(offset.current / STEP) % QUOTES.length);
+      }
+      raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  function nudge(delta: number) {
+    const el = track.current;
+    if (!el) return;
+    const loop = STEP * QUOTES.length;
+    offset.current = (offset.current + delta * STEP + loop) % loop;
+    el.scrollTo({ left: offset.current, behavior: "smooth" });
+    setIndex(Math.floor(offset.current / STEP) % QUOTES.length);
   }
 
   return (
-    <section className="w-full overflow-hidden py-20">
+    <section id="testimonials" className="w-full overflow-hidden py-20">
       <Container className="px-6 xl:px-18">
         <div className="flex w-full flex-col gap-6 xl:gap-[22px]">
           <div className="flex w-full flex-col-reverse items-start gap-3 xl:flex-row xl:justify-between xl:gap-8">
@@ -64,18 +108,16 @@ export function Testimonials() {
                 <button
                   type="button"
                   aria-label="Previous testimonial"
-                  onClick={() => go(-1)}
-                  disabled={index === 0}
-                  className="flex size-8 cursor-pointer items-center justify-center rounded-circle border border-border-taupe text-espresso disabled:opacity-40"
+                  onClick={() => nudge(-1)}
+                  className="flex size-8 cursor-pointer items-center justify-center rounded-circle border border-border-taupe text-espresso transition-colors hover:bg-espresso hover:text-white"
                 >
                   <Chevron className="size-4" />
                 </button>
                 <button
                   type="button"
                   aria-label="Next testimonial"
-                  onClick={() => go(1)}
-                  disabled={index === QUOTES.length - 1}
-                  className="flex size-8 cursor-pointer items-center justify-center rounded-circle border border-border-taupe text-espresso disabled:opacity-40"
+                  onClick={() => nudge(1)}
+                  className="flex size-8 cursor-pointer items-center justify-center rounded-circle border border-border-taupe text-espresso transition-colors hover:bg-espresso hover:text-white"
                 >
                   <Chevron className="size-4 rotate-180" />
                 </button>
@@ -90,12 +132,17 @@ export function Testimonials() {
       <div className="relative mt-[26px]">
         <div
           ref={track}
-          className="flex gap-[31px] overflow-x-auto scroll-smooth px-6 [scrollbar-width:none] xl:px-[max(24px,calc((100vw-1440px)/2+72px))] [&::-webkit-scrollbar]:hidden"
+          onMouseEnter={() => (paused.current = true)}
+          onMouseLeave={() => (paused.current = false)}
+          onFocusCapture={() => (paused.current = true)}
+          onBlurCapture={() => (paused.current = false)}
+          className="flex gap-[31px] overflow-x-auto px-6 [scrollbar-width:none] xl:px-[max(24px,calc((100vw-1440px)/2+72px))] [&::-webkit-scrollbar]:hidden"
         >
-          {QUOTES.map(({ quote, name }) => (
+          {[...QUOTES, ...QUOTES].map(({ quote, name }, i) => (
             <article
-              key={name}
-              className="flex h-[250px] w-[328px] shrink-0 flex-col justify-between rounded-medium bg-primrose-pale p-6"
+              key={`${name}-${i}`}
+              aria-hidden={i >= QUOTES.length}
+              className="group flex h-[250px] w-[328px] shrink-0 flex-col justify-between rounded-medium bg-primrose-pale p-6"
             >
               <div className="type-body flex w-full flex-col gap-3 text-espresso">
                 <p className="w-full">★★★★★</p>
@@ -103,9 +150,14 @@ export function Testimonials() {
               </div>
               <div className="flex w-full items-center justify-between">
                 <p className="type-caps text-espresso">{name}</p>
-                <span className="flex size-12 items-center justify-center rounded-circle bg-cream text-espresso">
+                <Link
+                  href={REVIEWS_URL}
+                  aria-label={`Read more reviews — ${name}`}
+                  tabIndex={i >= QUOTES.length ? -1 : undefined}
+                  className="flex size-12 items-center justify-center rounded-circle bg-cream text-espresso transition-colors group-hover:bg-espresso group-hover:text-cream"
+                >
                   <ArrowUpRight className="size-4" />
-                </span>
+                </Link>
               </div>
             </article>
           ))}

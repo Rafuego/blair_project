@@ -41,7 +41,7 @@ export function KeepLearning() {
                     key={name}
                     href={href}
                     aria-label={name}
-                    className="flex size-12 items-center justify-center rounded-circle bg-espresso text-white"
+                    className="flex size-12 items-center justify-center rounded-circle bg-espresso text-white transition-opacity duration-200 hover:opacity-80"
                   >
                     <Image src={icon} alt="" width={24} height={24} />
                   </Link>
@@ -66,7 +66,7 @@ export function KeepLearning() {
             </div>
             <button
               type="submit"
-              className="type-button flex w-full cursor-pointer items-center justify-center gap-1 rounded-circle bg-primrose px-7 py-3 text-espresso"
+              className="type-button flex w-full cursor-pointer items-center justify-center gap-1 rounded-circle bg-primrose px-7 py-3 text-espresso transition-colors duration-200 hover:bg-primrose-pale"
             >
               Join the list
             </button>

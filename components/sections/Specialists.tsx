@@ -9,19 +9,21 @@ const SPECIALISTS = [
     name: "Dr. Lindsay Shirreff",
     credentials: "MD, FRCSC",
     image: "/images/specialists/lindsay.png",
-    position: "38% 12%",
+    // Figma scales and offsets each portrait rather than cover-cropping it;
+    // these are node 3235:16594 / 16601 / 16608 verbatim.
+    frame: { width: "158.31%", height: "219.07%", left: "-38.06%", top: "-2.74%" },
   },
   {
     name: "Dr. Sarah Peltz",
     credentials: "MD, FRCSC",
     image: "/images/specialists/sarah.png",
-    position: "center bottom",
+    frame: { width: "100%", height: "100%", left: "0%", top: "0%" },
   },
   {
     name: "Dr. Pooja Singhal",
     credentials: "MD, FACG, DABOM",
     image: "/images/specialists/pooja.png",
-    position: "30% 20%",
+    frame: { width: "171.87%", height: "237.91%", left: "-30.51%", top: "-22%" },
   },
 ];
 
@@ -43,20 +45,19 @@ export function Specialists() {
         </div>
 
         <div className="flex w-full flex-col items-stretch gap-6 xl:flex-row xl:items-start">
-          {SPECIALISTS.map(({ name, credentials, image, position }) => (
+          {SPECIALISTS.map(({ name, credentials, image, frame }) => (
             <article
               key={name}
-              className="relative flex h-[388px] w-full shrink-0 flex-col justify-end overflow-hidden rounded-medium bg-white xl:h-[450px] xl:min-w-px xl:flex-1"
+              className="group relative flex h-[388px] w-full shrink-0 flex-col justify-end overflow-hidden rounded-medium bg-white xl:h-[450px] xl:min-w-px xl:flex-1"
             >
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src={image}
                 alt={name}
-                fill
-                sizes="(max-width: 1440px) 33vw, 415px"
-                className="object-cover"
-                style={{ objectPosition: position }}
+                className="absolute max-w-none object-cover"
+                style={frame}
               />
-              <span className="absolute top-[19.59px] right-4 flex size-12 items-center justify-center rounded-circle bg-primrose text-charcoal">
+              <span className="absolute top-[19.59px] right-4 flex size-12 items-center justify-center rounded-circle bg-primrose text-charcoal transition-colors duration-200 group-hover:bg-espresso group-hover:text-primrose">
                 <Plus className="size-6" />
               </span>
               <div className="relative p-1">

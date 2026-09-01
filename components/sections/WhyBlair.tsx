@@ -60,7 +60,7 @@ function PhoneMockup({
         sizes="341px"
         className="object-contain"
       />
-      <div className="absolute inset-[1.55%_3.98%_1.62%_3.92%] overflow-hidden rounded-[68px]">
+      <div className="absolute inset-[1.55%_3.98%_1.62%_3.92%] overflow-hidden rounded-[27px] xl:rounded-[48px]">
         {fit === "top" ? (
           // eslint-disable-next-line @next/next/no-img-element
           <img
@@ -73,7 +73,7 @@ function PhoneMockup({
         )}
       </div>
       {/* Home indicator */}
-      <div className="absolute inset-[96.96%_34.27%_2.49%_34.06%] overflow-hidden rounded-[68px]">
+      <div className="absolute inset-[96.96%_34.27%_2.49%_34.06%] overflow-hidden rounded-full">
         <img
           src="/images/mockup/screen-period.png"
           alt=""
@@ -132,8 +132,10 @@ export function WhyBlair() {
                 aria-selected={i === active}
                 aria-controls="why-blair-panel"
                 onClick={() => setActive(i)}
-                className={`type-button flex h-14 cursor-pointer items-center justify-center gap-1 rounded-medium px-3 text-center text-[14px] xl:h-auto xl:shrink-0 xl:rounded-circle xl:px-7 xl:py-3 xl:text-[16px] xl:whitespace-nowrap ${
-                  i === active ? "bg-white text-espresso" : "text-white"
+                className={`type-button flex h-14 cursor-pointer items-center justify-center gap-1 rounded-medium px-3 text-center text-[14px] xl:h-auto xl:shrink-0 xl:rounded-circle xl:px-7 xl:py-3 xl:text-[16px] xl:whitespace-nowrap transition-colors duration-200 ${
+                  i === active
+                    ? "bg-white text-espresso hover:bg-cream"
+                    : "text-white hover:bg-white/15"
                 }`}
               >
                 {label}

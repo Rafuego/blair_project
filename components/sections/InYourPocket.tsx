@@ -110,8 +110,8 @@ function RowList({
           type="button"
           aria-pressed={i === active}
           onClick={() => setActive(i)}
-          className={`flex w-full cursor-pointer items-center gap-4 p-px text-left transition-opacity ${
-            i === active ? "" : "opacity-30"
+          className={`flex w-full cursor-pointer items-center gap-4 p-px text-left transition-opacity duration-200 ${
+            i === active ? "hover:opacity-80" : "opacity-30 hover:opacity-60"
           }`}
         >
           <span className="relative size-8 shrink-0 rounded-small">

@@ -6,8 +6,8 @@ import { UnderlineLink } from "../ui/Button";
 import { Container } from "../ui/Container";
 
 const CTA_STYLES = {
-  "primrose-pale": "bg-primrose-pale text-espresso",
-  espresso: "bg-espresso text-white",
+  "primrose-pale": "bg-primrose-pale text-espresso hover:bg-primrose",
+  espresso: "bg-espresso text-white hover:bg-espresso/88",
 } as const;
 
 export function Pricing({ content }: { content: PricingContent }) {
@@ -54,7 +54,7 @@ export function Pricing({ content }: { content: PricingContent }) {
 
                 <Link
                   href={plan.href}
-                  className={`type-button flex w-full items-center justify-center gap-1 rounded-circle px-7 py-3 ${CTA_STYLES[plan.ctaVariant]}`}
+                  className={`type-button flex w-full cursor-pointer items-center justify-center gap-1 rounded-circle px-7 py-3 transition-colors duration-200 ${CTA_STYLES[plan.ctaVariant]}`}
                 >
                   {plan.cta}
                 </Link>

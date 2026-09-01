@@ -40,7 +40,7 @@ export function Faq({ items, title }: { items: FaqItem[]; title: string }) {
                     type="button"
                     aria-expanded={isOpen}
                     onClick={() => setOpen(isOpen ? -1 : i)}
-                    className="w-full cursor-pointer"
+                    className="w-full cursor-pointer transition-opacity duration-200 hover:opacity-70"
                   >
                     {row}
                   </button>

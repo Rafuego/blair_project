@@ -55,7 +55,11 @@ export function Nav() {
       onMouseLeave={() => setOpen(null)}
     >
       <Container className="flex h-16 items-center justify-between px-6 py-4 xl:h-[74px] xl:px-18">
-        <Link href="/" className="flex items-center gap-[15.8px]" aria-label="Blair Health — home">
+        <Link
+          href="/"
+          className="flex items-center gap-[15.8px] transition-opacity duration-200 hover:opacity-80"
+          aria-label="Blair Health — home"
+        >
           <Image src="/brand/blair-logomark.svg" alt="" width={23} height={28} priority />
           <Image src="/brand/blair-wordmark.svg" alt="Blair" width={84} height={25} priority />
         </Link>
@@ -108,7 +112,7 @@ export function Nav() {
           aria-label={drawer ? "Close menu" : "Open menu"}
           aria-expanded={drawer}
           onClick={() => setDrawer((v) => !v)}
-          className="flex size-6 cursor-pointer items-center justify-center text-white xl:hidden"
+          className="flex size-6 cursor-pointer items-center justify-center text-white transition-opacity duration-200 hover:opacity-75 xl:hidden"
         >
           {drawer ? <CloseIcon className="size-6" /> : <MenuIcon className="size-6" />}
         </button>
