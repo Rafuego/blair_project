@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
 
 export type Symptom = { icon: string; title: string; body: string };
@@ -13,12 +14,15 @@ export function SymptomGrid({
   symptoms,
   footnoteTitle,
   footnoteBody,
+  cta,
 }: {
   title: string;
   intro: string;
   symptoms: Symptom[];
-  footnoteTitle: string;
-  footnoteBody: string;
+  footnoteTitle?: string;
+  footnoteBody?: string;
+  /** Urology closes the grid with a primrose CTA row instead of a footnote. */
+  cta?: { text: string; label: string; href: string };
 }) {
   return (
     <section className="w-full overflow-hidden py-20 xl:py-25">
@@ -67,10 +71,19 @@ export function SymptomGrid({
             ))}
           </div>
 
-          <div className="flex w-full flex-col items-center justify-center gap-2 rounded-medium px-6 py-4 text-center">
-            <p className="type-h5 text-espresso">{footnoteTitle}</p>
-            <p className="type-body text-secondary">{footnoteBody}</p>
-          </div>
+          {cta ? (
+            <div className="flex w-full flex-col items-center justify-between gap-4 rounded-medium bg-primrose-pale p-6 xl:flex-row">
+              <p className="type-h5 text-charcoal xl:w-[353px]">{cta.text}</p>
+              <Button href={cta.href} variant="espresso">
+                {cta.label}
+              </Button>
+            </div>
+          ) : (
+            <div className="flex w-full flex-col items-center justify-center gap-2 rounded-medium px-6 py-4 text-center">
+              <p className="type-h5 text-espresso">{footnoteTitle}</p>
+              <p className="type-body text-secondary">{footnoteBody}</p>
+            </div>
+          )}
         </div>
       </Container>
     </section>

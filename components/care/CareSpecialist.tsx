@@ -17,7 +17,7 @@ export function CareSpecialist({
   assurance,
 }: {
   title: string;
-  intro: string;
+  intro?: string;
   image: string;
   lead: string;
   leadName: string;
@@ -30,7 +30,9 @@ export function CareSpecialist({
       <Container className="flex flex-col items-center gap-[54px] px-6 py-20 xl:px-25 xl:py-25">
         <div className="flex flex-col items-center gap-6 text-center">
           <h2 className="type-h2 text-espresso xl:w-[824px]">{title}</h2>
-          <p className="type-body-lg text-secondary xl:w-[950px]">{intro}</p>
+          {intro && (
+            <p className="type-body-lg text-secondary xl:w-[950px]">{intro}</p>
+          )}
         </div>
 
         <div className="flex w-full flex-col items-center justify-center">

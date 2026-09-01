@@ -4,9 +4,12 @@ import { Container } from "../ui/Container";
 export function CareIntroBand({
   title,
   body,
+  accent,
 }: {
   title: string;
   body: string;
+  /** Trailing sentence set in primrose (Urology band, node 3224:6223). */
+  accent?: string;
 }) {
   return (
     <section className="w-full bg-cream">
@@ -15,8 +18,11 @@ export function CareIntroBand({
           <h2 className="type-h2 whitespace-pre-line text-white xl:w-[744px]">
             {title}
           </h2>
-          <p className="type-body-lg-medium whitespace-pre-line text-taupe xl:w-[552px]">
+          <p className="type-body-lg whitespace-pre-line text-taupe xl:w-[552px]">
             {body}
+            {accent && (
+              <span className="type-body-lg-medium text-primrose"> {accent}</span>
+            )}
           </p>
         </div>
       </Container>

@@ -10,11 +10,15 @@ export function CareFinalCta({
   image,
   /** Inner panel height: 574 on Perimenopause, 510 on Menopause. */
   panelHeight = 510,
+  primaryLabel = "Sign up",
+  primaryHref = "/signup",
 }: {
   title: string;
   body: string;
   image: string;
   panelHeight?: number;
+  primaryLabel?: string;
+  primaryHref?: string;
 }) {
   return (
     <section className="w-full px-0 pt-4 pb-8">
@@ -34,8 +38,8 @@ export function CareFinalCta({
             <p className="type-body-medium max-w-[470px] text-white">{body}</p>
           </div>
           <div className="relative flex flex-col items-center gap-3 xl:flex-row xl:gap-5">
-            <Button href="/signup" variant="primrose">
-              Sign up
+            <Button href={primaryHref} variant="primrose">
+              {primaryLabel}
             </Button>
             <Button href="/intro-call" variant="glass">
               Book a free intro call

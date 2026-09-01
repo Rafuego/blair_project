@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon/Barbell">
+<g id="Vector">
+</g>
+<path id="Vector_2" d="M5.6 1H4.4C4.17909 1 4 1.19898 4 1.44444V8.55556C4 8.80102 4.17909 9 4.4 9H5.6C5.82091 9 6 8.80102 6 8.55556V1.44444C6 1.19898 5.82091 1 5.6 1Z" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M11.6 1H10.4C10.1791 1 10 1.19898 10 1.44444V8.55556C10 8.80102 10.1791 9 10.4 9H11.6C11.8209 9 12 8.80102 12 8.55556V1.44444C12 1.19898 11.8209 1 11.6 1Z" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M12 2H13.5C13.6326 2 13.7598 2.05268 13.8536 2.14645C13.9473 2.24021 14 2.36739 14 2.5V7.5C14 7.63261 13.9473 7.75979 13.8536 7.85355C13.7598 7.94732 13.6326 8 13.5 8H12" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_5" d="M4 8H2.5C2.36739 8 2.24021 7.94732 2.14645 7.85355C2.05268 7.75979 2 7.63261 2 7.5V2.5C2 2.36739 2.05268 2.24021 2.14645 2.14645C2.24021 2.05268 2.36739 2 2.5 2H4" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_6" d="M6 5H10" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_7" d="M14 5H15" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_8" d="M1 5H2" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_9" d="M10 13.0769C10 11.3462 8 10 8 10C8 10 6 11.3462 6 13.0769C6 13.587 6.21071 14.0761 6.58579 14.4367C6.96086 14.7974 7.46957 15 8 15C8.53043 15 9.03914 14.7974 9.41421 14.4367C9.78929 14.0761 10 13.587 10 13.0769Z" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
