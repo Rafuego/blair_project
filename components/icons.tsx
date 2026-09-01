@@ -78,3 +78,31 @@ export function CheckCircle({ className }: IconProps) {
     </svg>
   );
 }
+
+export function Plus({ className }: IconProps) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
+      <path
+        d="M3.75 12H20.25M12 3.75V20.25"
+        stroke="currentColor"
+        strokeWidth="var(--stroke-icon)"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function Minus({ className }: IconProps) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden className={className}>
+      <path
+        d="M3.75 12H20.25"
+        stroke="currentColor"
+        strokeWidth="var(--stroke-icon)"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}

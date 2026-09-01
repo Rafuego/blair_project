@@ -19,7 +19,7 @@ const COLUMNS = [
 
 export function LeadCapture() {
   return (
-    <section className="w-full py-18">
+    <section className="w-full pt-18 pb-4">
       <Container className="px-6 xl:px-8">
         <div className="relative flex min-h-[386px] flex-col items-center justify-center gap-16 overflow-hidden rounded-large px-6 py-10 xl:px-[47px]">
           <Image
