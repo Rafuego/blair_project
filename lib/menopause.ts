@@ -21,10 +21,15 @@ export const MENO_TYPES: MenopauseType[] = [
     title: "Natural menopause",
     body: "12 months without a period, on average around age 51. The ovaries retire from producing estrogen, progesterone, and testosterone, and hormones settle at a new, lower baseline.",
   },
-  { icon: "/icons/menopause/first-aid.svg", title: "Surgical menopause" },
+  {
+    icon: "/icons/menopause/first-aid.svg",
+    title: "Surgical menopause",
+    body: "If both ovaries are removed, with or without a hysterectomy, menopause begins immediately, at any age. Symptoms often start suddenly and hit harder, and treatment matters even more.",
+  },
   {
     icon: "/icons/menopause/calendar-alt.svg",
     title: "Hysterectomy with ovaries kept",
+    body: "Your periods stop, but your ovaries keep working, so menopause arrives later on its own schedule. Without periods to go by, symptoms become the signal, and we help you read them.",
   },
 ];
 
