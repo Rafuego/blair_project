@@ -36,12 +36,15 @@ export function CareSpecialist({
         <div className="flex w-full flex-col items-center justify-center">
           <div className="flex w-full flex-col items-center justify-center gap-6 overflow-clip rounded-large bg-white p-6 xl:h-[375px] xl:flex-row xl:gap-0 xl:p-10">
             <div className="relative h-[260px] w-full shrink-0 overflow-hidden rounded-medium xl:h-full xl:w-[300px]">
+              {/* Anchored to the top: the box is near-square against a tall
+                  portrait, so cover from the bottom cuts the head off. Top
+                  anchoring puts the subject 21px down, matching the render. */}
               <Image
                 src={image}
                 alt={leadName}
                 fill
                 sizes="300px"
-                className="object-cover object-bottom"
+                className="object-cover object-top"
               />
             </div>
             <div className="flex min-w-px flex-1 flex-col items-start justify-center xl:h-full xl:px-14">
