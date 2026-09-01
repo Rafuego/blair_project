@@ -20,7 +20,8 @@ const LINKS: NavItem[] = [
     label: "Areas of Care",
     href: "#areas-of-care",
     menu: [
-      { label: "Perimenopause & Menopause", href: "/care/perimenopause" },
+      { label: "Perimenopause", href: "/care/perimenopause" },
+      { label: "Menopause", href: "/care/menopause" },
       { label: "Urology & Pelvic Health", href: "/care/urology-pelvic-health" },
       { label: "Nutrition & Healthy Aging", href: "/care/nutrition-healthy-aging" },
       { label: "Postpartum", href: "/care/postpartum" },

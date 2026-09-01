@@ -173,4 +173,5 @@ export const PERI_FINAL_CTA = {
   title: "Understand your stage. Get a plan. Stay ahead of the change.",
   body: "Specialist-designed care, personal tracking, and follow-up that keeps up with you, all in one place.",
   image: "/images/care/peri-final-cta.png",
+  panelHeight: 574,
 };

@@ -13,14 +13,17 @@ export function CareHero({
   title,
   body,
   image,
+  padBottom = false,
 }: {
   title: string;
   body: string;
   image: string;
+  /** Menopause seats the plate in an espresso well with 32px beneath it. */
+  padBottom?: boolean;
 }) {
   return (
     <section className="w-full bg-espresso">
-      <Container className="px-4 xl:px-8">
+      <Container className={`px-4 xl:px-8 ${padBottom ? "pb-8" : ""}`}>
         <div className="relative flex min-h-[600px] w-full flex-col items-start justify-end overflow-clip rounded-b-large xl:h-[810px]">
           <Image
             src={image}

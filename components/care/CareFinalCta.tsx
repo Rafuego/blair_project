@@ -8,15 +8,19 @@ export function CareFinalCta({
   title,
   body,
   image,
+  /** Inner panel height: 574 on Perimenopause, 510 on Menopause. */
+  panelHeight = 510,
 }: {
   title: string;
   body: string;
   image: string;
+  panelHeight?: number;
 }) {
   return (
     <section className="w-full px-0 pt-4 pb-8">
       <Container className="px-4 xl:px-8">
-        <div className="relative flex min-h-[440px] flex-col items-center justify-center gap-8 overflow-clip rounded-large px-6 py-14 xl:min-h-[574px] xl:gap-12 xl:px-30 xl:py-35">
+        <div style={{ ["--panel-h" as string]: `${panelHeight}px` }}
+          className="relative flex min-h-[440px] flex-col items-center justify-center gap-8 overflow-clip rounded-large px-6 py-14 xl:min-h-[var(--panel-h)] xl:gap-12 xl:px-30 xl:py-35">
           <Image
             src={image}
             alt=""
