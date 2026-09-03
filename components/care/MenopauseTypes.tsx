@@ -121,7 +121,7 @@ function EstrogenChart() {
             Menopause
           </p>
         </div>
-        <div className="type-body-medium mt-2 ml-[4.41%] flex w-[95.42%] items-center justify-between whitespace-nowrap text-secondary-on-dark">
+        <div className="type-body-medium mt-2 ml-[4.41%] flex w-[95.42%] items-center justify-between text-[10px] whitespace-nowrap text-secondary-on-dark xl:text-[16px]">
           <span>Birth</span>
           <span>Puberty</span>
           <span className="opacity-0">Menopause</span>

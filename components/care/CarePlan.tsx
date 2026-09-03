@@ -29,7 +29,7 @@ export function CarePlan({
 
   return (
     <section className="w-full bg-white">
-      <Container className="flex flex-col items-center gap-12 px-4 py-20 xl:gap-18 xl:px-8 xl:py-25">
+      <Container className="flex flex-col items-center gap-10 px-4 py-16 xl:gap-18 xl:py-25 xl:px-8">
         <div className="flex w-full flex-col items-center gap-6 text-center">
           <h2 className="type-h2 whitespace-pre-line text-espresso">{title}</h2>
           <p className="type-body-lg max-w-[954px] text-secondary">{intro}</p>

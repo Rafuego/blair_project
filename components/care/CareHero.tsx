@@ -28,7 +28,7 @@ export function CareHero({
   return (
     <section className="w-full bg-espresso">
       <Container className={`px-4 xl:px-8 ${padBottom ? "pb-8" : ""}`}>
-        <div className="relative flex min-h-[600px] w-full flex-col items-start justify-end overflow-clip rounded-b-large xl:h-[810px]">
+        <div className="relative flex min-h-[490px] w-full flex-col items-start justify-end overflow-clip rounded-b-large xl:h-[810px]">
           <Image
             src={image}
             alt=""

@@ -80,7 +80,7 @@ export function Footer() {
                     <Link
                       key={label}
                       href={href}
-                      className="type-button flex h-8 items-center gap-1 p-2 whitespace-nowrap text-white opacity-75 transition-opacity hover:opacity-100"
+                      className="type-button flex min-h-8 items-center gap-1 p-2 text-white opacity-75 transition-opacity hover:opacity-100 xl:whitespace-nowrap"
                     >
                       {label}
                     </Link>
