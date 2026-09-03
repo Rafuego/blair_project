@@ -10,7 +10,13 @@ const CTA_STYLES = {
   espresso: "bg-espresso text-white hover:bg-espresso/88",
 } as const;
 
-export function Pricing({ content }: { content: PricingContent }) {
+export function Pricing({
+  content,
+  standalone = false,
+}: {
+  content: PricingContent;
+  standalone?: boolean;
+}) {
   const { title, intro, plans, footnote } = content;
 
   return (
@@ -22,13 +28,15 @@ export function Pricing({ content }: { content: PricingContent }) {
             alt=""
             fill
             sizes="1376px"
-            className="pointer-events-none rounded-large object-cover"
+            className={`pointer-events-none rounded-large object-cover ${standalone ? "opacity-20" : ""}`}
           />
 
-          <div className="relative flex w-full flex-col items-center gap-4 text-center">
-            <h2 className="type-h2 w-full text-espresso">{title}</h2>
-            <p className="type-body-lg max-w-[987px] text-secondary">{intro}</p>
-          </div>
+          {!standalone && (
+            <div className="relative flex w-full flex-col items-center gap-4 text-center">
+              <h2 className="type-h2 w-full text-espresso">{title}</h2>
+              <p className="type-body-lg max-w-[987px] text-secondary">{intro}</p>
+            </div>
+          )}
 
           <div className="relative flex w-full flex-col items-stretch gap-8 xl:flex-row xl:items-center xl:gap-6">
             {plans.map((plan) => (

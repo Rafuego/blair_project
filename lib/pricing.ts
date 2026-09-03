@@ -94,3 +94,10 @@ export const PRICING_CA: PricingContent = {
   ],
   footnote: { lead: "Not sure yet?", link: "Compare plans", href: "/pricing" },
 };
+
+/** US: identical plan copy, two plans only — no Pay As You Go. Handed off to
+ *  region-specific links; prices are USD at the same numerals per the frames. */
+export const PRICING_US: PricingContent = {
+  ...PRICING_CA,
+  plans: PRICING_CA.plans.filter((p) => p.name !== "Pay As You Go"),
+};

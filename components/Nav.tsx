@@ -46,13 +46,13 @@ const LINKS: NavItem[] = [
   },
 ];
 
-export function Nav() {
+export function Nav({ dark = false }: { dark?: boolean }) {
   const [open, setOpen] = useState<string | null>(null);
   const [drawer, setDrawer] = useState(false);
 
   return (
     <header
-      className="absolute inset-x-0 top-0 z-50 text-white"
+      className={`absolute inset-x-0 top-0 z-50 ${dark ? "text-espresso" : "text-white"}`}
       onMouseLeave={() => setOpen(null)}
     >
       <Container className="flex h-16 items-center justify-between px-6 py-4 xl:h-[74px] xl:px-18">
@@ -62,7 +62,7 @@ export function Nav() {
           aria-label="Blair Health — home"
         >
           <Image src="/brand/blair-logomark.svg" alt="" width={23} height={28} priority />
-          <Image src="/brand/blair-wordmark.svg" alt="Blair" width={84} height={25} priority />
+          <Image src={dark ? "/brand/blair-wordmark.svg" : "/brand/blair-wordmark.svg"} alt="Blair" width={84} height={25} priority />
         </Link>
 
         <nav className="hidden items-center gap-0.5 xl:flex xl:gap-4">
@@ -105,7 +105,7 @@ export function Nav() {
         </nav>
 
         <div className="hidden shrink-0 items-center gap-2 xl:flex">
-          <Button href="/signup" variant="white">Sign Up</Button>
+          <Button href="/signup" variant={dark ? "espresso" : "white"}>Sign Up</Button>
           <Button href="/login" variant="ghost">Login</Button>
         </div>
         <button
@@ -147,7 +147,7 @@ export function Nav() {
             </div>
           ))}
           <div className="mt-4 flex items-center gap-2">
-            <Button href="/signup" variant="white">Sign Up</Button>
+            <Button href="/signup" variant={dark ? "espresso" : "white"}>Sign Up</Button>
             <Button href="/login" variant="ghost">Login</Button>
           </div>
         </div>
