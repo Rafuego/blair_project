@@ -61,8 +61,8 @@ export function Nav({ dark = false }: { dark?: boolean }) {
           className="flex items-center gap-[15.8px] transition-opacity duration-200 hover:opacity-80"
           aria-label="Blair Health — home"
         >
-          <Image src="/brand/blair-logomark.svg" alt="" width={23} height={28} priority />
-          <Image src={dark ? "/brand/blair-wordmark.svg" : "/brand/blair-wordmark.svg"} alt="Blair" width={84} height={25} priority />
+          <Image src={dark ? "/brand/blair-logomark-dark.svg" : "/brand/blair-logomark.svg"} alt="" width={23} height={28} priority />
+          <Image src={dark ? "/brand/blair-wordmark-dark.svg" : "/brand/blair-wordmark.svg"} alt="Blair" width={84} height={25} priority />
         </Link>
 
         <nav className="hidden items-center gap-0.5 xl:flex xl:gap-4">
