@@ -118,7 +118,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
         { label: "About Us", href: "/about" },
       ]
     : [
-        { label: "How It Works", href: "/#how-it-works" },
+        { label: "How It Works", href: "/roi-calculator" },
         { label: "Pricing", href: region === "CA" ? "/pricing/ca" : "/pricing/us" },
         { label: "About Us", href: "/about" },
       ];
