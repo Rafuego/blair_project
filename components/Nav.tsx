@@ -279,14 +279,24 @@ export function Nav({ dark = false }: { dark?: boolean }) {
           </button>
         </Container>
 
-        {/* Areas of Care panel */}
+        {/* Shared dropdown panel. Both menus live in the same grid cell and
+            cross-fade, so moving between Areas of Care and Value never
+            collapses and re-expands the surface — the height eases once on
+            open and holds while switching. */}
         <div
           className={`hidden overflow-hidden transition-[grid-template-rows] duration-300 ease-out xl:grid ${
-            open === "care" ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+            isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
           }`}
         >
           <div className="min-h-0">
-            <Container className="flex items-stretch gap-0 px-12 pt-8 pb-10">
+            <div className="grid">
+              <div
+                className={`[grid-area:1/1] transition-opacity duration-200 ease-out ${
+                  open === "care" ? "opacity-100" : "pointer-events-none opacity-0"
+                }`}
+                aria-hidden={open !== "care"}
+              >
+                <Container className="flex items-stretch gap-0 px-12 pt-8 pb-10">
               {CARE_LINKS.filter((l) => l.body).map(({ label, href, body }, i) => (
                 <Link
                   key={label}
@@ -328,17 +338,14 @@ export function Nav({ dark = false }: { dark?: boolean }) {
                 </Link>
               )}
             </Container>
-          </div>
-        </div>
-
-        {/* Value panel (Employer, US) */}
-        <div
-          className={`hidden overflow-hidden transition-[grid-template-rows] duration-300 ease-out xl:grid ${
-            open === "value" ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-          }`}
-        >
-          <div className="min-h-0">
-            <Container className="flex items-stretch gap-0 px-12 pt-8 pb-10 xl:pl-[164px]">
+              </div>
+              <div
+                className={`[grid-area:1/1] transition-opacity duration-200 ease-out ${
+                  open === "value" ? "opacity-100" : "pointer-events-none opacity-0"
+                }`}
+                aria-hidden={open !== "value"}
+              >
+                <Container className="flex items-stretch gap-0 px-12 pt-8 pb-10 xl:pl-[164px]">
               {VALUE_LINKS.map(({ label, href, body }, i) => (
                 <Link
                   key={label}
@@ -365,6 +372,8 @@ export function Nav({ dark = false }: { dark?: boolean }) {
                 </span>
               </Link>
             </Container>
+              </div>
+            </div>
           </div>
         </div>
       </div>
