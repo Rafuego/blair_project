@@ -13,12 +13,12 @@ export const metadata: Metadata = {
 export default function RoiPage() {
   return (
     <>
-      <Nav dark />
-      <main className="flex flex-col">
+      <Nav />
+      <main className="flex flex-col bg-espresso">
         <RoiCalculator />
         <section className="w-full pb-16">
           <Container className="px-6 xl:px-18">
-            <p className="type-body-sm text-secondary">
+            <p className="type-body-sm text-taupe">
               Methodology &amp; sources: Estimates modeled from published
               research: Mayo Clinic Proceedings (menopause symptoms cost US
               employers $1.8B/yr in lost work time; $26.6B including medical

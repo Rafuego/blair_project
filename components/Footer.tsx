@@ -6,7 +6,7 @@ const COLUMNS = [
   {
     heading: "For Patients",
     links: [
-      { label: "How Blair works", href: "#how-it-works" },
+      { label: "How Blair works", href: "/roi-calculator" },
       { label: "Pricing", href: "#pricing" },
       { label: "Testimonials", href: "#testimonials" },
     ],
