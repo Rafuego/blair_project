@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { ArrowUpRight } from "../icons";
+import { ArrowRight } from "../icons";
 import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
 
@@ -67,14 +67,28 @@ export function AreasOfCare() {
                 alt=""
                 fill
                 sizes="(max-width: 1440px) 25vw, 306px"
-                className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                className="object-cover"
               />
-              <span
+              {/* Hover: a notch "cut" from the image's top-right corner (Card
+                  component, hover variant) — a cream block with a rounded
+                  inner corner, two radial-gradient fillets where it meets the
+                  image, and the arrow inside. */}
+              <div
                 aria-hidden
-                className="absolute top-4 right-4 flex size-10 translate-y-1 items-center justify-center rounded-circle bg-cream text-espresso opacity-0 transition-[opacity,transform] duration-300 group-hover:translate-y-0 group-hover:opacity-100"
+                className="absolute top-0 right-0 hidden opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 xl:block"
               >
-                <ArrowUpRight className="size-4" />
-              </span>
+                <div className="relative flex h-20 w-28 items-start justify-end rounded-bl-[24px] bg-cream pt-3 pr-1 text-espresso">
+                  <ArrowRight className="size-6 -translate-x-1 translate-y-1 transition-transform duration-300 group-hover:translate-x-0" />
+                  <span
+                    className="absolute top-0 -left-4 h-4 w-4"
+                    style={{ background: "radial-gradient(circle 16px at 0% 100%, transparent 16px, var(--color-cream) 16px)" }}
+                  />
+                  <span
+                    className="absolute -bottom-4 right-0 h-4 w-4"
+                    style={{ background: "radial-gradient(circle 16px at 0% 100%, transparent 16px, var(--color-cream) 16px)" }}
+                  />
+                </div>
+              </div>
             </div>
             <div className="flex min-h-px min-w-px flex-1 flex-col justify-between gap-3 rounded-r-medium bg-white p-4 xl:rounded-r-none xl:rounded-b-medium xl:py-6 xl:pr-15 xl:pl-6">
               <div className="flex w-full flex-col gap-2 xl:gap-3">
