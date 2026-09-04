@@ -41,37 +41,42 @@ const ROWS = [
 export function InYourPocket() {
   const [active, setActive] = useState(0);
 
+  const plate = (
+      <>
+        <div aria-hidden className="absolute inset-0 xl:blur-[10px]">
+          <Image
+            src="/images/pocket/plate.jpg"
+            alt=""
+            fill
+            sizes="(max-width: 1280px) 100vw, 50vw"
+            className="scale-110 object-cover"
+          />
+        </div>
+        <div className="absolute top-[17.7px] left-1/2 h-[395.7px] w-[191px] -translate-x-1/2 overflow-hidden rounded-[30px] xl:top-[48.91px] xl:left-auto xl:right-[183.1px] xl:h-[701.401px] xl:w-[333.752px] xl:translate-x-0 xl:rounded-[54px]">
+          <Image
+            src={ROWS[active].screen}
+            alt={ROWS[active].title}
+            fill
+            sizes="(max-width: 1280px) 191px, 334px"
+            className="object-cover"
+          />
+        </div>
+      </>
+  );
+
   return (
-    <section className="w-full pb-0 xl:py-6">
+    <section className="relative w-full pb-0 xl:py-6">
+      {/* xl visual plate — spans from the viewport edge to container centre-20px */}
+      <div className="absolute top-6 left-0 hidden h-[777px] w-[calc(50%-20px)] overflow-clip rounded-r-large xl:block">
+        {plate}
+      </div>
       <Container className="flex flex-col xl:flex-row xl:items-center">
-        {/* Plate: second on mobile, first on desktop */}
-        <div className="relative order-2 h-[433px] w-full shrink-0 overflow-clip xl:order-1 xl:h-[777px] xl:w-[48.61%] xl:max-w-[700px] xl:rounded-r-large">
-          <div aria-hidden className="absolute inset-0 xl:blur-[10px]">
-            <Image
-              src="/images/pocket/plate.jpg"
-              alt=""
-              fill
-              sizes="(max-width: 1280px) 100vw, 847px"
-              className="scale-110 object-cover"
-            />
-          </div>
-          <div className="absolute top-1/2 left-1/2 w-[191px] -translate-x-1/2 -translate-y-1/2 xl:w-[340.79px]">
-            {/* Screens are stacked and cross-faded so switching rows dissolves
-                rather than cutting. */}
-            <div className="relative">
-              {ROWS.map(({ id, screen, title }, i) => (
-                <div
-                  key={id}
-                  aria-hidden={i !== active}
-                  className={`transition-opacity duration-500 ease-out motion-reduce:transition-none ${
-                    i === 0 ? "" : "absolute inset-0"
-                  } ${i === active ? "opacity-100" : "opacity-0"}`}
-                >
-                  <PhoneMockup screen={screen} alt={`${title} app screen`} />
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Plate: second on mobile, first on desktop. On xl the visual layer
+            is absolute so it bleeds to the viewport's left edge — capping it
+            in the container left a cream gutter on wide screens — while the
+            in-flow div holds its place in the capped layout. */}
+        <div className="relative order-2 h-[433px] w-full shrink-0 overflow-clip xl:order-1 xl:invisible xl:h-[777px] xl:w-[48.61%] xl:max-w-[700px]">
+          <div className="xl:hidden">{plate}</div>
         </div>
 
         {/* Copy: first on mobile, right column on desktop */}

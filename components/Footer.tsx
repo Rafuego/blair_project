@@ -52,9 +52,9 @@ const SOCIALS = [
 
 export function Footer() {
   return (
-    <footer className="w-full">
+    <footer className="w-full overflow-clip rounded-t-large bg-espresso">
       <Container className="px-0">
-        <div className="flex w-full flex-col gap-6 overflow-clip rounded-t-large bg-espresso px-6 pt-14 pb-10 xl:pt-22 xl:pb-12 xl:px-18">
+        <div className="flex w-full flex-col gap-6 px-6 pt-14 pb-10 xl:px-18 xl:pt-22 xl:pb-12">
           <div className="flex w-full flex-col items-start justify-between gap-10 xl:flex-row">
             <div className="flex w-full shrink-0 flex-col items-start justify-between gap-6 xl:w-[260px] xl:gap-10 xl:self-stretch">
               <Link

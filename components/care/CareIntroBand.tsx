@@ -12,9 +12,9 @@ export function CareIntroBand({
   accent?: string;
 }) {
   return (
-    <section className="w-full bg-cream">
+    <section className="w-full overflow-clip rounded-b-[48px] bg-espresso">
       <Container className="px-0">
-        <div className="flex w-full flex-col items-start justify-between gap-8 overflow-clip rounded-b-[48px] bg-espresso px-6 py-16 xl:flex-row xl:items-end xl:px-18 xl:py-25">
+        <div className="flex w-full flex-col items-start justify-between gap-8 px-6 py-16 xl:flex-row xl:items-end xl:px-18 xl:py-25">
           <h2 className="type-h2 whitespace-pre-line text-white xl:w-[744px]">
             {title}
           </h2>
