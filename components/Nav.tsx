@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CaretDown, CloseIcon, MenuIcon } from "./icons";
 import { Button } from "./ui/Button";
 import { Container } from "./ui/Container";
@@ -107,6 +107,24 @@ export function Nav({ dark = false }: { dark?: boolean }) {
   const [audience, setAudience] = useState<Audience>("individual");
   const [drawer, setDrawer] = useState(false);
 
+  // Selections persist across pages via localStorage — a stopgap default
+  // until the real mechanism (cookie / path / geo) is decided at handoff.
+  // Read after mount so SSR markup stays deterministic.
+  useEffect(() => {
+    const r = window.localStorage.getItem("blair.region");
+    const a = window.localStorage.getItem("blair.audience");
+    if (r === "CA" || r === "US") setRegion(r);
+    if (a === "individual" || a === "employer") setAudience(a);
+  }, []);
+  const pickRegion = (r: Region) => {
+    setRegion(r);
+    window.localStorage.setItem("blair.region", r);
+  };
+  const pickAudience = (a: Audience) => {
+    setAudience(a);
+    window.localStorage.setItem("blair.audience", a);
+  };
+
   const isOpen = open === "care" || open === "value";
   const onDark = !dark && !isOpen;
   const employer = audience === "employer";
@@ -159,7 +177,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
                         key={r}
                         type="button"
                         onClick={() => {
-                          setRegion(r);
+                          pickRegion(r);
                           closePanels();
                         }}
                         className={`type-body-sm cursor-pointer px-4 py-2 text-left whitespace-nowrap transition-colors hover:bg-primrose-pale ${
@@ -242,7 +260,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
                         key={a}
                         type="button"
                         onClick={() => {
-                          setAudience(a);
+                          pickAudience(a);
                           closePanels();
                         }}
                         className={`type-body-sm cursor-pointer px-4 py-2 text-left whitespace-nowrap transition-colors hover:bg-primrose-pale ${
