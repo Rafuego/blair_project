@@ -43,10 +43,34 @@ const CARE_LINKS = [
   { label: "Postpartum", href: "/care/postpartum", body: null },
 ];
 
+/**
+ * US-region Value menu (Employer navigation, United States component).
+ * Destinations are the employer-side pages, not yet built — the ROI
+ * calculator exists in Figma; case studies and savings anchor to the
+ * For Employers page when it lands.
+ */
+const VALUE_LINKS = [
+  {
+    label: "ROI Calculator",
+    href: "/roi-calculator",
+    body: "Model the saving for a self-insured plan, by headcount.",
+  },
+  {
+    label: "Case Studies",
+    href: "/for-teams#case-studies",
+    body: "What happened at the employers already running Blair.",
+  },
+  {
+    label: "Where the savings come from",
+    href: "/for-teams#savings",
+    body: "Fewer visits to an answer, at the generalist rate.",
+  },
+];
+
 const REGIONS = ["CA", "US"] as const;
 
 export function Nav({ dark = false }: { dark?: boolean }) {
-  const [open, setOpen] = useState<"care" | "region" | null>(null);
+  const [open, setOpen] = useState<"care" | "value" | "region" | null>(null);
   const [region, setRegion] = useState<(typeof REGIONS)[number]>("CA");
   const [drawer, setDrawer] = useState(false);
 
@@ -126,6 +150,20 @@ export function Nav({ dark = false }: { dark?: boolean }) {
               Areas of Care
               <CaretDown className={`size-4 transition-transform ${open === "care" ? "rotate-180" : ""}`} />
             </button>
+            {region === "US" && (
+              <button
+                type="button"
+                aria-expanded={open === "value"}
+                onMouseEnter={() => setOpen("value")}
+                onClick={() => setOpen(open === "value" ? null : "value")}
+                className={`type-button flex h-8 cursor-pointer items-center justify-center gap-1 border-b px-2 py-2 whitespace-nowrap transition-[opacity,border-color] ${
+                  open === "value" ? "border-current opacity-100" : "border-transparent opacity-75 hover:border-current hover:opacity-100"
+                }`}
+              >
+                Value
+                <CaretDown className={`size-4 transition-transform ${open === "value" ? "rotate-180" : ""}`} />
+              </button>
+            )}
             {CENTER_LINKS.map(({ label, href }) => (
               <Link
                 key={label}
@@ -193,6 +231,42 @@ export function Nav({ dark = false }: { dark?: boolean }) {
                 <span className="type-body-medium relative text-white">Not sure where to start?</span>
                 <span className="type-button relative mt-6 rounded-circle bg-primrose px-5 py-2.5 text-espresso">
                   Take the free assessment
+                </span>
+              </Link>
+            </Container>
+          </div>
+        </div>
+        {/* Value panel (US region) */}
+        <div
+          className={`hidden overflow-hidden transition-[grid-template-rows] duration-300 ease-out xl:grid ${
+            open === "value" ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+          }`}
+        >
+          <div className="min-h-0">
+            <Container className="flex items-stretch gap-0 px-12 pt-8 pb-10 xl:pl-[164px]">
+              {VALUE_LINKS.map(({ label, href, body }, i) => (
+                <Link
+                  key={label}
+                  href={href}
+                  onClick={() => setOpen(null)}
+                  className={`group flex w-[218px] flex-col gap-2 px-7 text-espresso ${
+                    i > 0 ? "border-l border-border-taupe/60" : "pl-0"
+                  }`}
+                >
+                  <span className="type-body-medium group-hover:underline">{label}</span>
+                  <span className="type-body-sm text-secondary">{body}</span>
+                </Link>
+              ))}
+              <Link
+                href="/for-teams/demo"
+                onClick={() => setOpen(null)}
+                className="relative ml-12 flex w-[262px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
+              >
+                <Image src="/images/urology/final-cta.png" alt="" fill sizes="262px" className="object-cover object-bottom" />
+                <div aria-hidden className="absolute inset-0 bg-black/35" />
+                <span className="type-body-medium relative text-white">Not sure where to start?</span>
+                <span className="type-button relative rounded-circle bg-primrose px-6 py-2.5 text-espresso">
+                  Book a demo
                 </span>
               </Link>
             </Container>
