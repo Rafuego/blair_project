@@ -76,8 +76,8 @@ export function RoiCalculator() {
                 </span>
                 <input
                   type="range"
-                  min={0}
-                  max={100}
+                  min={20}
+                  max={80}
                   value={inputs.pctWomen}
                   onChange={(e) => set({ pctWomen: Number(e.target.value) })}
                   className="h-0.5 w-full cursor-pointer appearance-none rounded-full bg-border-taupe accent-espresso"
@@ -95,17 +95,17 @@ export function RoiCalculator() {
             <div className="flex w-full flex-col gap-2">
               <p className="type-body text-charcoal">Estimate mode</p>
               <div className="flex items-center gap-2">
-                {(["conservative", "standard"] as EstimateMode[]).map((m) => (
+                {([["cons", "Conservative"], ["typ", "Typical"]] as [EstimateMode, string][]).map(([m, lbl]) => (
                   <button
                     key={m}
                     type="button"
                     aria-pressed={inputs.mode === m}
                     onClick={() => set({ mode: m })}
-                    className={`type-button cursor-pointer rounded-circle px-7 py-3 capitalize transition-colors ${
+                    className={`type-button cursor-pointer rounded-circle px-7 py-3 transition-colors ${
                       inputs.mode === m ? "bg-espresso text-white" : "bg-primrose-pale text-espresso hover:bg-primrose"
                     }`}
                   >
-                    {m}
+                    {lbl}
                   </button>
                 ))}
               </div>
@@ -176,7 +176,7 @@ export function RoiCalculator() {
 
               <div className="flex w-full justify-center border-t border-border-taupe/60 pt-6">
                 <Button href="/for-teams/demo" variant="espresso">
-                  Book a demo to scope your rollout
+                  Book a demo — see your model live →
                 </Button>
               </div>
             </div>

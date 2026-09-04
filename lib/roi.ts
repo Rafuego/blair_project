@@ -1,19 +1,20 @@
 /**
- * ROI calculator model — PLACEHOLDER MATH.
+ * ROI calculator model — ported verbatim from rafay's HTML source
+ * (Blair Health — Employer Cost Savings Calculator). This model is the
+ * design's own source: at the defaults it reproduces the Figma worked
+ * example to the dollar ($265,016 exposure, $0.62 per $1).
  *
- * Every constant below was reverse-derived so the calculator reproduces the
- * design's worked example exactly (2,000 employees, 50% women, $75k salary,
- * $17.5k plan cost → $265,016 exposure, $0.62 return). Rafay will supply the
- * real calculations; replace the constants (or the functions) here and the
- * page updates — no component changes needed.
+ * Note from the source: the health-plan-cost input is collected but does not
+ * enter any formula — kept on the page because the design shows it, but it
+ * changes nothing until the model says otherwise.
  */
-export type EstimateMode = "conservative" | "standard";
+export type EstimateMode = "cons" | "typ";
 
 export type RoiInputs = {
   employees: number;
-  pctWomen: number; // 0–100
+  pctWomen: number; // 20–80 slider
   salary: number;
-  planCost: number;
+  planCost: number; // unused by the model (see note)
   mode: EstimateMode;
 };
 
@@ -22,41 +23,54 @@ export const DEFAULT_INPUTS: RoiInputs = {
   pctWomen: 50,
   salary: 75000,
   planCost: 17500,
-  mode: "conservative",
+  mode: "cons",
 };
 
-const M = {
-  aged40to60: 0.35, // share of women in scope
-  careSeeking: 0.45, // share generating redundant claims
-  redundantPctOfPlan: 0.025714, // $450 at the $17,496 US average
-  absenteeismPrevalence: 0.11, // Mayo: miss >=1 workday/yr
-  absenteeismDays: 2.5,
-  workDaysPerYear: 240,
-  presenteeismPctOfSalary: 0.004,
-  attritionRate: 0.0015,
-  attritionCostX: 1.5,
-  investmentPerWoman: 428.5714, // $150k at 350 women — scoped rollout stub
-  mitigation: 0.35,
-  standardUplift: 1.6, // "standard" mode raises prevalence/productivity terms
+export const INPUT_RULES = {
+  employees: { min: 10, step: 10 },
+  pctWomen: { min: 20, max: 80 },
+  salary: { min: 30000, step: 5000 },
+  planCost: { min: 5000, step: 500 },
+} as const;
+
+/** Assumption sets, verbatim from the source. */
+const A = {
+  cons: { agePct: 0.35, symptomatic: 0.5, seekCare: 0.45, churn: 900,  absentDays: 2.5, presentShare: 0.2,  presentLoss: 0.04, attrPer1000: 1.2, mitig: 0.35, pepm: 25, scope: 0.5 },
+  typ:  { agePct: 0.4,  symptomatic: 0.6, seekCare: 0.55, churn: 1200, absentDays: 3.5, presentShare: 0.28, presentLoss: 0.06, attrPer1000: 2.0, mitig: 0.45, pepm: 25, scope: 0.5 },
 };
 
 export function roi(i: RoiInputs) {
-  const up = i.mode === "standard" ? M.standardUplift : 1;
-  const women = (i.employees * i.pctWomen) / 100;
-  const scope = Math.round(women * M.aged40to60);
+  const a = A[i.mode];
+  const emp = i.employees || 0;
+  const sal = i.salary || 0;
 
-  const redundant = scope * M.careSeeking * up * (i.planCost * M.redundantPctOfPlan);
-  const absenteeism =
-    scope * M.absenteeismPrevalence * up * M.absenteeismDays * (i.salary / M.workDaysPerYear);
-  const presenteeism = scope * i.salary * M.presenteeismPctOfSalary * up;
-  const attrition = scope * M.attritionRate * up * i.salary * M.attritionCostX;
+  const women = emp * (i.pctWomen / 100);
+  const inScope = women * a.agePct; // women 40-60
+  const affected = inScope * a.symptomatic; // symptomatic
+  const seekers = affected * a.seekCare; // filing claims
 
+  const redundant = seekers * a.churn;
+  const daily = sal / 240;
+  const absenteeism = inScope * 0.11 * a.absentDays * daily;
+  const presenteeism = affected * a.presentShare * a.presentLoss * sal;
+  const attrition = (inScope / 1000) * a.attrPer1000 * 1.5 * sal * 1.25; // senior salary premium
   const exposure = redundant + absenteeism + presenteeism + attrition;
-  const investment = scope * M.investmentPerWoman;
-  const returnPerDollar = investment > 0 ? (exposure * M.mitigation) / investment : 0;
 
-  return { scope, redundant, absenteeism, presenteeism, attrition, exposure, investment, returnPerDollar, mitigation: M.mitigation };
+  // Blair: scoped rollout to women in benefits-eligible population
+  const investment = women * a.scope * a.pepm * 12;
+  const returnPerDollar = investment > 0 ? (exposure * a.mitig) / investment : 0;
+
+  return {
+    scope: Math.round(inScope),
+    redundant,
+    absenteeism,
+    presenteeism,
+    attrition,
+    exposure,
+    investment,
+    returnPerDollar,
+    mitigation: a.mitig,
+  };
 }
 
-export const usd = (n: number) =>
-  "$" + Math.round(n).toLocaleString("en-US");
+export const usd = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
