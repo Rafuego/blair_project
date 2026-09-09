@@ -222,7 +222,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
           <nav className="hidden items-center gap-0.5 xl:flex xl:gap-4">
             {employer && (
               <Link
-                href="/for-teams"
+                href={region === "CA" ? "/for-teams/ca" : "/for-teams"}
                 onMouseEnter={closePanels}
                 className="type-button flex h-8 items-center border-b border-transparent px-2 py-2 whitespace-nowrap opacity-75 transition-[opacity,border-color] hover:border-current hover:opacity-100"
               >
