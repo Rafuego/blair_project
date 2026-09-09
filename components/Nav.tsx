@@ -106,6 +106,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
   const [region, setRegion] = useState<Region>("CA");
   const [audience, setAudience] = useState<Audience>("individual");
   const [drawer, setDrawer] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   // Selections persist across pages via localStorage — a stopgap default
   // until the real mechanism (cookie / path / geo) is decided at handoff.
@@ -122,7 +123,17 @@ export function Nav({ dark = false }: { dark?: boolean }) {
         setAudience(e.newValue);
     };
     window.addEventListener("storage", onStorage);
-    return () => window.removeEventListener("storage", onStorage);
+    // Fixed nav: once past the top of the page the bar takes a white surface
+    // so its text never sits illegibly over content.
+    // Direct set, no rAF: rAF pauses in hidden documents and a boolean
+    // threshold toggle is cheap enough to run per-event (React batches).
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener("storage", onStorage);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
   const pickRegion = (r: Region) => {
     setRegion(r);
@@ -135,7 +146,8 @@ export function Nav({ dark = false }: { dark?: boolean }) {
   };
 
   const isOpen = open === "care" || open === "value";
-  const onDark = !dark && !isOpen;
+  const surfaced = isOpen || scrolled;
+  const onDark = !dark && !surfaced;
   const employer = audience === "employer";
 
   const plainLinks = employer
@@ -153,10 +165,14 @@ export function Nav({ dark = false }: { dark?: boolean }) {
   const closePanels = () => setOpen(null);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50" onMouseLeave={closePanels}>
+    <header className="fixed inset-x-0 top-0 z-50" onMouseLeave={closePanels}>
       <div
         className={`transition-colors duration-300 ${
-          isOpen ? "rounded-b-large bg-white shadow-[0_24px_48px_rgba(41,11,18,0.12)]" : ""
+          isOpen
+            ? "rounded-b-large bg-white shadow-[0_24px_48px_rgba(41,11,18,0.12)]"
+            : scrolled
+              ? "bg-white shadow-[0_8px_24px_rgba(41,11,18,0.08)]"
+              : ""
         } ${onDark ? "text-white" : "text-espresso"}`}
       >
         <Container className="flex h-16 items-center justify-between px-6 py-4 xl:h-[74px] xl:px-12">
