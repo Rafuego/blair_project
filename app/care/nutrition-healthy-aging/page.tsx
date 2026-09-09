@@ -7,9 +7,10 @@ import { CareSpecialist } from "@/components/care/CareSpecialist";
 import { ComingSoon } from "@/components/care/ComingSoon";
 import { NutritionPrograms } from "@/components/care/NutritionPrograms";
 import { NutritionSteps } from "@/components/care/NutritionSteps";
-import { RegionalFaq } from "@/components/sections/RegionalFaq";
+import { Faq } from "@/components/sections/Faq";
 import { KeepLearning } from "@/components/sections/KeepLearning";
 import {
+  NUTRI_FAQ,
   NUTRI_COMING_SOON,
   
   NUTRI_FINAL_CTA,
@@ -36,7 +37,7 @@ export default function NutritionPage() {
         <NutritionSteps {...NUTRI_STEPS} />
         <ComingSoon {...NUTRI_COMING_SOON} />
         <CareSpecialist {...NUTRI_SPECIALIST} />
-        <RegionalFaq />
+        <Faq items={NUTRI_FAQ} title="Your questions, answered." />
         <KeepLearning />
         <CareFinalCta {...NUTRI_FINAL_CTA} />
       </main>

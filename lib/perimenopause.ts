@@ -157,16 +157,30 @@ export const PERI_FAQ = [
     answer:
       "Yes. Hormones can begin fluctuating before your cycle changes noticeably, so symptoms like poor sleep, mood shifts, or brain fog sometimes show up first. If something feels different, it's worth exploring. You don't need irregular periods to seek support.",
   },
-  { question: "Do I need blood work to confirm perimenopause?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  {
+    question: "Do I need blood work to confirm perimenopause?",
+    answer:
+      "Usually not. Hormones fluctuate day to day during perimenopause, so a single blood test can't reliably confirm or rule it out. Diagnosis is based on your age, symptoms, and period pattern, which means care can start right away.",
+  },
   {
     question: "Can I start treatment now, or do I have to wait until menopause?",
-    answer: "[CONFIRM: answer copy pending in Figma.]",
+    answer:
+      "You don't have to wait. If symptoms are affecting your life, they're worth treating. Many options are safe and effective during perimenopause, even while you're still having periods.",
   },
-  { question: "Do you prescribe testosterone for low sex drive?", answer: "[CONFIRM: answer copy pending in Figma.]" },
-  { question: "How long does perimenopause last?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  {
+    question: "Do you prescribe testosterone for low sex drive?",
+    answer:
+      "Desire in perimenopause often has more than one driver: fluctuating hormones, disrupted sleep, and mood all play a part, so we treat the whole picture first. Where low desire persists, carefully dosed testosterone can be an option for some women. No testosterone product is approved for women in Canada, so it's prescribed off-label at low doses with monitoring.",
+  },
+  {
+    question: "How long does perimenopause last?",
+    answer:
+      "It varies. On average about four years, though for some women it's shorter and for others closer to a decade. The right support makes a real difference at any point, so there's no need to wait it out.",
+  },
   {
     question: "Do I still need contraception during perimenopause?",
-    answer: "[CONFIRM: answer copy pending in Figma.]",
+    answer:
+      "Yes. As long as you're still having periods, even irregular ones, pregnancy is possible. Contraception is generally recommended until you've gone 12 months without a period. We can help you find an option that also supports your symptoms.",
   },
 ];
 

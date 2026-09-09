@@ -15,7 +15,7 @@ const FLOATS = [
 
 export function AboutHero() {
   return (
-    <section className="relative w-full overflow-hidden">
+    <section className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden xl:block">
         <div className="relative mx-auto h-full max-w-[1440px]">
           {FLOATS.map(({ src, style }) => (

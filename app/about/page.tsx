@@ -6,6 +6,7 @@ import { ADVISORY, FOUNDERS, MEDICAL_BOARD, TEAM } from "@/lib/about-people";
 import { AboutMedia, AboutStatement } from "@/components/about/AboutBands";
 import { AboutCareers } from "@/components/about/AboutCareers";
 import { AboutHero } from "@/components/about/AboutHero";
+import { AboutInvestors } from "@/components/about/AboutInvestors";
 import { AboutStats } from "@/components/about/AboutStats";
 import { AboutSystem } from "@/components/about/AboutSystem";
 import { AboutValues } from "@/components/about/AboutValues";
@@ -26,6 +27,7 @@ export default function AboutPage() {
         <AboutStats />
         <AboutSystem />
         <AboutStatement />
+        <AboutInvestors />
         <ProfileGrid
           title="An operator and a specialist, building what healthcare should have been all along."
           profiles={FOUNDERS}

@@ -144,15 +144,32 @@ export const MENO_FAQ = [
   {
     question: "Do I need blood work to know if I'm in menopause?",
     answer:
-      "Yes. Hormones can begin fluctuating before your cycle changes noticeably, so symptoms like poor sleep, mood shifts, or brain fog sometimes show up first. If something feels different, it's worth exploring. You don't need irregular periods to seek support.",
+      "Usually not. Diagnosis is based on your age, symptoms, and when your period stopped. Blood work can help in specific situations: if another condition might explain your symptoms, after a hysterectomy, if treatment isn't working as expected, or when monitoring certain therapies.",
   },
-  { question: "Do you prescribe testosterone for low sex drive?", answer: "[CONFIRM: answer copy pending in Figma.]" },
-  { question: "Do you offer bioidentical hormone therapy?", answer: "[CONFIRM: answer copy pending in Figma.]" },
-  { question: "Is hormone therapy safe?", answer: "[CONFIRM: answer copy pending in Figma.]" },
-  { question: "How long do menopause symptoms last?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  {
+    question: "Do you prescribe testosterone for low sex drive?",
+    answer:
+      "Yes, when it's the right fit. Testosterone declines through the menopause transition and can play a real role in low desire. Evidence supports carefully dosed testosterone for some postmenopausal women. Because no testosterone product is approved for women in Canada, it's prescribed off-label at low doses with monitoring, alongside other options that support desire and comfort.",
+  },
+  {
+    question: "Do you offer bioidentical hormone therapy?",
+    answer:
+      "Many approved hormone therapies are already bioidentical, meaning chemically identical to what your body makes. The term is often used to describe compounded products, which aren't held to the same regulatory standards. At Blair Health, we use evidence-based, regulated therapies with proven safety records.",
+  },
+  {
+    question: "Is hormone therapy safe?",
+    answer:
+      "For most women, yes. Evidence supports hormone therapy as safe and effective, particularly for women under 60 or within 10 years of menopause. Your plan at Blair Health is always tailored to your history and goals.",
+  },
+  {
+    question: "How long do menopause symptoms last?",
+    answer:
+      "It varies. Symptoms can continue for several years after your final period, on average four to seven, though some women experience them longer. The right treatment can make a real difference at any point, so there's no need to wait them out.",
+  },
   {
     question: "It's been years since my last period. Is it too late to get help?",
-    answer: "[CONFIRM: answer copy pending in Figma.]",
+    answer:
+      "It's never too late to feel better. Some treatments, like hormone therapy, are best started within 10 years of menopause, but effective options exist at every stage, and some symptoms, like vaginal dryness, can be treated safely at any age.",
   },
 ];
 

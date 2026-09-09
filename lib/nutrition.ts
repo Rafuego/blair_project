@@ -110,14 +110,20 @@ export const NUTRI_FAQ = [
     answer:
       "No. There is no meal plan everyone gets, no forbidden foods, and no counting for the sake of counting. Your plan is built around your goals, your health history, and the food you actually enjoy, then adjusted as your life and your body change.",
   },
-  { question: "Which program should I choose?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  {
+    question: "Which program should I choose?",
+    answer:
+      "Choose Fat Loss and Improved Body Composition if changing your body composition is the priority right now. Choose Longevity and Healthy Aging if you want to optimize your nutrition for long-term health. If you are torn, book either one. You will decide together in your first visit, and you can switch later.",
+  },
   {
     question: "Can nutrition help if I am already on hormone therapy?",
-    answer: "[CONFIRM: answer copy pending in Figma.]",
+    answer:
+      "Yes, and they work well together. Hormone therapy addresses the hormonal side of your symptoms. Nutrition supports the rest: muscle, bone, blood sugar, cholesterol, energy, and body composition. Many women do both, and your nutrition plan is coordinated with your care team.",
   },
   {
     question: "How is this different from Medical Weight Management?",
-    answer: "[CONFIRM: answer copy pending in Figma.]",
+    answer:
+      "The two programs on this page are live now and are nutrition-led. Medical Weight Management launches in Fall 2026 and adds clinical supervision from a Blair provider alongside nutrition support, for women who want medical care as part of their weight management. Join the mailing list and we will send you the details as soon as they are ready.",
   },
 ];
 

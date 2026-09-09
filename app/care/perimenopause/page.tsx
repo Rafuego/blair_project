@@ -10,10 +10,11 @@ import { CareSpecialist } from "@/components/care/CareSpecialist";
 import { CareTestimonials } from "@/components/care/CareTestimonials";
 import { CareTracking } from "@/components/care/CareTracking";
 import { SymptomGrid } from "@/components/care/SymptomGrid";
-import { RegionalFaq } from "@/components/sections/RegionalFaq";
+import { Faq } from "@/components/sections/Faq";
 import { KeepLearning } from "@/components/sections/KeepLearning";
 import { RegionalPricing } from "@/components/sections/RegionalPricing";
 import {
+  PERI_FAQ,
   PERI_ASSESSMENT,
   
   PERI_FINAL_CTA,
@@ -46,7 +47,7 @@ export default function PerimenopausePage() {
         <CareTestimonials {...PERI_TESTIMONIALS} />
         <RegionalPricing />
         <CareSpecialist {...PERI_SPECIALIST} />
-        <RegionalFaq />
+        <Faq items={PERI_FAQ} title="Your questions, answered." />
         <KeepLearning />
         <CareFinalCta {...PERI_FINAL_CTA} />
       </main>

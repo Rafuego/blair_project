@@ -156,11 +156,31 @@ export const URO_FAQ = [
     answer:
       "It's common, affecting about 1 in 3 women at some point, but common isn't the same as something you have to accept. Stress incontinence is a well-understood, treatable condition, and avoiding the trigger isn't the only option.",
   },
-  { question: "Can you really diagnose a bladder condition online?", answer: "[CONFIRM: answer copy pending in Figma.]" },
-  { question: "I keep getting UTIs. Why does this keep happening?", answer: "[CONFIRM: answer copy pending in Figma.]" },
-  { question: "Do I need a referral to see a specialist?", answer: "[CONFIRM: answer copy pending in Figma.]" },
-  { question: "I'm in my 20s or 30s. Isn't this a menopause thing?", answer: "[CONFIRM: answer copy pending in Figma.]" },
-  { question: "Is vaginal estrogen safe?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  {
+    question: "Can you really diagnose a bladder condition online?",
+    answer:
+      "For the most common conditions, yes. Diagnosis is based on your symptom pattern and history, which our specialist-designed assessment captures in detail. If your answers suggest you need in-person testing or care, we tell you directly. Medical safety comes first.",
+  },
+  {
+    question: "I keep getting UTIs. Why does this keep happening?",
+    answer:
+      "Recurrent UTIs, two or more in six months or three in a year, usually have an underlying driver: tissue changes, hormones, anatomy, or habits. The goal isn't just treating this infection. It's building a plan that prevents the next one.",
+  },
+  {
+    question: "Do I need a referral to see a specialist?",
+    answer:
+      "Not at Blair. Specialist-designed urology care usually means months on a waitlist. Here, you complete the assessment and meet a provider right away.",
+  },
+  {
+    question: "I'm in my 20s or 30s. Isn't this a menopause thing?",
+    answer:
+      "No. Bladder and pelvic floor symptoms affect women at every age, from young athletes to new moms to midlife and beyond. The causes differ, and so does the treatment, which is why the assessment comes first.",
+  },
+  {
+    question: "Is vaginal estrogen safe?",
+    answer:
+      "For most women, yes. It's a low-dose, local treatment that stays where it's applied, and it can be used safely long-term, including at older ages. Your provider will confirm it's right for your history.",
+  },
 ];
 
 export const URO_FINAL_CTA = {
