@@ -357,12 +357,12 @@ export function Nav({ dark = false }: { dark?: boolean }) {
                 <Link
                   href="/for-teams/demo"
                   onClick={closePanels}
-                  className="relative ml-7 flex w-[246px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
+                  className="relative ml-7 flex w-[280px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
                 >
                   <Image src="/images/urology/final-cta.png" alt="" fill sizes="246px" className="object-cover object-bottom" />
                   <div aria-hidden className="absolute inset-0 bg-black/25" />
                   <span className="type-body-medium relative text-white">Not sure where to start?</span>
-                  <span className="type-button relative rounded-circle bg-primrose px-6 py-2.5 text-espresso">
+                  <span className="type-button relative whitespace-nowrap rounded-circle bg-primrose px-6 py-2.5 text-espresso">
                     Book a demo
                   </span>
                 </Link>
@@ -370,12 +370,12 @@ export function Nav({ dark = false }: { dark?: boolean }) {
                 <Link
                   href="/assessment"
                   onClick={closePanels}
-                  className="relative ml-7 flex w-[246px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
+                  className="relative ml-7 flex w-[280px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
                 >
                   <Image src="/images/hero.jpg" alt="" fill sizes="246px" className="object-cover" />
                   <div aria-hidden className="absolute inset-0 bg-black/25" />
                   <span className="type-body-medium relative text-white">Not sure where to start?</span>
-                  <span className="type-button relative rounded-circle bg-primrose px-6 py-2.5 text-espresso">
+                  <span className="type-button relative whitespace-nowrap rounded-circle bg-primrose px-6 py-2.5 text-espresso">
                     Take the free assessment
                   </span>
                 </Link>
@@ -405,12 +405,12 @@ export function Nav({ dark = false }: { dark?: boolean }) {
               <Link
                 href="/for-teams/demo"
                 onClick={closePanels}
-                className="relative ml-12 flex w-[246px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
+                className="relative ml-12 flex w-[280px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
               >
                 <Image src="/images/urology/final-cta.png" alt="" fill sizes="246px" className="object-cover object-bottom" />
                 <div aria-hidden className="absolute inset-0 bg-black/25" />
                 <span className="type-body-medium relative text-white">Not sure where to start?</span>
-                <span className="type-button relative rounded-circle bg-primrose px-6 py-2.5 text-espresso">
+                <span className="type-button relative whitespace-nowrap rounded-circle bg-primrose px-6 py-2.5 text-espresso">
                   Book a demo
                 </span>
               </Link>
