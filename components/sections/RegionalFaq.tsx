@@ -16,8 +16,16 @@ export function RegionalFaq() {
       const r = (e as CustomEvent<string>).detail;
       if (r === "CA" || r === "US") setRegion(r);
     };
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === "blair.region" && (e.newValue === "CA" || e.newValue === "US"))
+        setRegion(e.newValue);
+    };
     window.addEventListener("blair:region", onRegion);
-    return () => window.removeEventListener("blair:region", onRegion);
+    window.addEventListener("storage", onStorage);
+    return () => {
+      window.removeEventListener("blair:region", onRegion);
+      window.removeEventListener("storage", onStorage);
+    };
   }, []);
 
   return (

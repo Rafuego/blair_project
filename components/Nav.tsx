@@ -115,6 +115,14 @@ export function Nav({ dark = false }: { dark?: boolean }) {
     const a = window.localStorage.getItem("blair.audience");
     if (r === "CA" || r === "US") setRegion(r);
     if (a === "individual" || a === "employer") setAudience(a);
+    const onStorage = (e: StorageEvent) => {
+      if (e.key === "blair.region" && (e.newValue === "CA" || e.newValue === "US"))
+        setRegion(e.newValue);
+      if (e.key === "blair.audience" && (e.newValue === "individual" || e.newValue === "employer"))
+        setAudience(e.newValue);
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
   }, []);
   const pickRegion = (r: Region) => {
     setRegion(r);
