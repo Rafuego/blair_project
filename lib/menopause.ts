@@ -146,13 +146,13 @@ export const MENO_FAQ = [
     answer:
       "Yes. Hormones can begin fluctuating before your cycle changes noticeably, so symptoms like poor sleep, mood shifts, or brain fog sometimes show up first. If something feels different, it's worth exploring. You don't need irregular periods to seek support.",
   },
-  { question: "Do you prescribe testosterone for low sex drive?", answer: null },
-  { question: "Do you offer bioidentical hormone therapy?", answer: null },
-  { question: "Is hormone therapy safe?", answer: null },
-  { question: "How long do menopause symptoms last?", answer: null },
+  { question: "Do you prescribe testosterone for low sex drive?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  { question: "Do you offer bioidentical hormone therapy?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  { question: "Is hormone therapy safe?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  { question: "How long do menopause symptoms last?", answer: "[CONFIRM: answer copy pending in Figma.]" },
   {
     question: "It's been years since my last period. Is it too late to get help?",
-    answer: null,
+    answer: "[CONFIRM: answer copy pending in Figma.]",
   },
 ];
 

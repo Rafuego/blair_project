@@ -157,16 +157,16 @@ export const PERI_FAQ = [
     answer:
       "Yes. Hormones can begin fluctuating before your cycle changes noticeably, so symptoms like poor sleep, mood shifts, or brain fog sometimes show up first. If something feels different, it's worth exploring. You don't need irregular periods to seek support.",
   },
-  { question: "Do I need blood work to confirm perimenopause?", answer: null },
+  { question: "Do I need blood work to confirm perimenopause?", answer: "[CONFIRM: answer copy pending in Figma.]" },
   {
     question: "Can I start treatment now, or do I have to wait until menopause?",
-    answer: null,
+    answer: "[CONFIRM: answer copy pending in Figma.]",
   },
-  { question: "Do you prescribe testosterone for low sex drive?", answer: null },
-  { question: "How long does perimenopause last?", answer: null },
+  { question: "Do you prescribe testosterone for low sex drive?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  { question: "How long does perimenopause last?", answer: "[CONFIRM: answer copy pending in Figma.]" },
   {
     question: "Do I still need contraception during perimenopause?",
-    answer: null,
+    answer: "[CONFIRM: answer copy pending in Figma.]",
   },
 ];
 

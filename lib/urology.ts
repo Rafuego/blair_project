@@ -156,11 +156,11 @@ export const URO_FAQ = [
     answer:
       "It's common, affecting about 1 in 3 women at some point, but common isn't the same as something you have to accept. Stress incontinence is a well-understood, treatable condition, and avoiding the trigger isn't the only option.",
   },
-  { question: "Can you really diagnose a bladder condition online?", answer: null },
-  { question: "I keep getting UTIs. Why does this keep happening?", answer: null },
-  { question: "Do I need a referral to see a specialist?", answer: null },
-  { question: "I'm in my 20s or 30s. Isn't this a menopause thing?", answer: null },
-  { question: "Is vaginal estrogen safe?", answer: null },
+  { question: "Can you really diagnose a bladder condition online?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  { question: "I keep getting UTIs. Why does this keep happening?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  { question: "Do I need a referral to see a specialist?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  { question: "I'm in my 20s or 30s. Isn't this a menopause thing?", answer: "[CONFIRM: answer copy pending in Figma.]" },
+  { question: "Is vaginal estrogen safe?", answer: "[CONFIRM: answer copy pending in Figma.]" },
 ];
 
 export const URO_FINAL_CTA = {

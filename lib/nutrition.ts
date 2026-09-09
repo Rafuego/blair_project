@@ -110,14 +110,14 @@ export const NUTRI_FAQ = [
     answer:
       "No. There is no meal plan everyone gets, no forbidden foods, and no counting for the sake of counting. Your plan is built around your goals, your health history, and the food you actually enjoy, then adjusted as your life and your body change.",
   },
-  { question: "Which program should I choose?", answer: null },
+  { question: "Which program should I choose?", answer: "[CONFIRM: answer copy pending in Figma.]" },
   {
     question: "Can nutrition help if I am already on hormone therapy?",
-    answer: null,
+    answer: "[CONFIRM: answer copy pending in Figma.]",
   },
   {
     question: "How is this different from Medical Weight Management?",
-    answer: null,
+    answer: "[CONFIRM: answer copy pending in Figma.]",
   },
 ];
 
