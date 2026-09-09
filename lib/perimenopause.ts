@@ -162,6 +162,7 @@ export const PERI_FAQ = [
     question: "Can I start treatment now, or do I have to wait until menopause?",
     answer: null,
   },
+  { question: "Do you prescribe testosterone for low sex drive?", answer: null },
   { question: "How long does perimenopause last?", answer: null },
   {
     question: "Do I still need contraception during perimenopause?",
