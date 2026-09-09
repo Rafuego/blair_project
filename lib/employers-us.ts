@@ -17,11 +17,16 @@ export const TRUSTED_LOGOS = [
   "/images/employers/trusted-4.svg",
 ];
 
+/**
+ * Heights chosen so every logo's DRAWN artwork lands at ~26px tall
+ * (measured content extents: ebn 27.4/64, CNN fills its canvas,
+ * wp 45/64, LA Times 48.3/64).
+ */
 export const PRESS_LOGOS = [
-  "/images/employers/press-1.svg",
-  "/images/employers/press-2.svg",
-  "/images/employers/press-3.svg",
-  "/images/employers/press-4.svg",
+  { src: "/images/employers/press-1.svg", h: 61 },
+  { src: "/images/employers/press-2.svg", h: 26 },
+  { src: "/images/employers/press-3.svg", h: 37 },
+  { src: "/images/employers/press-4.svg", h: 35 },
 ];
 
 /** Steps 2–5 show title-only in the design (dimmed states). */

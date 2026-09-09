@@ -25,21 +25,22 @@ export function EmployerMath() {
             Try our ROI calculator
           </Button>
         </div>
-        <div className="mt-0 flex w-full flex-col items-stretch gap-4 pt-0 xl:h-[794px] xl:flex-row xl:gap-0">
-          <div className="relative hidden overflow-hidden rounded-large xl:block xl:w-[850px] xl:shrink-0">
+        {/* Per the frame, the photo plate runs the full width UNDER the
+            espresso card, so the card's rounded corners sit on photo — the
+            middle seam never shows cream. */}
+        <div className="relative mt-0 flex w-full flex-col items-stretch gap-4 pt-0 xl:h-[794px] xl:flex-row xl:gap-0 xl:overflow-hidden xl:rounded-large">
+          <div aria-hidden className="absolute inset-0 hidden xl:block">
             <Image
               src="/images/employers/math-photo.png"
               alt=""
               fill
-              sizes="850px"
+              sizes="1376px"
               className="object-cover"
             />
-            <div
-              aria-hidden
-              className="absolute inset-0 bg-gradient-to-l from-espresso/44 from-[36%] to-espresso/0 to-[68%]"
-            />
+            <div className="absolute inset-0 bg-gradient-to-l from-espresso/44 from-[36%] to-espresso/0 to-[68%]" />
           </div>
-          <div className="flex min-w-px flex-1 flex-col justify-center gap-9 rounded-large bg-espresso px-6 py-10 xl:px-14">
+          <div className="hidden xl:block xl:min-w-px xl:flex-1" />
+          <div className="relative flex min-w-px flex-1 flex-col justify-center gap-9 rounded-large bg-espresso px-6 py-10 xl:max-w-[560px] xl:flex-none xl:basis-[38%] xl:px-14">
             {MATH_POINTS.map((p, i) => (
               <div key={p.n} className="flex flex-col gap-3">
                 {i > 0 && <div aria-hidden className="mb-6 border-t border-dashed border-white/20" />}
