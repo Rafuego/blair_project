@@ -15,7 +15,10 @@ export function NotWellness() {
 
   return (
     <section className="w-full overflow-hidden rounded-b-large">
-      <div className="w-full">
+      {/* Espresso backdrop: the dark band's rounded bottom fold overlays the
+          espresso statement band below, so its corner notches reveal espresso
+          — never the page's cream. */}
+      <div className="w-full bg-espresso">
         {/* Square top: this band sits directly under the dark stat band, and
             rounded corners there punch cream notches into an otherwise
             continuous dark surface. */}
