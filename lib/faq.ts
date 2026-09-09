@@ -28,12 +28,12 @@ export const FAQ_CA: FaqItem[] = [
       "Yes. Blair Health appointments are covered by Healthcare Spending Accounts. Check with your plan provider to confirm the details of your coverage.",
   },
   {
-    // Note: $59/mo here does not match the pricing band's plans. The frame
-    // carries a trailing "[CONFIRM: ...]" marker on this answer; stripped per
-    // rafay — CONFIRM markers are US-only.
+    // Verbatim from frame 3460:8601, marker included — the frame is the
+    // source of truth for this copy. (Note: $59/mo does not match the
+    // pricing band's plans.)
     question: "What does it cost?",
     answer:
-      "Pay as you go from $100 per visit, or get every care area with the monthly subscription at $59/mo. Full details in the pricing section above.",
+      "Pay as you go from $100 per visit, or get every care area with the monthly subscription at $59/mo. Full details in the pricing section above. [CONFIRM: update if pricing decision changes.]",
   },
   {
     question: "Where is Blair available?",
