@@ -16,7 +16,10 @@ export function NotWellness() {
   return (
     <section className="w-full overflow-hidden rounded-b-large">
       <div className="w-full">
-        <div className="rounded-t-large rounded-b-[40px] bg-espresso-dark px-6 py-16 xl:rounded-b-[64px] xl:px-10 xl:py-30">
+        {/* Square top: this band sits directly under the dark stat band, and
+            rounded corners there punch cream notches into an otherwise
+            continuous dark surface. */}
+        <div className="rounded-b-[40px] bg-espresso-dark px-6 py-16 xl:rounded-b-[64px] xl:px-10 xl:py-30">
           <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 xl:gap-18">
             <h2 className="type-h2 text-center text-white">
               You&rsquo;ve bought wellness apps before. <span className="block">This isn&rsquo;t one.</span>
