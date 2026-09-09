@@ -1,4 +1,12 @@
-export type Feature = { label: string; note?: string; dotted?: boolean };
+/** `dotted` marks a feature as tooltip-bearing (the dotted underline is the
+ *  trigger affordance). `tooltip` is the hover copy — PLACEHOLDER text except
+ *  where the design provides it; developers edit these strings only. */
+export type Feature = {
+  label: string;
+  note?: string;
+  dotted?: boolean;
+  tooltip?: string;
+};
 
 export type Plan = {
   name: string;
@@ -36,13 +44,22 @@ export const PRICING_CA: PricingContent = {
       features: [
         { label: "First appointment included", note: "$69 to get started" },
         { label: "Every area of care in one plan" },
-        { label: "2 appointments included", dotted: true },
+        {
+          label: "2 appointments included",
+          dotted: true,
+          tooltip: "Two provider appointments over your six months, booked whenever you need them.",
+        },
         {
           label: "Full treatment plan",
           note: "Extra appointments any time at $100",
           dotted: true,
+          tooltip: "Assessment, diagnosis, prescriptions where appropriate, and follow-up — built for you by your provider.",
         },
-        { label: "Full refund within 30 days", dotted: true },
+        {
+          label: "Full refund within 30 days",
+          dotted: true,
+          tooltip: "Not the right fit? Tell us within 30 days of starting and we refund in full.",
+        },
       ],
     },
     {
@@ -59,15 +76,28 @@ export const PRICING_CA: PricingContent = {
           label: "First appointment included",
           note: "$149.97 to get started, includes consultation and first three months",
         },
-        { label: "Every area of care in one plan", dotted: true },
-        { label: "4 appointments included per year", dotted: true },
+        {
+          label: "Every area of care in one plan",
+          dotted: true,
+          tooltip: "Perimenopause and menopause, urology and pelvic health, and clinical nutrition. Use your appointments for any of them.",
+        },
+        {
+          label: "4 appointments included per year",
+          dotted: true,
+          tooltip: "Four provider appointments across your year, booked whenever you need them.",
+        },
         {
           label:
             "Full treatment plan, reviewed and adjusted as your symptoms change",
           note: "Extra appointments any time at $100",
           dotted: true,
+          tooltip: "Your plan is reviewed at every follow-up and adjusted as your symptoms and goals change.",
         },
-        { label: "Full refund within 30 days", dotted: true },
+        {
+          label: "Full refund within 30 days",
+          dotted: true,
+          tooltip: "Not the right fit? Tell us within 30 days of starting and we refund in full.",
+        },
       ],
     },
     {
@@ -87,7 +117,11 @@ export const PRICING_CA: PricingContent = {
           label:
             "First appointment includes full treatment plan and first month of platform access",
         },
-        { label: "Book an appointment any time", dotted: true },
+        {
+          label: "Book an appointment any time",
+          dotted: true,
+          tooltip: "No membership commitment needed — book a visit whenever you want one.",
+        },
         { label: "No commitment and nothing to unwind" },
       ],
     },
@@ -110,13 +144,22 @@ export const PRICING_US: PricingContent = {
       features: [
         { label: "First appointment included", note: "$69 to get started" },
         { label: "Full access across all care areas" },
-        { label: "2 appointments included", dotted: true },
+        {
+          label: "2 appointments included",
+          dotted: true,
+          tooltip: "Two provider appointments over your six months, booked whenever you need them.",
+        },
         {
           label: "Assessment, diagnosis, and personalized treatment plan",
           note: "Extra appointments any time at $100",
           dotted: true,
+          tooltip: "Assessment, diagnosis, prescriptions where appropriate, and follow-up — built for you by your provider.",
         },
-        { label: "Full refund within 30 days", dotted: true },
+        {
+          label: "Full refund within 30 days",
+          dotted: true,
+          tooltip: "Not the right fit? Tell us within 30 days of starting and we refund in full.",
+        },
       ],
     },
     {
@@ -130,14 +173,27 @@ export const PRICING_US: PricingContent = {
       tag: "recommended",
       features: [
         { label: "First appointment included", note: "No separate consultation fee" },
-        { label: "Full access across all care areas", dotted: true },
-        { label: "4 appointments included per year", dotted: true },
+        {
+          label: "Full access across all care areas",
+          dotted: true,
+          tooltip: "Perimenopause and menopause, urology and pelvic health, and clinical nutrition. Use your appointments for any of them.",
+        },
+        {
+          label: "4 appointments included per year",
+          dotted: true,
+          tooltip: "Four provider appointments across your year, booked whenever you need them.",
+        },
         {
           label: "Assessment with instant clinical insights",
           note: "Extra appointments any time at $100",
           dotted: true,
+          tooltip: "Your answers are screened against clinical criteria for immediate insights your provider builds on.",
         },
-        { label: "Full refund within 30 days", dotted: true },
+        {
+          label: "Full refund within 30 days",
+          dotted: true,
+          tooltip: "Not the right fit? Tell us within 30 days of starting and we refund in full.",
+        },
       ],
     },
   ],

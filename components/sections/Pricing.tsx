@@ -68,20 +68,33 @@ export function Pricing({
                 </Link>
 
                 <ul className="flex w-full flex-col gap-4">
-                  {plan.features.map(({ label, note, dotted }) => (
+                  {plan.features.map(({ label, note, dotted, tooltip }) => (
                     <li key={label} className="flex w-full items-start gap-4">
                       <span className="flex shrink-0 items-center pt-[3px] text-espresso">
                         <CheckCircle className="size-6" />
                       </span>
                       <span className="flex min-w-px flex-1 flex-col justify-center gap-1">
-                        <span
-                          className={`type-body w-full text-charcoal ${
-                            dotted
-                              ? "underline decoration-[#b8b1a8] decoration-dotted"
-                              : ""
-                          }`}
-                        >
-                          {label}
+                        <span className="group relative w-full">
+                          <span
+                            tabIndex={tooltip ? 0 : undefined}
+                            className={`type-body text-charcoal focus:outline-none ${
+                              dotted
+                                ? "cursor-help underline decoration-[#b8b1a8] decoration-dotted"
+                                : ""
+                            }`}
+                          >
+                            {label}
+                          </span>
+                          {tooltip && (
+                            <span
+                              role="tooltip"
+                              className="pointer-events-none absolute top-full left-0 z-20 mt-2 block w-max max-w-[400px] rounded-small bg-espresso-dark px-4 py-3 opacity-0 shadow-[0_12px_32px_rgba(41,11,18,0.25)] transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100"
+                            >
+                              <span className="type-body-sm block text-white">
+                                {tooltip}
+                              </span>
+                            </span>
+                          )}
                         </span>
                         {note && (
                           <span className="type-body-sm w-full text-secondary">
