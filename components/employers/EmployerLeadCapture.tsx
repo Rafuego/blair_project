@@ -60,7 +60,7 @@ function Field({
   );
 }
 
-export function EmployerLeadCapture() {
+export function EmployerLeadCapture({ compact = false }: { compact?: boolean }) {
   return (
     <section id="demo" className="w-full px-4 pb-8 xl:px-8">
       <div className="relative mx-auto w-full max-w-[1376px] overflow-hidden rounded-b-large">
@@ -74,7 +74,7 @@ export function EmployerLeadCapture() {
         <div className="relative flex flex-col items-start gap-10 p-6 xl:flex-row xl:items-center xl:gap-16 xl:p-20">
           <div className="flex min-w-px flex-1 flex-col gap-8">
             <div className="flex flex-col gap-4">
-              <h2 className="type-h2 text-espresso">
+              <h2 className={compact ? "font-display text-[36px] leading-none text-espresso xl:text-[48px]" : "type-h2 text-espresso"}>
                 Your people stayed through the hard years. Help them thrive through the next ones.
               </h2>
               <p className="type-body-lg w-full text-charcoal xl:w-[455px]">

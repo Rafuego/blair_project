@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Icon/Stethoscope">
+<path id="Vector" d="M13 10.75C13.4142 10.75 13.75 10.4142 13.75 10C13.75 9.58579 13.4142 9.25 13 9.25C12.5858 9.25 12.25 9.58579 12.25 10C12.25 10.4142 12.5858 10.75 13 10.75Z" fill="#290B12"/>
+<path id="Vector_2" d="M13 12C14.1046 12 15 11.1046 15 10C15 8.89543 14.1046 8 13 8C11.8954 8 11 8.89543 11 10C11 11.1046 11.8954 12 13 12Z" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_3" d="M6.5 9V12C6.5 12.663 6.76339 13.2989 7.23223 13.7678C7.70107 14.2366 8.33696 14.5 9 14.5H10.5C11.163 14.5 11.7989 14.2366 12.2678 13.7678C12.7366 13.2989 13 12.663 13 12" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path id="Vector_4" d="M8.5 2.5H10V5.44812C10 7.37125 8.47 8.975 6.54625 9C6.08275 9.00613 5.62264 8.92012 5.19265 8.74697C4.76266 8.57382 4.37134 8.31699 4.04142 7.99137C3.7115 7.66575 3.44955 7.27784 3.27078 6.85016C3.092 6.42248 2.99996 5.96354 3 5.5V2.5H4.5" stroke="#290B12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

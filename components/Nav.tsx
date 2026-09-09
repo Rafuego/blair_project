@@ -152,7 +152,8 @@ export function Nav({ dark = false }: { dark?: boolean }) {
 
   const plainLinks = employer
     ? [
-        { label: "Why Blair", href: "/for-teams" },
+        // Region routes to the matching employer page (CA: 3224:5508, US: 3224:5039).
+        { label: "Why Blair", href: region === "CA" ? "/for-teams/ca" : "/for-teams" },
         { label: "Resources", href: "/for-teams#resources" },
         { label: "About Us", href: "/about" },
       ]
