@@ -11,12 +11,12 @@ import { CareTracking } from "@/components/care/CareTracking";
 import { MenopauseTypes } from "@/components/care/MenopauseTypes";
 import { PostMenopause } from "@/components/care/PostMenopause";
 import { SymptomGrid } from "@/components/care/SymptomGrid";
-import { Faq } from "@/components/sections/Faq";
+import { RegionalFaq } from "@/components/sections/RegionalFaq";
 import { KeepLearning } from "@/components/sections/KeepLearning";
 import { RegionalPricing } from "@/components/sections/RegionalPricing";
 import {
   MENO_ASSESSMENT,
-  MENO_FAQ,
+  
   MENO_FINAL_CTA,
   MENO_HERO,
   MENO_POST_CARDS,
@@ -49,7 +49,7 @@ export default function MenopausePage() {
         <CareTestimonials {...PERI_TESTIMONIALS} />
         <RegionalPricing />
         <CareSpecialist {...PERI_SPECIALIST} />
-        <Faq items={MENO_FAQ} title="Your questions, answered." />
+        <RegionalFaq />
         <KeepLearning />
         <CareFinalCta {...MENO_FINAL_CTA} />
       </main>

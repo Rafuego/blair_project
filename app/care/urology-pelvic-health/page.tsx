@@ -10,7 +10,7 @@ import { CareTestimonials } from "@/components/care/CareTestimonials";
 import { DiagnosisFlow } from "@/components/care/DiagnosisFlow";
 import { SymptomGrid } from "@/components/care/SymptomGrid";
 import { TreatmentTabs } from "@/components/care/TreatmentTabs";
-import { Faq } from "@/components/sections/Faq";
+import { RegionalFaq } from "@/components/sections/RegionalFaq";
 import { KeepLearning } from "@/components/sections/KeepLearning";
 import { RegionalPricing } from "@/components/sections/RegionalPricing";
 import {
@@ -18,7 +18,7 @@ import {
   URO_CONDITIONS,
   URO_CONDITIONS_COPY,
   URO_DIAGNOSIS,
-  URO_FAQ,
+  
   URO_FINAL_CTA,
   URO_HERO,
   URO_INTRO,
@@ -46,7 +46,7 @@ export default function UrologyPage() {
         <CareTestimonials {...URO_TESTIMONIALS} />
         <RegionalPricing />
         <CareSpecialist {...URO_SPECIALIST} />
-        <Faq items={URO_FAQ} title="Your questions, answered." />
+        <RegionalFaq />
         <KeepLearning />
         <CareFinalCta {...URO_FINAL_CTA} />
       </main>
