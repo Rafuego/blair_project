@@ -7,23 +7,24 @@ import { Container } from "../ui/Container";
  * floating at the edges — two bleed off-canvas, so they live outside the
  * Container and hide below xl.
  */
+// Anchored to the viewport edges (not the 1440 canvas) so the bleed cards
+// stay at the margins on wide screens instead of drifting onto the text;
+// tops are % of the section so the balance holds at min-h-screen.
 const FLOATS = [
-  { src: "/images/about/hero-1.png", style: { left: -112, top: 123, width: 324, height: 231 } },
-  { src: "/images/about/hero-2.png", style: { right: -73, top: 354, width: 345, height: 259 } },
-  { src: "/images/about/hero-3.png", style: { left: 31, top: 591, width: 362, height: 237 } },
+  { src: "/images/about/hero-1.png", style: { left: -112, top: "13%", width: 324, height: 231 } },
+  { src: "/images/about/hero-2.png", style: { right: -73, top: "38%", width: 345, height: 259 } },
+  { src: "/images/about/hero-3.png", style: { left: 31, top: "64%", width: 362, height: 237 } },
 ];
 
 export function AboutHero() {
   return (
     <section className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 hidden xl:block">
-        <div className="relative mx-auto h-full max-w-[1440px]">
-          {FLOATS.map(({ src, style }) => (
-            <div key={src} className="absolute overflow-hidden rounded-[24px] bg-white" style={style}>
-              <Image src={src} alt="" fill sizes="362px" className="object-cover" />
-            </div>
-          ))}
-        </div>
+        {FLOATS.map(({ src, style }) => (
+          <div key={src} className="absolute overflow-hidden rounded-[24px] bg-white" style={style}>
+            <Image src={src} alt="" fill sizes="362px" className="object-cover" />
+          </div>
+        ))}
       </div>
       <Container className="relative flex flex-col items-center gap-8 px-6 pt-40 pb-25 text-center xl:px-18 xl:pt-50">
         <div className="flex w-full flex-col items-center gap-6 text-espresso">
