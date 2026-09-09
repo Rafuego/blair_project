@@ -63,7 +63,7 @@ function Field({
 export function EmployerLeadCapture({ compact = false }: { compact?: boolean }) {
   return (
     <section id="demo" className="w-full px-4 pb-8 xl:px-8">
-      <div className="relative mx-auto w-full max-w-[1376px] overflow-hidden rounded-b-large">
+      <div className="relative w-full overflow-hidden rounded-b-large">
         <Image
           src="/images/employers/lead-bg.png"
           alt=""

@@ -15,8 +15,8 @@ export function BlairPath() {
   const [step, setStep] = useState(0);
 
   return (
-    <section className="w-full px-0 xl:px-0">
-      <div className="mx-auto w-full max-w-[1440px] rounded-t-large bg-primrose pt-16 xl:pt-25">
+    <section className="w-full rounded-t-large bg-primrose pt-16 xl:pt-25">
+      <div className="w-full">
         <Container className="flex flex-col items-center gap-12 px-6 xl:px-18">
           <h2 className="type-h2 text-center text-espresso">The Blair path</h2>
           <div className="flex w-full flex-col items-start gap-6 xl:w-[1280px] xl:flex-row xl:gap-10">

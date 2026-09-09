@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 import { PhoneMockup } from "../PhoneMockup";
-import { Container } from "../ui/Container";
 import { CATEGORY_TABS } from "@/lib/employers-us";
 
 /**
@@ -16,7 +15,7 @@ export function EmployerCategories() {
 
   return (
     <section className="w-full py-16 xl:py-25">
-      <Container className="flex flex-col items-center gap-10 px-6 xl:gap-[54px] xl:px-18">
+      <div className="flex w-full flex-col items-center gap-10 px-6 xl:gap-[54px] xl:px-18">
         <h2 className="type-h2 text-center text-espresso">
           The specialist categories <span className="block">quietly driving your spend — handled</span>
         </h2>
@@ -67,7 +66,7 @@ export function EmployerCategories() {
             </div>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }

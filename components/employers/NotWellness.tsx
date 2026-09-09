@@ -15,9 +15,9 @@ export function NotWellness() {
 
   return (
     <section className="w-full overflow-hidden rounded-b-large">
-      <div className="mx-auto w-full max-w-[1440px]">
+      <div className="w-full">
         <div className="rounded-t-large rounded-b-[40px] bg-espresso-dark px-6 py-16 xl:rounded-b-[64px] xl:px-10 xl:py-30">
-          <div className="flex flex-col gap-12 xl:gap-18">
+          <div className="mx-auto flex w-full max-w-[1440px] flex-col gap-12 xl:gap-18">
             <h2 className="type-h2 text-center text-white">
               You&rsquo;ve bought wellness apps before. <span className="block">This isn&rsquo;t one.</span>
             </h2>

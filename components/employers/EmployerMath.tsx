@@ -11,7 +11,7 @@ import { MATH_POINTS } from "@/lib/employers-us";
 export function EmployerMath() {
   return (
     <section className="w-full px-4 xl:px-8">
-      <div className="mx-auto flex w-full max-w-[1376px] flex-col gap-0">
+      <div className="flex w-full flex-col gap-0">
         <div className="flex flex-col items-center gap-10 rounded-large bg-primrose-pale px-6 py-16 xl:gap-14 xl:px-18 xl:py-25">
           <div className="flex w-full flex-col items-center gap-6 text-center xl:w-[736px]">
             <h2 className="type-h2 text-espresso">How the math works</h2>

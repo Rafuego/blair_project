@@ -5,7 +5,7 @@ import { Button } from "../../ui/Button";
 export function CaFinalCta() {
   return (
     <section className="w-full px-4 xl:px-8">
-      <div className="relative mx-auto flex w-full max-w-[1376px] flex-col items-center gap-8 overflow-hidden rounded-large px-6 py-16 xl:gap-12 xl:px-30 xl:py-25">
+      <div className="relative flex w-full flex-col items-center gap-8 overflow-hidden rounded-large px-6 py-16 xl:gap-12 xl:px-30 xl:py-25">
         <Image
           src="/images/employers-ca/final-cta-bg.png"
           alt=""

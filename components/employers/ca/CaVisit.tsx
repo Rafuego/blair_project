@@ -18,7 +18,10 @@ export function CaVisit() {
   return (
     <section className="w-full py-6">
       <div className="mx-auto flex w-full max-w-[1440px] flex-col items-stretch xl:flex-row">
-        <div className="relative hidden h-[777px] w-[670px] shrink-0 overflow-hidden rounded-r-large xl:block">
+        {/* Anchored to the viewport's left edge: past 1440 the panel grows
+            leftward (negative margin + matching width) so the photo bleeds
+            while its right edge stays on the 1440 grid. */}
+        <div className="relative hidden h-[777px] w-[670px] shrink-0 overflow-hidden rounded-r-large xl:ml-[min(0px,calc((1440px-100vw)/2))] xl:block xl:w-[max(670px,calc(670px+(100vw-1440px)/2))]">
           <Image
             src="/images/employers/stat-bg.png"
             alt=""

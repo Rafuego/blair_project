@@ -5,7 +5,7 @@ import { CA_HOW_IT_WORKS } from "@/lib/employers-ca";
 export function CaHowItWorks() {
   return (
     <section className="w-full px-4 xl:px-8">
-      <div className="mx-auto w-full max-w-[1376px] rounded-large bg-white px-6 py-16 xl:px-18 xl:py-25">
+      <div className="w-full rounded-large bg-white px-6 py-16 xl:px-18 xl:py-25">
         <Container className="flex flex-col gap-12 xl:gap-18">
           <h2 className="type-h2 text-center text-espresso">How It Works</h2>
           <div className="flex w-full flex-col items-stretch gap-10 xl:flex-row xl:gap-[54px]">
