@@ -1,24 +1,65 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Container } from "../ui/Container";
 import { INVOICE_ROWS, INVOICE_TOTAL, JOURNEY_STEPS } from "@/lib/employers-us";
 
 /**
  * "She doesn't file one claim. She files a journey." (node 3235:16806).
- * Clicking a journey step reveals the invoice rows accrued up to that point;
- * the receipt sits on a primrose clipboard bar with a torn top edge, exactly
- * as the Figma artwork stacks it.
+ *
+ * Desktop: the section is a 500vh scroll track whose view pins at 100vh —
+ * scrolling through it advances the five journey steps (and the invoice
+ * rows they accrue) before the page releases to the next section. Uses CSS
+ * sticky + a scroll-progress read, not wheel hijacking, so trackpads,
+ * keyboards, and screen readers keep working. Clicking a step scrolls the
+ * track to that step's segment. Below xl the pin is off and steps are
+ * simple buttons — five viewports of pinned 800px content doesn't fit a
+ * phone. The receipt sits on a primrose clipboard bar with a torn top edge,
+ * exactly as the Figma artwork stacks it.
  */
+const STEPS = JOURNEY_STEPS.length;
+
 export function ClaimsJourney() {
   const [step, setStep] = useState(0);
+  const trackRef = useRef<HTMLElement>(null);
   const visibleRows = Math.min(step + 1, INVOICE_ROWS.length);
 
+  useEffect(() => {
+    const xl = window.matchMedia("(min-width: 1280px)");
+    const onScroll = () => {
+      if (!xl.matches || !trackRef.current) return;
+      const track = trackRef.current;
+      const range = track.offsetHeight - window.innerHeight;
+      if (range <= 0) return;
+      const progress = Math.min(1, Math.max(0, -track.getBoundingClientRect().top / range));
+      setStep(Math.min(STEPS - 1, Math.floor(progress * STEPS)));
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
+  const goTo = (i: number) => {
+    const track = trackRef.current;
+    if (track && window.matchMedia("(min-width: 1280px)").matches) {
+      const range = track.offsetHeight - window.innerHeight;
+      const top = track.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: top + ((i + 0.5) / STEPS) * range, behavior: "smooth" });
+    } else {
+      setStep(i);
+    }
+  };
+
   return (
-    <section className="w-full bg-espresso py-6">
-      <Container className="flex flex-col items-stretch gap-10 px-6 py-10 xl:flex-row xl:gap-0 xl:px-0 xl:py-0">
-        <div className="flex min-w-px flex-1 flex-col justify-between gap-12 xl:p-18">
+    <section ref={trackRef} className="w-full bg-espresso py-6 xl:h-[500vh] xl:py-0">
+      <div className="xl:sticky xl:top-0 xl:flex xl:h-screen xl:items-center xl:overflow-hidden">
+      <Container className="flex flex-col items-stretch gap-10 px-6 py-10 xl:w-full xl:flex-row xl:gap-0 xl:px-0 xl:py-0">
+        <div className="flex min-w-px flex-1 flex-col justify-between gap-12 xl:px-18 xl:py-10">
           <div className="flex flex-col gap-6 text-white">
             <h2 className="type-h2">
               She doesn&rsquo;t file one claim.{" "}
@@ -36,7 +77,7 @@ export function ClaimsJourney() {
               <button
                 key={s.title}
                 type="button"
-                onClick={() => setStep(i)}
+                onClick={() => goTo(i)}
                 className={`flex w-full cursor-pointer items-center gap-4 text-left transition-opacity duration-300 ${
                   i === step ? "opacity-100" : "opacity-30 hover:opacity-60"
                 }`}
@@ -63,7 +104,7 @@ export function ClaimsJourney() {
             ))}
           </div>
         </div>
-        <div className="flex min-w-px flex-1 flex-col items-center justify-end xl:p-18">
+        <div className="flex min-w-px flex-1 flex-col items-center justify-center xl:px-18 xl:py-10">
           <div className="relative w-full max-w-[616px]">
             {/* clipboard bar behind the receipt's bottom edge */}
             <div
@@ -112,6 +153,7 @@ export function ClaimsJourney() {
           </div>
         </div>
       </Container>
+      </div>
     </section>
   );
 }

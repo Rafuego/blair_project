@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CaretDown, CloseIcon, MenuIcon } from "./icons";
 import { Button } from "./ui/Button";
@@ -102,6 +103,7 @@ function Trigger({
 }
 
 export function Nav({ dark = false }: { dark?: boolean }) {
+  const router = useRouter();
   const [open, setOpen] = useState<Menu>(null);
   const [region, setRegion] = useState<Region>("CA");
   const [audience, setAudience] = useState<Audience>("individual");
@@ -139,6 +141,17 @@ export function Nav({ dark = false }: { dark?: boolean }) {
     setRegion(r);
     window.localStorage.setItem("blair.region", r);
     window.dispatchEvent(new CustomEvent("blair:region", { detail: r }));
+    // Regional routes are distinct pages, so switching region while ON one
+    // must also navigate to its counterpart — otherwise the pill changes and
+    // the content doesn't.
+    const REGIONAL: Record<string, Record<Region, string>> = {
+      "/for-teams": { CA: "/for-teams/ca", US: "/for-teams" },
+      "/for-teams/ca": { CA: "/for-teams/ca", US: "/for-teams" },
+      "/pricing/ca": { CA: "/pricing/ca", US: "/pricing/us" },
+      "/pricing/us": { CA: "/pricing/ca", US: "/pricing/us" },
+    };
+    const target = REGIONAL[window.location.pathname]?.[r];
+    if (target && target !== window.location.pathname) router.push(target);
   };
   const pickAudience = (a: Audience) => {
     setAudience(a);
