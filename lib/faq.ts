@@ -2,9 +2,9 @@ export type FaqItem = { question: string; answer: string | null };
 
 /**
  * Homepage FAQ — regional. Canada from FAQ_CA (3460:8601), US from
- * FAQ_US-opened (3461:8465). Questions whose design copy is a
- * "[CONFIRM: ...]" editorial marker render as non-expanding rows until the
- * real copy lands; the pending item is noted beside each.
+ * FAQ_US-opened (3461:8465), rendered verbatim — including the design's
+ * "[CONFIRM: ...]" placeholders, per rafay: the page shows exactly what the
+ * frames show until the copy is updated there.
  */
 export const FAQ_CA: FaqItem[] = [
   {
@@ -28,12 +28,10 @@ export const FAQ_CA: FaqItem[] = [
       "Yes. Blair Health appointments are covered by Healthcare Spending Accounts. Check with your plan provider to confirm the details of your coverage.",
   },
   {
-    // Design carries a "[CONFIRM: update if pricing decision changes.]"
-    // marker on this answer — copy kept, marker stripped. Note: $59/mo here
-    // does not match the pricing band's plans; confirm before launch.
+    // Note: $59/mo here does not match the pricing band's plans.
     question: "What does it cost?",
     answer:
-      "Pay as you go from $100 per visit, or get every care area with the monthly subscription at $59/mo. Full details in the pricing section above.",
+      "Pay as you go from $100 per visit, or get every care area with the monthly subscription at $59/mo. Full details in the pricing section above. [CONFIRM: update if pricing decision changes.]",
   },
   {
     question: "Where is Blair available?",
@@ -62,10 +60,10 @@ export const FAQ_US: FaqItem[] = [
     answer:
       "Yes. Every visit happens online, so you can access specialist-level care from the comfort of your own home. No travel, no waiting rooms, no referral needed.",
   },
-  // Pending: US insurance / HSA / FSA positioning (Madge + Lindsay).
-  { question: "Is Blair covered by insurance, HSA, or FSA?", answer: null },
-  // Pending: US pricing copy.
-  { question: "What does it cost?", answer: null },
-  // Pending: US state list at launch.
-  { question: "Where is Blair available?", answer: null },
+  {
+    question: "Is Blair covered by insurance, HSA, or FSA?",
+    answer: "[CONFIRM: US insurance, HSA/FSA positioning with Madge and Lindsay.]",
+  },
+  { question: "What does it cost?", answer: "[CONFIRM: US pricing.]" },
+  { question: "Where is Blair available?", answer: "[CONFIRM: US state list at launch.]" },
 ];
