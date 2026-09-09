@@ -30,7 +30,7 @@ export function Faq({ items, title }: { items: FaqItem[]; title: string }) {
                 </p>
                 <span
                   className={`relative block size-4 shrink-0 text-espresso transition-transform duration-300 ease-out motion-reduce:transition-none ${
-                    isOpen ? "rotate-90" : "rotate-0"
+                    isOpen ? "rotate-180" : "rotate-0"
                   }`}
                   aria-hidden
                 >

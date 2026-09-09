@@ -109,7 +109,7 @@ export function Specialists() {
                       the badge turns a quarter. */}
                   <span
                     className={`relative block size-6 transition-transform duration-500 ease-out motion-reduce:transition-none ${
-                      isOpen ? "rotate-90" : "rotate-0"
+                      isOpen ? "rotate-180" : "rotate-0"
                     }`}
                   >
                     <span className="absolute top-1/2 left-1/2 h-[1.5px] w-[16.5px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-current" />
