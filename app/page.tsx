@@ -1,7 +1,6 @@
 import { ComesToYou } from "@/components/sections/ComesToYou";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { PRICING_CA } from "@/lib/pricing";
-import { Pricing } from "@/components/sections/Pricing";
+import { RegionalPricing } from "@/components/sections/RegionalPricing";
 import { Specialists } from "@/components/sections/Specialists";
 import { FAQ_CA } from "@/lib/faq";
 import { Faq } from "@/components/sections/Faq";
@@ -29,7 +28,7 @@ export default function Home() {
         <LeadCapture />
         <ComesToYou />
         <Testimonials />
-        <Pricing content={PRICING_CA} />
+        <RegionalPricing />
         <Specialists />
         <Faq items={FAQ_CA} title="Your questions, answered." />
         <KeepLearning />

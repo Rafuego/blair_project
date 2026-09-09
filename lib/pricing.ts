@@ -95,9 +95,50 @@ export const PRICING_CA: PricingContent = {
   footnote: { lead: "Not sure yet?", link: "Compare plans", href: "/pricing" },
 };
 
-/** US: identical plan copy, two plans only — no Pay As You Go. Handed off to
- *  region-specific links; prices are USD at the same numerals per the frames. */
+/** US (frame 3292:28673): two plans, no Pay As You Go, and its own feature
+ *  copy — not a filtered copy of CA. */
 export const PRICING_US: PricingContent = {
   ...PRICING_CA,
-  plans: PRICING_CA.plans.filter((p) => p.name !== "Pay As You Go"),
+  plans: [
+    {
+      name: "6-month plan",
+      price: "$69",
+      cadence: "/mo. $414 for 6 months.",
+      cta: "Choose 6 months",
+      href: "/signup?plan=6-month&region=us",
+      ctaVariant: "primrose-pale",
+      features: [
+        { label: "First appointment included", note: "$69 to get started" },
+        { label: "Full access across all care areas" },
+        { label: "2 appointments included", dotted: true },
+        {
+          label: "Assessment, diagnosis, and personalized treatment plan",
+          note: "Extra appointments any time at $100",
+          dotted: true,
+        },
+        { label: "Full refund within 30 days", dotted: true },
+      ],
+    },
+    {
+      name: "12-month plan",
+      price: "$49.99",
+      cadence: "/mo. $149.97 every 3 months.",
+      cta: "Join Blair",
+      href: "/signup?plan=12-month&region=us",
+      ctaVariant: "espresso",
+      featured: true,
+      tag: "recommended",
+      features: [
+        { label: "First appointment included", note: "No separate consultation fee" },
+        { label: "Full access across all care areas", dotted: true },
+        { label: "4 appointments included per year", dotted: true },
+        {
+          label: "Assessment with instant clinical insights",
+          note: "Extra appointments any time at $100",
+          dotted: true,
+        },
+        { label: "Full refund within 30 days", dotted: true },
+      ],
+    },
+  ],
 };

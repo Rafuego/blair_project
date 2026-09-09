@@ -119,6 +119,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
   const pickRegion = (r: Region) => {
     setRegion(r);
     window.localStorage.setItem("blair.region", r);
+    window.dispatchEvent(new CustomEvent("blair:region", { detail: r }));
   };
   const pickAudience = (a: Audience) => {
     setAudience(a);

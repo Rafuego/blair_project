@@ -38,7 +38,7 @@ export function Pricing({
             </div>
           )}
 
-          <div className="relative flex w-full flex-col items-stretch gap-8 xl:flex-row xl:items-center xl:gap-6">
+          <div className={`relative flex w-full flex-col items-stretch gap-8 xl:flex-row xl:items-center xl:gap-6 ${plans.length === 2 ? "xl:px-40" : ""}`}>
             {plans.map((plan) => (
               <div
                 key={plan.name}

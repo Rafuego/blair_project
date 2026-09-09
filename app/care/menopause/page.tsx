@@ -13,7 +13,7 @@ import { PostMenopause } from "@/components/care/PostMenopause";
 import { SymptomGrid } from "@/components/care/SymptomGrid";
 import { Faq } from "@/components/sections/Faq";
 import { KeepLearning } from "@/components/sections/KeepLearning";
-import { Pricing } from "@/components/sections/Pricing";
+import { RegionalPricing } from "@/components/sections/RegionalPricing";
 import {
   MENO_ASSESSMENT,
   MENO_FAQ,
@@ -28,7 +28,6 @@ import {
   MENO_TYPES_COPY,
 } from "@/lib/menopause";
 import { PERI_PLAN, PERI_SPECIALIST, PERI_TESTIMONIALS } from "@/lib/perimenopause";
-import { PRICING_CA } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Menopause care | Blair Health",
@@ -48,7 +47,7 @@ export default function MenopausePage() {
         <PostMenopause {...MENO_POST_COPY} cards={MENO_POST_CARDS} />
         <CareAssessment {...MENO_ASSESSMENT} />
         <CareTestimonials {...PERI_TESTIMONIALS} />
-        <Pricing content={PRICING_CA} />
+        <RegionalPricing />
         <CareSpecialist {...PERI_SPECIALIST} />
         <Faq items={MENO_FAQ} title="Your questions, answered." />
         <KeepLearning />

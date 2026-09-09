@@ -12,7 +12,7 @@ import { CareTracking } from "@/components/care/CareTracking";
 import { SymptomGrid } from "@/components/care/SymptomGrid";
 import { Faq } from "@/components/sections/Faq";
 import { KeepLearning } from "@/components/sections/KeepLearning";
-import { Pricing } from "@/components/sections/Pricing";
+import { RegionalPricing } from "@/components/sections/RegionalPricing";
 import {
   PERI_ASSESSMENT,
   PERI_FAQ,
@@ -26,7 +26,6 @@ import {
   PERI_TESTIMONIALS,
   PERI_TRACKING,
 } from "@/lib/perimenopause";
-import { PRICING_CA } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Perimenopause care | Blair Health",
@@ -45,7 +44,7 @@ export default function PerimenopausePage() {
         <CareTracking {...PERI_TRACKING} />
         <CareAssessment {...PERI_ASSESSMENT} />
         <CareTestimonials {...PERI_TESTIMONIALS} />
-        <Pricing content={PRICING_CA} />
+        <RegionalPricing />
         <CareSpecialist {...PERI_SPECIALIST} />
         <Faq items={PERI_FAQ} title="Your questions, answered." />
         <KeepLearning />

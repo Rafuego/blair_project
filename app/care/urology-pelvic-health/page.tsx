@@ -12,8 +12,7 @@ import { SymptomGrid } from "@/components/care/SymptomGrid";
 import { TreatmentTabs } from "@/components/care/TreatmentTabs";
 import { Faq } from "@/components/sections/Faq";
 import { KeepLearning } from "@/components/sections/KeepLearning";
-import { Pricing } from "@/components/sections/Pricing";
-import { PRICING_CA } from "@/lib/pricing";
+import { RegionalPricing } from "@/components/sections/RegionalPricing";
 import {
   URO_ASSESSMENT,
   URO_CONDITIONS,
@@ -45,7 +44,7 @@ export default function UrologyPage() {
         <TreatmentTabs {...URO_TREATMENT} />
         <CareAssessment {...URO_ASSESSMENT} />
         <CareTestimonials {...URO_TESTIMONIALS} />
-        <Pricing content={PRICING_CA} />
+        <RegionalPricing />
         <CareSpecialist {...URO_SPECIALIST} />
         <Faq items={URO_FAQ} title="Your questions, answered." />
         <KeepLearning />
