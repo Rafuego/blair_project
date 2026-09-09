@@ -1,9 +1,10 @@
 export type FaqItem = { question: string; answer: string | null };
 
 /**
- * Order matches the Figma stack. Only the first item has answer copy in the
- * design — the rest are drawn collapsed, so their answers do not exist yet.
- * Items with a null answer render as plain rows rather than opening empty.
+ * Homepage FAQ — regional. Canada from FAQ_CA (3460:8601), US from
+ * FAQ_US-opened (3461:8465). Questions whose design copy is a
+ * "[CONFIRM: ...]" editorial marker render as non-expanding rows until the
+ * real copy lands; the pending item is noted beside each.
  */
 export const FAQ_CA: FaqItem[] = [
   {
@@ -11,19 +12,60 @@ export const FAQ_CA: FaqItem[] = [
     answer:
       "Women across life stages: perimenopause, menopause, urology and pelvic health, and nutrition. Anyone can create an account, take an assessment, and explore. If in-person care is safer for you, we'll tell you. Medical safety is a guiding principle at Blair.",
   },
-  { question: "Is Blair entirely virtual?", answer: null },
-  { question: "Can I get ongoing care after my first visit?", answer: null },
+  {
+    question: "Is Blair entirely virtual?",
+    answer:
+      "Yes. Every visit happens online, so you can access specialist-level care from the comfort of your own home. No travel, no waiting rooms, no referral needed.",
+  },
+  {
+    question: "Can I get ongoing care after my first visit?",
+    answer:
+      "Absolutely. Blair is built for ongoing care, not one-off appointments. You can book a visit anytime, whether it's a follow-up, a new concern, or a check-in on how your plan is working.",
+  },
   {
     question: "Is Blair covered by my Healthcare Spending Account (HSA)?",
-    answer: null,
+    answer:
+      "Yes. Blair Health appointments are covered by Healthcare Spending Accounts. Check with your plan provider to confirm the details of your coverage.",
   },
-  { question: "What does it cost?", answer: null },
-  { question: "How do the included appointments work?", answer: null },
-  { question: "Where is Blair available?", answer: null },
+  {
+    // Design carries a "[CONFIRM: update if pricing decision changes.]"
+    // marker on this answer — copy kept, marker stripped. Note: $59/mo here
+    // does not match the pricing band's plans; confirm before launch.
+    question: "What does it cost?",
+    answer:
+      "Pay as you go from $100 per visit, or get every care area with the monthly subscription at $59/mo. Full details in the pricing section above.",
+  },
+  {
+    question: "Where is Blair available?",
+    answer: "Blair is available in all Canadian provinces.",
+  },
   {
     question: "Will my doctor be updated about my care if I request this?",
-    answer: null,
+    answer:
+      "Yes, absolutely. With your consent, we'll share updates about your visits and care plan with your other care providers, so everyone supporting your health stays on the same page.",
   },
-  { question: "Can I get a work note?", answer: null },
-  { question: "What if I want to stop?", answer: null },
+  {
+    question: "Can I get a work note?",
+    answer:
+      "We aren't able to provide notes for time away from work or modified work accommodations. Those requests are best supported by a clinician who can see you in person. We're here for everything else on your care journey.",
+  },
+];
+
+export const FAQ_US: FaqItem[] = [
+  {
+    question: "Who is Blair for?",
+    answer:
+      "Women across life stages: perimenopause, menopause, urology and pelvic health, and nutrition. Anyone can create an account, take an assessment, and explore. If in-person care is safer for you, we'll tell you. Medical safety is a guiding principle at Blair.",
+  },
+  {
+    question: "Is Blair entirely virtual?",
+    answer:
+      "Yes. Every visit happens online, so you can access specialist-level care from the comfort of your own home. No travel, no waiting rooms, no referral needed.",
+  },
+  // Pending: US insurance / HSA / FSA positioning (Madge + Lindsay).
+  { question: "Is Blair covered by insurance, HSA, or FSA?", answer: null },
+  // Pending: US pricing copy.
+  { question: "What does it cost?", answer: null },
+  // Pending: US state list at launch.
+  { question: "Where is Blair available?", answer: null },
 ];

@@ -2,8 +2,7 @@ import { ComesToYou } from "@/components/sections/ComesToYou";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { RegionalPricing } from "@/components/sections/RegionalPricing";
 import { Specialists } from "@/components/sections/Specialists";
-import { FAQ_CA } from "@/lib/faq";
-import { Faq } from "@/components/sections/Faq";
+import { RegionalFaq } from "@/components/sections/RegionalFaq";
 import { KeepLearning } from "@/components/sections/KeepLearning";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/Footer";
@@ -30,7 +29,7 @@ export default function Home() {
         <Testimonials />
         <RegionalPricing />
         <Specialists />
-        <Faq items={FAQ_CA} title="Your questions, answered." />
+        <RegionalFaq />
         <KeepLearning />
         <FinalCta />
       </main>
