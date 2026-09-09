@@ -36,7 +36,11 @@ export default function RoiPage() {
           </Container>
         </section>
       </main>
-      <Footer />
+      {/* The footer's rounded top corners normally show the cream body —
+          on this all-espresso page they must sit on espresso instead. */}
+      <div className="bg-espresso">
+        <Footer />
+      </div>
     </>
   );
 }

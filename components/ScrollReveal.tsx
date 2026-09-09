@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
 /**
@@ -16,10 +17,15 @@ import { useEffect } from "react";
  * - Anything already on screen at load reveals immediately, so the first
  *   viewport never animates in after the fact.
  */
-const SHIFT = 18; // px
+const SHIFT = 24; // px
 const STAGGER = 70; // ms between siblings
 
 export function ScrollReveal() {
+  // Re-run per route: the component lives in the root layout, so without the
+  // pathname dependency the setup ran once per hard load and every soft
+  // navigation rendered new content that was never observed — i.e. no
+  // animations anywhere past the first page.
+  const pathname = usePathname();
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -194,7 +200,7 @@ export function ScrollReveal() {
 
     return teardown;
     }
-  }, []);
+  }, [pathname]);
 
   return null;
 }
