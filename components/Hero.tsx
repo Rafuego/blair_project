@@ -6,24 +6,19 @@ import { Container } from "./ui/Container";
 export function Hero() {
   return (
     <section className="relative flex min-h-[750px] w-full flex-col items-start justify-end overflow-hidden xl:min-h-[810px]">
-      {/* Background plate. Crop box and horizontal mirror taken verbatim from
-          the Figma image fill (the source photo faces left; the fill mirrors
-          it). Percentages are relative to the 1440x810 hero box. */}
+      {/* Background plate, mirrored per the Figma image fill (the source
+          photo faces left). Cover + bottom anchor reproduces the designed
+          crop window at 1440 and stays undistorted at any viewport — the
+          old percentage crop box changed shape with the section and
+          stretched the photo on wide screens. */}
       <div aria-hidden className="absolute inset-0 -z-10 scale-x-[-1] overflow-hidden">
         <Image
           src="/images/hero.jpg"
           alt=""
-          width={1651}
-          height={1101}
+          fill
           priority
-          sizes="115vw"
-          className="absolute max-w-none"
-          style={{
-            left: "-0.36%",
-            top: "-35.74%",
-            width: "114.67%",
-            height: "135.95%",
-          }}
+          sizes="100vw"
+          className="object-cover object-bottom"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/40" />
       </div>
