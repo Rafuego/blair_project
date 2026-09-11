@@ -30,7 +30,7 @@ export function CaCompare() {
               >
                 <div className="flex items-center gap-3">
                   <span className="flex size-12 items-center justify-center rounded-small bg-white">
-                    <img src="/images/employers-ca/icon-thumbsdown.svg" alt="" className="size-8" />
+                    <img src="/images/employers-ca/icon-thumbsdown.svg" alt="" className="size-8 object-contain" />
                   </span>
                   <p className="type-h5 text-espresso">{card.title}</p>
                 </div>

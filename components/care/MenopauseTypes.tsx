@@ -89,7 +89,7 @@ function EstrogenChart() {
   return (
     <div className="flex w-full shrink-0 items-center justify-center rounded-[24px] p-4 xl:w-[620px]">
       <div className="relative w-full">
-        <div className="relative h-[236px] w-full">
+        <div className="relative aspect-[620/236] w-full">
           {/* Menopause band */}
           <div className="absolute top-0 left-[74.66%] h-full w-[4.25%] bg-primrose" />
           {/* Stage dividers */}
@@ -112,12 +112,12 @@ function EstrogenChart() {
             src="/decor/chart/curve.svg"
             alt=""
             className="absolute left-[4.46%] w-[95.23%]"
-            style={{ top: 8.26, height: 214.7 }}
+            style={{ top: "3.5%", height: "91%" }}
           />
           <p className="type-caps absolute top-1/2 -left-1 -translate-y-1/2 -rotate-90 whitespace-nowrap text-secondary">
             estrogen levels
           </p>
-          <p className="type-body-medium absolute top-[79px] left-[78.4%] -rotate-90 origin-left whitespace-nowrap text-secondary">
+          <p className="type-body-medium absolute top-[33.5%] left-[78.4%] -rotate-90 origin-left whitespace-nowrap text-secondary">
             Menopause
           </p>
         </div>

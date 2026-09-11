@@ -14,7 +14,7 @@ export function CaProven() {
           {CA_PROVEN.map((card) => (
             <div key={card.title} className="flex flex-col gap-4 rounded-medium bg-white/40 p-6">
               <span className="flex size-12 items-center justify-center rounded-small bg-primrose-pale">
-                <img src={card.icon} alt="" className="size-8" />
+                <img src={card.icon} alt="" className="size-8 object-contain" />
               </span>
               <div className="flex flex-col gap-2">
                 <p className="type-h5 text-espresso">{card.title}</p>

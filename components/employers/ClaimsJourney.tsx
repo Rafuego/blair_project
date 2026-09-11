@@ -119,7 +119,7 @@ export function ClaimsJourney() {
               />
               <div className="flex flex-col gap-6 bg-white px-8 py-9 shadow-[inset_0px_-4px_8px_0px_rgba(0,0,0,0.15)]">
                 <div className="flex w-full items-center justify-between">
-                  <img src="/images/employers/invoice-icon.svg" alt="" className="size-6" />
+                  <img src="/images/employers/invoice-icon.svg" alt="" className="size-6 object-contain" />
                   <p className="type-h5 text-charcoal">Patient Invoice</p>
                 </div>
                 <div className="flex flex-col gap-5 border-y border-dashed border-taupe py-5">

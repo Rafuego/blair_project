@@ -56,7 +56,7 @@ export function CaVisit() {
                   }`}
                 >
                   <span className="flex size-12 shrink-0 items-center justify-center self-stretch rounded-small bg-primrose-pale">
-                    <img src={t.icon} alt="" className="size-8" />
+                    <img src={t.icon} alt="" className="size-8 object-contain" />
                   </span>
                   <span className="flex min-w-px flex-1 flex-col gap-1">
                     <span className="type-h5 text-espresso">{t.title}</span>

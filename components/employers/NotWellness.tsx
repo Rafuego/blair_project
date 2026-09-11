@@ -31,7 +31,7 @@ export function NotWellness() {
               {WELLNESS_CARDS.map((card) => (
                 <div key={card.icon} className="flex min-w-px flex-1 flex-col items-center gap-3">
                   <span className="flex size-[50px] items-center justify-center rounded-medium">
-                    <img src={card.icon} alt="" className="size-6" />
+                    <img src={card.icon} alt="" className="size-6 object-contain" />
                   </span>
                   <p className="text-center font-display text-[28px] leading-[normal] text-white xl:text-[32px]">
                     {card.title.map((line) => (

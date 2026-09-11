@@ -14,7 +14,7 @@ export function PlanFit() {
               {i > 0 && <div aria-hidden className="hidden w-px self-stretch bg-taupe/60 xl:block" />}
               <div className="flex min-w-px flex-1 flex-col items-center gap-6 rounded-medium py-6">
                 <span className="flex size-12 items-center justify-center rounded-small bg-primrose-pale">
-                  <img src={card.icon} alt="" className="size-8" />
+                  <img src={card.icon} alt="" className="size-8 object-contain" />
                 </span>
                 <div className="flex flex-col gap-2 text-center">
                   <p className="type-h5 text-espresso">
@@ -36,7 +36,7 @@ export function PlanFit() {
               {i > 0 && <div aria-hidden className="hidden w-px self-stretch bg-taupe/60 xl:block" />}
               <div className="flex min-w-px flex-1 flex-col items-center gap-8">
                 <span className="flex size-12 items-center justify-center rounded-small bg-primrose-pale">
-                  <img src={card.icon} alt="" className="size-8" />
+                  <img src={card.icon} alt="" className="size-8 object-contain" />
                 </span>
                 <div className="flex flex-col gap-3 text-center">
                   <p className="type-h5 text-espresso">{card.title}</p>

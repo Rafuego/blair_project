@@ -26,9 +26,9 @@ export function AboutInvestors() {
             {LOGOS.map((logo) => (
               <div
                 key={logo.src}
-                className="flex h-20 min-w-px flex-1 flex-col items-center justify-center overflow-hidden rounded-small bg-primrose-pale px-8 py-4"
+                className="flex h-16 min-w-px flex-1 flex-col items-center justify-center overflow-hidden rounded-small bg-primrose-pale px-3 py-3 xl:h-20 xl:px-8 xl:py-4"
               >
-                <img src={logo.src} alt={logo.alt} width={logo.w} height={logo.h} className="shrink-0" />
+                <img src={logo.src} alt={logo.alt} width={logo.w} height={logo.h} className="h-auto max-h-9 w-auto max-w-full object-contain xl:max-h-[51px]" />
               </div>
             ))}
           </div>
