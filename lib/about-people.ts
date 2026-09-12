@@ -20,8 +20,24 @@ export const FOUNDERS: Profile[] = [
 ];
 
 export const TEAM: Profile[] = [
-  { name: "Maiku Nakajima", role: "Senior Engineer", photo: "/images/about/people/maiku.png" },
-  { name: "Savannah Onley", role: "Business Development Manager", photo: "/images/about/people/savannah.png", photoPosition: "center 20%" },
+  {
+    name: "Maiku Nakajima",
+    role: "Senior Engineer",
+    photo: "/images/about/people/maiku.png",
+    // Verbatim from state frame 3409:8995.
+    bio: "Maiku builds the intelligent systems at the core of Blair: the assessments, clinical tooling, and the platform our providers rely on every day. Before Blair, he built digital health software as a full stack developer at TELUS Health.",
+    linkedin: "https://www.linkedin.com",
+  },
+  {
+    name: "Savannah Onley",
+    role: "Business Development Manager",
+    photo: "/images/about/people/savannah.png",
+    photoPosition: "center 20%",
+    // Verbatim from her state frame (3409:9086); the frame's caps title is a
+    // design copy-paste error, so the real role stays.
+    bio: "Savannah leads business development at Blair, building the employer and partner relationships that bring Blair to more women.",
+    linkedin: "https://www.linkedin.com",
+  },
   { name: "Abdu Karim", role: "Engineer" },
   { name: "Serhii Pohorielev", role: "Engineer" },
   { name: "Liza Kovalchuk", role: "Product designer" },

@@ -44,11 +44,18 @@ export function ProfileGrid({
 }) {
   const [open, setOpen] = useState<number | null>(null);
 
-  // Designed proportions: expanded 822 / row 1272 (wide) or 1296 (3-up).
+  // Designed proportions (nodes 3327:7737 / 3409:8995): the expanded card
+  // takes 822/1272 of a wide row or 826/1296 of a 3-up row, and only its
+  // SAME-ROW siblings compress (to 211px in a 3-up row) — other rows keep
+  // their default widths.
+  const perRow = wide ? 2 : 3;
   const basis = (i: number) => {
-    if (open === null) return wide ? "calc(50% - 12px)" : "calc(33.33% - 16px)";
-    if (open === i) return wide ? "calc(64.6% - 12px)" : "calc(63.4% - 16px)";
-    return wide ? "calc(35.4% - 12px)" : "calc(33.33% - 16px)";
+    const def = wide ? "calc(50% - 12px)" : "calc(33.33% - 16px)";
+    if (open === null) return def;
+    if (open === i) return wide ? "calc(64.6% - 12px)" : "calc(63.7% - 16px)";
+    const sameRow = Math.floor(i / perRow) === Math.floor(open / perRow);
+    if (!sameRow) return def;
+    return wide ? "calc(35.4% - 12px)" : "calc(16.3% - 16px)";
   };
 
   return (
