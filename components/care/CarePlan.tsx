@@ -78,24 +78,32 @@ export function CarePlan({
                 onFocus={() => setOpen(i)}
                 onClick={() => setOpen(isOpen ? null : i)}
                 style={{ flexBasis: basis }}
-                className={`flex grow-0 cursor-pointer flex-col justify-center overflow-hidden p-10 text-left transition-[flex-basis,background-color,color,height] duration-[450ms] ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[flex-basis] motion-reduce:transition-none xl:shrink-0 ${
+                className={`flex grow-0 cursor-pointer flex-col justify-center overflow-hidden p-10 text-left transition-[flex-basis,background-color,color,height] duration-[550ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[flex-basis] motion-reduce:transition-none xl:shrink-0 ${
                   isOpen
-                    ? "bg-espresso text-white xl:h-full xl:rounded-[24px]"
+                    ? "bg-espresso text-white xl:h-[232px] xl:rounded-[24px]"
                     : "bg-cream text-espresso xl:h-[144px]"
                 }`}
               >
-                <span
-                  className={`type-h5 ${isOpen ? "text-left xl:w-[420px] xl:shrink-0 xl:whitespace-nowrap" : "w-full text-center"}`}
-                >
-                  {name}
+                {/* Centred <-> left via animatable spacers: text-align can't
+                    transition, so the title snapped sideways mid-expansion. */}
+                <span className="flex w-full items-center">
+                  <span
+                    aria-hidden
+                    className="transition-[flex-grow] duration-[550ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
+                    style={{ flexGrow: isOpen ? 0 : 1, flexBasis: 0 }}
+                  />
+                  <span className="type-h5 shrink-0 whitespace-nowrap">{name}</span>
+                  <span aria-hidden className="min-w-0 flex-1" />
                 </span>
                 <span
-                  className={`w-full overflow-hidden transition-opacity duration-300 ease-out motion-reduce:transition-none ${
-                    isOpen ? "opacity-100 delay-150" : "h-0 opacity-0"
+                  className={`grid w-full transition-[grid-template-rows,opacity] duration-[450ms] ease-out motion-reduce:transition-none ${
+                    isOpen ? "grid-rows-[1fr] opacity-100 delay-100" : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
-                  <span className="type-body block w-full pt-4 text-secondary-on-dark xl:w-[420px]">
-                    {body}
+                  <span className="overflow-hidden">
+                    <span className="type-body block w-full pt-4 text-secondary-on-dark xl:w-[420px]">
+                      {body}
+                    </span>
                   </span>
                 </span>
               </button>
