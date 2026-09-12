@@ -68,10 +68,28 @@ const VALUE_LINKS = [
   },
 ];
 
+const PROOF_LINKS = [
+  {
+    label: "Proven with Canadian employers",
+    href: "/for-teams/ca#proof",
+    body: "Utilization, speed to care, and experience from early pilots.",
+  },
+  {
+    label: "ROI Calculator",
+    href: "/roi-calculator",
+    body: "Model the saving for your workforce, by headcount.",
+  },
+  {
+    label: "Pilot testimonials",
+    href: "/for-teams/ca#testimonials",
+    body: "What participants said after their first visits.",
+  },
+];
+
 const REGIONS = ["CA", "US"] as const;
 type Region = (typeof REGIONS)[number];
 type Audience = "individual" | "employer";
-type Menu = "care" | "value" | "region" | "audience" | null;
+type Menu = "care" | "value" | "proof" | "region" | "audience" | null;
 
 function Trigger({
   label,
@@ -158,7 +176,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
     window.localStorage.setItem("blair.audience", a);
   };
 
-  const isOpen = open === "care" || open === "value";
+  const isOpen = open === "care" || open === "value" || open === "proof";
   const surfaced = isOpen || scrolled;
   const onDark = !dark && !surfaced;
   const employer = audience === "employer";
@@ -167,7 +185,8 @@ export function Nav({ dark = false }: { dark?: boolean }) {
     ? [
         // Region routes to the matching employer page (CA: 3224:5508, US: 3224:5039).
         { label: "Why Blair", href: region === "CA" ? "/for-teams/ca" : "/for-teams" },
-        { label: "Resources", href: "/for-teams#resources" },
+        // Intentionally uncreated — Resources 404s until the page is designed.
+        { label: "Resources", href: "/resources" },
         { label: "About Us", href: "/about" },
       ]
     : [
@@ -257,14 +276,12 @@ export function Nav({ dark = false }: { dark?: boolean }) {
               />
             )}
             {employer && region === "CA" && (
-              <Link
-                href="/for-teams/ca#proof"
-                onMouseEnter={closePanels}
-                className="type-button flex h-8 items-center gap-1 border-b border-transparent px-2 py-2 whitespace-nowrap opacity-75 transition-[opacity,border-color] hover:border-current hover:opacity-100"
-              >
-                Proof
-                <CaretDown className="size-4" />
-              </Link>
+              <Trigger
+                label="Proof"
+                active={open === "proof"}
+                onEnter={() => setOpen("proof")}
+                onClick={() => setOpen(open === "proof" ? null : "proof")}
+              />
             )}
             {(employer ? plainLinks.slice(1) : plainLinks).map(({ label, href }) => (
               <Link
@@ -418,6 +435,40 @@ export function Nav({ dark = false }: { dark?: boolean }) {
               ))}
               <Link
                 href="/for-teams#demo"
+                onClick={closePanels}
+                className="relative ml-12 flex w-[280px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
+              >
+                <Image src="/images/urology/final-cta.png" alt="" fill sizes="246px" className="object-cover object-bottom" />
+                <div aria-hidden className="absolute inset-0 bg-black/25" />
+                <span className="type-body-medium relative text-white">Not sure where to start?</span>
+                <span className="type-button relative whitespace-nowrap rounded-circle bg-primrose px-6 py-2.5 text-espresso">
+                  Book a demo
+                </span>
+              </Link>
+            </Container>
+              </div>
+              <div
+                className={`[grid-area:1/1] transition-opacity duration-200 ease-out ${
+                  open === "proof" ? "opacity-100" : "pointer-events-none opacity-0"
+                }`}
+                aria-hidden={open !== "proof"}
+              >
+                <Container className="flex items-stretch gap-0 px-12 pt-8 pb-10 xl:pl-[164px]">
+              {PROOF_LINKS.map(({ label, href, body }, i) => (
+                <Link
+                  key={label}
+                  href={href}
+                  onClick={closePanels}
+                  className={`group flex w-[218px] flex-col gap-2 px-7 text-espresso ${
+                    i > 0 ? "border-l border-border-taupe/60" : "pl-0"
+                  }`}
+                >
+                  <span className="type-body-medium group-hover:underline">{label}</span>
+                  <span className="type-body-sm text-secondary">{body}</span>
+                </Link>
+              ))}
+              <Link
+                href="/for-teams/ca#demo"
                 onClick={closePanels}
                 className="relative ml-12 flex w-[280px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
               >

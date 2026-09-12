@@ -14,7 +14,7 @@ export function CaTestimonials() {
   const n = CA_TESTIMONIALS.length;
 
   return (
-    <section className="w-full py-16 xl:py-25">
+    <section id="testimonials" className="w-full py-16 xl:py-25">
       <Container className="flex flex-col items-start gap-10 px-6 xl:flex-row xl:gap-16 xl:px-18">
         <div className="flex w-full flex-col gap-4 xl:w-[604px] xl:shrink-0">
           <h2 className="type-h2 text-espresso">From women who stopped putting up with it.</h2>
