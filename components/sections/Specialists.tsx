@@ -25,9 +25,10 @@ const SPECIALISTS = [
     name: "Dr. Sarah Peltz",
     credentials: "MD, FRCSC",
     image: "/images/specialists/sarah.png",
-    // Design fill (node 3235:16601): full photo, bottom-anchored — the
-    // default 112% top crop cut her portrait wrong.
-    imgClass: "inset-0 h-full w-full object-cover object-bottom",
+    // Design fill (node 3235:16601): photo covers the card anchored to its
+    // TOP — full head with headroom, bottom of the photo cropped by the
+    // card. (The 683x1024 source in a 415x450 card shows its top ~72%.)
+    imgClass: "inset-0 h-full w-full object-cover object-top",
     bio: "Urology and pelvic health lead. Royal College certified urologist practising at Mackenzie Health and Cortellucci Vaughan Hospital, focused on making pelvic and bladder care easier to talk about and easier to get.",
   },
   {
