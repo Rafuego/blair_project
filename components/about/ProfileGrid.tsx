@@ -66,19 +66,25 @@ export function ProfileGrid({
           {intro && <p className="type-body-lg text-secondary">{intro}</p>}
         </div>
 
-        <div
-          className={`flex w-full flex-col gap-6 xl:flex-row xl:flex-wrap ${
-            wide ? "xl:px-[114px]" : ""
-          }`}
-        >
-          {profiles.map(({ name, role, photo, photoPosition, bio, linkedin }, i) => {
-            const isOpen = open === i;
-            const expandable = Boolean(bio);
-            return (
+        <div className={`flex w-full flex-col gap-6 ${wide ? "xl:px-[114px]" : ""}`}>
+          {/* Explicit rows, no flex-wrap: during the close tween the growing
+              siblings transiently overflow the row by a few percent, and a
+              wrapping container bounces the last card to the next line and
+              back — the "spazz". In a fixed row the overflow just compresses
+              for a few frames instead. */}
+          {Array.from({ length: Math.ceil(profiles.length / perRow) }, (_, r) =>
+            profiles.slice(r * perRow, r * perRow + perRow),
+          ).map((row, r) => (
+            <div key={r} className="flex w-full flex-col gap-6 xl:flex-row">
+              {row.map(({ name, role, photo, photoPosition, bio, linkedin }, j) => {
+                const i = r * perRow + j;
+                const isOpen = open === i;
+                const expandable = Boolean(bio);
+                return (
               <article
                 key={name}
                 style={{ flexBasis: basis(i), transitionTimingFunction: EASE }}
-                className={`relative h-[487px] w-full overflow-clip transition-[flex-basis,border-radius] duration-[550ms] xl:min-w-px xl:grow-0 ${
+                className={`relative h-[487px] w-full min-w-0 overflow-clip transition-[flex-basis,border-radius] duration-[550ms] xl:grow-0 ${
                   isOpen ? "rounded-large" : "rounded-medium"
                 } ${photo ? "bg-white" : "bg-gradient-to-b from-[#cdd1d4] to-[#d0d6db]"}`}
               >
@@ -178,8 +184,10 @@ export function ProfileGrid({
                   </div>
                 )}
               </article>
-            );
-          })}
+                );
+              })}
+            </div>
+          ))}
         </div>
       </Container>
     </section>

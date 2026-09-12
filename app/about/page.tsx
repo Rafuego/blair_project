@@ -7,7 +7,7 @@ import { AboutMedia, AboutStatement } from "@/components/about/AboutBands";
 import { AboutCareers } from "@/components/about/AboutCareers";
 import { AboutHero } from "@/components/about/AboutHero";
 import { AboutInvestors } from "@/components/about/AboutInvestors";
-import { AboutStats } from "@/components/about/AboutStats";
+import { AboutSystemFailing } from "@/components/about/AboutSystemFailing";
 import { AboutSystem } from "@/components/about/AboutSystem";
 import { AboutValues } from "@/components/about/AboutValues";
 import { KeepLearning } from "@/components/sections/KeepLearning";
@@ -24,7 +24,7 @@ export default function AboutPage() {
       <Nav dark />
       <main className="flex flex-col">
         <AboutHero />
-        <AboutStats />
+        <AboutSystemFailing />
         <AboutSystem />
         <AboutStatement />
         <AboutInvestors />
