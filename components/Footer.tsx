@@ -7,8 +7,8 @@ const COLUMNS = [
     heading: "For Patients",
     links: [
       { label: "How Blair works", href: "/roi-calculator" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "Testimonials", href: "#testimonials" },
+      { label: "Pricing", href: "/#pricing" },
+      { label: "Testimonials", href: "/#testimonials" },
     ],
   },
   {
@@ -31,8 +31,8 @@ const COLUMNS = [
     heading: "For employers",
     links: [
       { label: "Solutions", href: "/for-teams" },
-      { label: "Pricing", href: "/for-teams/pricing" },
-      { label: "Book a demo", href: "/for-teams/demo" },
+      { label: "Pricing", href: "/for-teams#demo" },
+      { label: "Book a demo", href: "/for-teams#demo" },
     ],
   },
   {
@@ -40,7 +40,7 @@ const COLUMNS = [
     links: [
       { label: "Contact us", href: "/contact" },
       { label: "Patient referral", href: "/referral" },
-      { label: "FAQ", href: "#faq" },
+      { label: "FAQ", href: "/#faq" },
     ],
   },
 ];

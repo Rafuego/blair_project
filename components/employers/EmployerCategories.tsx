@@ -43,7 +43,7 @@ export function EmployerCategories() {
                 </button>
               ))}
             </div>
-            <div className="flex w-full flex-col items-center justify-between gap-10 xl:flex-row xl:px-[110px]">
+            <div className="mx-auto flex w-full max-w-[1010px] flex-col items-center justify-between gap-10 xl:flex-row">
               <div className="grid w-full text-white xl:w-[450px]">
                 {CATEGORY_TABS.map((t, i) => (
                   <div

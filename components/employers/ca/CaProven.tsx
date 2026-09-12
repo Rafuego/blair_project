@@ -5,7 +5,7 @@ import { CA_PROVEN } from "@/lib/employers-ca";
 /** "Proven with Canadian employers" — heading + 2×2 proof cards (node 3224:5672). */
 export function CaProven() {
   return (
-    <section className="w-full py-16 xl:py-25">
+    <section id="proof" className="w-full py-16 xl:py-25">
       <Container className="flex flex-col items-start gap-10 px-6 xl:flex-row xl:gap-12 xl:px-18">
         <h2 className="type-h2 w-full shrink-0 text-espresso xl:w-[450px]">
           Proven with Canadian employers

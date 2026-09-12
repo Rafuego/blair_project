@@ -258,7 +258,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
             )}
             {employer && region === "CA" && (
               <Link
-                href="/for-teams#proof"
+                href="/for-teams/ca#proof"
                 onMouseEnter={closePanels}
                 className="type-button flex h-8 items-center gap-1 border-b border-transparent px-2 py-2 whitespace-nowrap opacity-75 transition-[opacity,border-color] hover:border-current hover:opacity-100"
               >
@@ -317,7 +317,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
               Login
             </Link>
             <Button
-              href={employer ? "/for-teams/demo" : "/signup"}
+              href={employer ? "/for-teams#demo" : "/signup"}
               variant="espresso"
               className={onDark ? "!bg-white !text-espresso" : ""}
             >
@@ -369,7 +369,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
               ))}
               {employer ? (
                 <Link
-                  href="/for-teams/demo"
+                  href="/for-teams#demo"
                   onClick={closePanels}
                   className="relative ml-7 flex w-[280px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
                 >
@@ -417,7 +417,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
                 </Link>
               ))}
               <Link
-                href="/for-teams/demo"
+                href="/for-teams#demo"
                 onClick={closePanels}
                 className="relative ml-12 flex w-[280px] shrink-0 flex-col items-center justify-center gap-4 overflow-hidden rounded-medium p-6"
               >
