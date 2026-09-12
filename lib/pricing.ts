@@ -126,7 +126,7 @@ export const PRICING_CA: PricingContent = {
       ],
     },
   ],
-  footnote: { lead: "Not sure yet?", link: "Compare plans", href: "/pricing" },
+  footnote: { lead: "Not sure yet?", link: "Compare plans", href: "/pricing/ca" },
 };
 
 /** US (frame 3292:28673): two plans, no Pay As You Go, and its own feature

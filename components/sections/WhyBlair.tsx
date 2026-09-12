@@ -92,16 +92,23 @@ export function WhyBlair() {
             role="tabpanel"
             className="relative flex w-full flex-1 flex-col items-center gap-8 px-0 xl:flex-row xl:justify-between xl:px-50"
           >
-            <div className="flex w-full flex-col gap-6 text-white xl:max-w-[370px]">
-              <h3 className="type-h3 w-full">{tab.heading}</h3>
-              <p className="type-body w-full">{tab.body}</p>
-            </div>
-            <div className="w-[191px] shrink-0 xl:w-auto">
-              <PhoneMockup
-                screen={tab.screen}
-                alt={`${tab.heading} app screen`}
-                fit={"fit" in tab ? tab.fit : "cover"}
-              />
+            {/* Keyed by tab so a switch re-mounts and eases in — the swap
+                read as an abrupt cut without it. */}
+            <div
+              key={active}
+              className="flex w-full flex-col items-center gap-8 animate-[fade-in-up_500ms_cubic-bezier(0.22,1,0.36,1)] xl:flex-row xl:justify-between"
+            >
+              <div className="flex w-full flex-col gap-6 text-white xl:max-w-[370px]">
+                <h3 className="type-h3 w-full">{tab.heading}</h3>
+                <p className="type-body w-full">{tab.body}</p>
+              </div>
+              <div className="w-[191px] shrink-0 xl:w-auto">
+                <PhoneMockup
+                  screen={tab.screen}
+                  alt={`${tab.heading} app screen`}
+                  fit={"fit" in tab ? tab.fit : "cover"}
+                />
+              </div>
             </div>
           </div>
         </div>

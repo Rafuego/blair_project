@@ -25,6 +25,9 @@ const SPECIALISTS = [
     name: "Dr. Sarah Peltz",
     credentials: "MD, FRCSC",
     image: "/images/specialists/sarah.png",
+    // Design fill (node 3235:16601): full photo, bottom-anchored — the
+    // default 112% top crop cut her portrait wrong.
+    imgClass: "inset-0 h-full w-full object-cover object-bottom",
     bio: "Urology and pelvic health lead. Royal College certified urologist practising at Mackenzie Health and Cortellucci Vaughan Hospital, focused on making pelvic and bladder care easier to talk about and easier to get.",
   },
   {
@@ -55,7 +58,7 @@ export function Specialists() {
         </div>
 
         <div className="flex w-full flex-col items-stretch gap-6 xl:flex-row xl:items-start">
-          {SPECIALISTS.map(({ name, credentials, image, bio }, i) => {
+          {SPECIALISTS.map(({ name, credentials, image, imgClass, bio }, i) => {
             const isOpen = open === i;
             return (
               <article
@@ -70,9 +73,9 @@ export function Specialists() {
                   src={image}
                   alt={isOpen ? "" : name}
                   aria-hidden={isOpen}
-                  className={`absolute top-0 left-1/2 h-[112%] w-auto max-w-none -translate-x-1/2 transition-[filter,scale] duration-[600ms] ease-out will-change-[filter,scale] motion-reduce:transition-none ${
-                    isOpen ? "scale-110 blur-[12px]" : "scale-100 blur-0"
-                  }`}
+                  className={`absolute transition-[filter,scale] duration-[600ms] ease-out will-change-[filter,scale] motion-reduce:transition-none ${
+                    imgClass ?? "top-0 left-1/2 h-[112%] w-auto max-w-none -translate-x-1/2"
+                  } ${isOpen ? "scale-110 blur-[12px]" : "scale-100 blur-0"}`}
                 />
                 <div
                   aria-hidden
