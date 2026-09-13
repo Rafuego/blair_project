@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GeoPrompt } from "@/components/GeoPrompt";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { marlfield, neueMontreal } from "./fonts";
 import "./globals.css";
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         {children}
         <ScrollReveal />
+        <GeoPrompt />
       </body>
     </html>
   );
