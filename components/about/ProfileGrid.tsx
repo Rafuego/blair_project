@@ -52,10 +52,10 @@ export function ProfileGrid({
   const basis = (i: number) => {
     const def = wide ? "calc(50% - 12px)" : "calc(33.33% - 16px)";
     if (open === null) return def;
-    if (open === i) return wide ? "calc(64.6% - 12px)" : "calc(63.7% - 16px)";
+    if (open === i) return wide ? "calc(63.4% - 12px)" : "calc(63.7% - 16px)";
     const sameRow = Math.floor(i / perRow) === Math.floor(open / perRow);
     if (!sameRow) return def;
-    return wide ? "calc(35.4% - 12px)" : "calc(16.3% - 16px)";
+    return wide ? "calc(34.7% - 12px)" : "calc(16.3% - 16px)";
   };
 
   return (
@@ -66,7 +66,14 @@ export function ProfileGrid({
           {intro && <p className="type-body-lg text-secondary">{intro}</p>}
         </div>
 
-        <div className={`flex w-full flex-col gap-6 ${wide ? "xl:px-[114px]" : ""}`}>
+        <div
+          style={wide ? { transitionTimingFunction: EASE } : undefined}
+          className={`flex w-full flex-col gap-6 ${
+            wide
+              ? `transition-[padding] duration-[550ms] ${open === null ? "xl:px-[186px]" : "xl:px-0"}`
+              : ""
+          }`}
+        >
           {/* Explicit rows, no flex-wrap: during the close tween the growing
               siblings transiently overflow the row by a few percent, and a
               wrapping container bounces the last card to the next line and
@@ -149,18 +156,16 @@ export function ProfileGrid({
                       isOpen ? "opacity-100 delay-150" : "pointer-events-none opacity-0"
                     }`}
                   >
-                    <div className="flex w-full shrink-0 items-center justify-end">
-                      <button
-                        type="button"
-                        aria-label={`Close ${name}'s bio`}
-                        onClick={() => setOpen(null)}
-                        tabIndex={isOpen ? 0 : -1}
-                        className="flex size-12 cursor-pointer items-center justify-center rounded-circle bg-primrose text-charcoal"
-                      >
-                        <Plus className="size-6 rotate-45" />
-                      </button>
-                    </div>
-                    <div className="flex min-h-px w-full flex-1 flex-col justify-center gap-4">
+                    <button
+                      type="button"
+                      aria-label={`Close ${name}'s bio`}
+                      onClick={() => setOpen(null)}
+                      tabIndex={isOpen ? 0 : -1}
+                      className="absolute top-4 right-4 z-10 flex size-12 cursor-pointer items-center justify-center rounded-circle bg-primrose text-charcoal"
+                    >
+                      <Plus className="size-6 rotate-45" />
+                    </button>
+                    <div className="my-auto flex w-full flex-col gap-3">
                       <div className="flex flex-col gap-2">
                         <p className="type-h5 text-espresso">{name}</p>
                         <p className="type-caps text-secondary">{role}</p>
