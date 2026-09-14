@@ -42,3 +42,8 @@ next-env.d.ts
 
 # local build output
 /.next/
+
+# Local tooling — not part of the project
+.claude/
+CLAUDE.md
+AGENTS.md
