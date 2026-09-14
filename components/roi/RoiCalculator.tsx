@@ -196,7 +196,7 @@ export function RoiCalculator() {
               </div>
 
               <div className="flex w-full justify-center pt-6">
-                <Button href="/for-teams/demo" variant="primrose">
+                <Button href="/for-teams#demo" variant="primrose">
                   Book a demo — see your model live →
                 </Button>
               </div>
