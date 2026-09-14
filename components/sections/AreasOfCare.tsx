@@ -1,6 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "../icons";
-import { Button } from "../ui/Button";
 import { Container } from "../ui/Container";
 
 const CARDS = [
@@ -69,28 +69,8 @@ export function AreasOfCare() {
                 sizes="(max-width: 1440px) 25vw, 306px"
                 className="object-cover"
               />
-              {/* Hover: a notch "cut" from the image's top-right corner (Card
-                  component, hover variant) — a cream block with a rounded
-                  inner corner, two radial-gradient fillets where it meets the
-                  image, and the arrow inside. */}
-              <div
-                aria-hidden
-                className="absolute top-0 right-0 hidden opacity-0 transition-opacity duration-300 ease-out group-hover:opacity-100 xl:block"
-              >
-                <div className="relative flex h-20 w-28 items-start justify-end rounded-bl-[24px] bg-cream pt-3 pr-1 text-espresso">
-                  <ArrowRight className="size-6 -translate-x-1 translate-y-1 transition-transform duration-300 group-hover:translate-x-0" />
-                  <span
-                    className="absolute top-0 -left-4 h-4 w-4"
-                    style={{ background: "radial-gradient(circle 16px at 0% 100%, transparent 16px, var(--color-cream) 16px)" }}
-                  />
-                  <span
-                    className="absolute -bottom-4 right-0 h-4 w-4"
-                    style={{ background: "radial-gradient(circle 16px at 0% 100%, transparent 16px, var(--color-cream) 16px)" }}
-                  />
-                </div>
-              </div>
             </div>
-            <div className="flex min-h-px min-w-px flex-1 flex-col justify-between gap-3 rounded-r-medium bg-white p-4 xl:rounded-r-none xl:rounded-b-medium xl:py-6 xl:pr-15 xl:pl-6">
+            <div className="flex min-h-px min-w-px flex-1 flex-col justify-between gap-3 rounded-r-medium bg-white p-4 xl:rounded-r-none xl:rounded-b-medium xl:p-6">
               <div className="flex w-full flex-col gap-2 xl:gap-3">
                 <h3 className="type-h4 w-full leading-[var(--leading-display-auto)] text-espresso">
                   {Array.isArray(title)
@@ -104,9 +84,25 @@ export function AreasOfCare() {
                 </h3>
                 <p className="type-body w-full text-secondary xl:text-charcoal">{body}</p>
               </div>
-              <Button href={href} variant="espresso" className="self-start text-[14px] xl:text-[16px]">
-                Explore care
-              </Button>
+              {/* Hover (node 3464:31858): the pill grows to fill the row,
+                  its right corners square to 12px, and the primrose arrow
+                  chip slides in — all tweened, nothing swaps. */}
+              <div className="flex w-full items-center gap-1">
+                <Link
+                  href={href}
+                  className="type-button flex h-[42px] grow-0 items-center justify-center overflow-hidden rounded-[100px] bg-espresso px-7 text-[14px] whitespace-nowrap text-white transition-[flex-grow,border-radius,background-color] duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:bg-espresso/88 xl:text-[16px] xl:group-hover:grow xl:group-hover:rounded-tr-[12px] xl:group-hover:rounded-br-[12px]"
+                >
+                  Explore care
+                </Link>
+                <Link
+                  href={href}
+                  tabIndex={-1}
+                  aria-hidden
+                  className="hidden h-[42px] w-0 items-center justify-center overflow-hidden rounded-tl-[12px] rounded-tr-[16px] rounded-br-[16px] rounded-bl-[12px] bg-primrose text-espresso opacity-0 transition-[width,opacity] duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] xl:flex xl:group-hover:w-[42px] xl:group-hover:opacity-100"
+                >
+                  <ArrowRight className="size-5 shrink-0" />
+                </Link>
+              </div>
             </div>
           </article>
         ))}
