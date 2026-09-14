@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { CaretDown, CloseIcon, MenuIcon } from "./icons";
 import { Button } from "./ui/Button";
@@ -94,11 +94,14 @@ type Menu = "care" | "value" | "proof" | "region" | "audience" | null;
 function Trigger({
   label,
   active,
+  current = false,
   onEnter,
   onClick,
 }: {
   label: string;
   active: boolean;
+  /** The current page lives under this menu — keep the underline on. */
+  current?: boolean;
   onEnter: () => void;
   onClick: () => void;
 }) {
@@ -109,7 +112,7 @@ function Trigger({
       onMouseEnter={onEnter}
       onClick={onClick}
       className={`type-button flex h-8 cursor-pointer items-center justify-center gap-1 border-b px-2 py-2 whitespace-nowrap transition-[opacity,border-color] ${
-        active
+        active || current
           ? "border-current opacity-100"
           : "border-transparent opacity-75 hover:border-current hover:opacity-100"
       }`}
@@ -122,6 +125,7 @@ function Trigger({
 
 export function Nav({ dark = false }: { dark?: boolean }) {
   const router = useRouter();
+  const pathname = usePathname();
   const [open, setOpen] = useState<Menu>(null);
   const [region, setRegion] = useState<Region>("CA");
   const [audience, setAudience] = useState<Audience>("individual");
@@ -256,7 +260,12 @@ export function Nav({ dark = false }: { dark?: boolean }) {
               <Link
                 href={region === "CA" ? "/for-teams/ca" : "/for-teams"}
                 onMouseEnter={closePanels}
-                className="type-button flex h-8 items-center border-b border-transparent px-2 py-2 whitespace-nowrap opacity-75 transition-[opacity,border-color] hover:border-current hover:opacity-100"
+                aria-current={pathname.startsWith("/for-teams") ? "page" : undefined}
+                className={`type-button flex h-8 items-center border-b px-2 py-2 whitespace-nowrap transition-[opacity,border-color] ${
+                  pathname.startsWith("/for-teams")
+                    ? "border-current opacity-100"
+                    : "border-transparent opacity-75 hover:border-current hover:opacity-100"
+                }`}
               >
                 Why Blair
               </Link>
@@ -264,6 +273,7 @@ export function Nav({ dark = false }: { dark?: boolean }) {
             <Trigger
               label="Areas of Care"
               active={open === "care"}
+              current={pathname.startsWith("/care/")}
               onEnter={() => setOpen("care")}
               onClick={() => setOpen(open === "care" ? null : "care")}
             />
@@ -283,16 +293,28 @@ export function Nav({ dark = false }: { dark?: boolean }) {
                 onClick={() => setOpen(open === "proof" ? null : "proof")}
               />
             )}
-            {(employer ? plainLinks.slice(1) : plainLinks).map(({ label, href }) => (
-              <Link
-                key={label}
-                href={href}
-                onMouseEnter={closePanels}
-                className="type-button flex h-8 items-center justify-center border-b border-transparent px-2 py-2 whitespace-nowrap opacity-75 transition-[opacity,border-color] hover:border-current hover:opacity-100"
-              >
-                {label}
-              </Link>
-            ))}
+            {(employer ? plainLinks.slice(1) : plainLinks).map(({ label, href }) => {
+              const target = href.split("#")[0];
+              const isCurrent =
+                target !== "" &&
+                (pathname === target ||
+                  (label === "Pricing" && pathname.startsWith("/pricing/")));
+              return (
+                <Link
+                  key={label}
+                  href={href}
+                  onMouseEnter={closePanels}
+                  aria-current={isCurrent ? "page" : undefined}
+                  className={`type-button flex h-8 items-center justify-center border-b px-2 py-2 whitespace-nowrap transition-[opacity,border-color] ${
+                    isCurrent
+                      ? "border-current opacity-100"
+                      : "border-transparent opacity-75 hover:border-current hover:opacity-100"
+                  }`}
+                >
+                  {label}
+                </Link>
+              );
+            })}
           </nav>
 
           <div className="hidden shrink-0 items-center gap-4 xl:flex">
