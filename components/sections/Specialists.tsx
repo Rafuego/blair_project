@@ -19,7 +19,7 @@ const SPECIALISTS = [
     name: "Dr. Lindsay Shirreff",
     credentials: "MD, FRCSC",
     image: "/images/specialists/lindsay.png",
-    bio: "Menopause and perimenopause lead. One of Canada's few fellowship-trained menopause subspecialists, with an active research program at Mount Sinai Hospital and the University of Toronto and over 40 peer-reviewed publications.",
+    bio: "Menopause and perimenopause lead. One of Canada's few fellowship-trained menopause subspecialists, with appointments at Mount Sinai Hospital and the University of Toronto and over 40 peer-reviewed publications.",
   },
   {
     name: "Dr. Sarah Peltz",

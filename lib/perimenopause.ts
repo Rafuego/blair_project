@@ -143,7 +143,7 @@ export const PERI_SPECIALIST = {
   lead: "Blair's perimenopause care was built by ",
   leadName: "Dr. Lindsay Shirreff, MD, FRCSC, ",
   leadRest:
-    "one of Canada's few fellowship-trained menopause subspecialists, with an active research program at Mount Sinai Hospital and the University of Toronto and over 40 peer-reviewed publications.",
+    "one of Canada's few fellowship-trained menopause subspecialists, with appointments at Mount Sinai Hospital and the University of Toronto and over 40 peer-reviewed publications.",
   closing:
     "Every Blair care plan follows the clinical protocols she designed.",
   assurance:
@@ -166,11 +166,6 @@ export const PERI_FAQ = [
     question: "Can I start treatment now, or do I have to wait until menopause?",
     answer:
       "You don't have to wait. If symptoms are affecting your life, they're worth treating. Many options are safe and effective during perimenopause, even while you're still having periods.",
-  },
-  {
-    question: "Do you prescribe testosterone for low sex drive?",
-    answer:
-      "Desire in perimenopause often has more than one driver: fluctuating hormones, disrupted sleep, and mood all play a part, so we treat the whole picture first. Where low desire persists, carefully dosed testosterone can be an option for some women. No testosterone product is approved for women in Canada, so it's prescribed off-label at low doses with monitoring.",
   },
   {
     question: "How long does perimenopause last?",

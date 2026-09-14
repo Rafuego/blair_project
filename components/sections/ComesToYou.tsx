@@ -9,7 +9,7 @@ export function ComesToYou() {
         <div className="flex min-w-px flex-1 flex-col justify-end gap-12 xl:self-stretch">
           <div className="flex w-full flex-col gap-6">
             <h2 className="type-h2 w-full max-w-[582px] text-espresso">
-              Care that comes to you — no waitlist required
+              Care that comes to you, no waitlist required
             </h2>
             <p className="type-body w-full text-secondary">
               Getting specialist care in Canada too often means long waits and

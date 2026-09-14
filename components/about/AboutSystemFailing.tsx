@@ -15,7 +15,7 @@ const STATS = [
   {
     stat: "5.9 million",
     body: "Adults in Canada with no regular doctor or nurse practitioner.",
-    source: "(OurCare / CMA, 2025)",
+    source: "(OurCare and CMA, 2025)",
     width: 256,
   },
   {
@@ -75,7 +75,7 @@ export function AboutSystemFailing() {
               ))}
             </div>
             <p className="type-body-lg w-full text-white xl:w-[783px]">
-              The system is broken across North America. It fails women hardest. We are rebuilding it.
+              There&rsquo;s an opportunity to transform care across North America.
             </p>
           </div>
           <div className="flex items-center gap-2">

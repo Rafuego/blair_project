@@ -128,7 +128,7 @@ export const NUTRI_FAQ = [
 ];
 
 export const NUTRI_FINAL_CTA = {
-  title: "Pick your goal. Get your plan. Feel the difference.",
+  title: "Pick your goal. Get your plan. Feel\u00A0the\u00A0difference.",
   body: "One-on-one nutrition support, open now and coordinated with your care team, with Medical Weight Management arriving in Fall 2026.",
   image: "/images/urology/final-cta.png",
   panelHeight: 578,

@@ -15,7 +15,7 @@ export const URO_INTRO = {
 };
 
 export const URO_CONDITIONS_COPY = {
-  title: "We diagnose 6 of the most common bladder conditions.",
+  title: "We diagnose 6 common bladder conditions.",
   intro:
     "One free assessment tells you which one fits your symptoms, so you stop guessing and start treating.",
   cta: {
@@ -32,21 +32,6 @@ export const URO_CONDITIONS: Symptom[] = [
     body: "Two or more infections in six months, or three in a year? That's a pattern with a cause, not bad luck. We break the cycle.",
   },
   {
-    icon: "/icons/urology/drop-a.svg",
-    title: "Urge incontinence",
-    body: "The urge arrives and won't wait. Different cause than stress leaks, different treatment, same result: fixable.",
-  },
-  {
-    icon: "/icons/urology/drop-b.svg",
-    title: "Mixed incontinence",
-    body: "Leaks from both pressure and urgency. Very common, and the treatment plan changes when we know it's both",
-  },
-  {
-    icon: "/icons/urology/heart-half.svg",
-    title: "Genitourinary Syndrome of Menopause (GSM)",
-    body: "Dryness, irritation, discomfort with sex, and urinary changes driven by declining estrogen. Highly treatable.",
-  },
-  {
     icon: "/icons/urology/clock-countdown.svg",
     title: "Overactive bladder (OAB)",
     body: "Sudden urges, frequent trips, mapping your day around bathrooms. A recognized, treatable condition.",
@@ -55,6 +40,21 @@ export const URO_CONDITIONS: Symptom[] = [
     icon: "/icons/urology/barbell.svg",
     title: "Stress urinary incontinence",
     body: "Leaking when you laugh, cough, sneeze, or exercise. About pelvic floor support, not something to be embarrassed about.",
+  },
+  {
+    icon: "/icons/urology/drop-a.svg",
+    title: "Urge incontinence",
+    body: "The urge arrives and won't wait. Different cause than stress leaks, different treatment, same result: fixable.",
+  },
+  {
+    icon: "/icons/urology/drop-b.svg",
+    title: "Mixed incontinence",
+    body: "Leaks from both pressure and urgency. Very common, and the treatment plan changes when we know it's both.",
+  },
+  {
+    icon: "/icons/urology/heart-half.svg",
+    title: "Genitourinary syndrome of menopause (GSM)",
+    body: "Dryness, irritation, discomfort with sex, and urinary changes driven by declining estrogen. Highly treatable.",
   },
 ];
 
