@@ -7,13 +7,25 @@ import { Container } from "../ui/Container";
  * floating at the edges — two bleed off-canvas, so they live outside the
  * Container and hide below xl.
  */
-// Anchored to the viewport edges (not the 1440 canvas) so the bleed cards
-// stay at the margins on wide screens instead of drifting onto the text;
-// tops are % of the section so the balance holds at min-h-screen.
+// Collision-proof float anchors. Each image sits at its designed spot but
+// yields whenever the centred text block (headline 921 + gutter) needs the
+// room — the min()/max() picks whichever position is further from the text,
+// so at no viewport width can an image sit over the copy. Tops are % of the
+// section (with a floor below the content block for the bottom image) so
+// the balance holds at min-h-screen.
 const FLOATS = [
-  { src: "/images/about/hero-1.png", style: { left: -112, top: "13%", width: 324, height: 231 } },
-  { src: "/images/about/hero-2.png", style: { right: -73, top: "38%", width: 345, height: 259 } },
-  { src: "/images/about/hero-3.png", style: { left: 31, top: "64%", width: 362, height: 237 } },
+  {
+    src: "/images/about/hero-1.png",
+    style: { left: "min(-112px, calc(50% - 806px))", top: "13%", width: 324, height: 231 },
+  },
+  {
+    src: "/images/about/hero-2.png",
+    style: { left: "max(calc(50% + 490px), calc(100% - 272px))", top: "38%", width: 345, height: 259 },
+  },
+  {
+    src: "/images/about/hero-3.png",
+    style: { left: "min(31px, calc(50% - 755px))", top: "max(64%, calc(50% + 230px))", width: 362, height: 237 },
+  },
 ];
 
 export function AboutHero() {

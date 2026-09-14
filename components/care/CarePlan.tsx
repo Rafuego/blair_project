@@ -92,7 +92,7 @@ export function CarePlan({
                     className="transition-[flex-grow] duration-[550ms] ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none"
                     style={{ flexGrow: isOpen ? 0 : 1, flexBasis: 0 }}
                   />
-                  <span className="type-h5 shrink-0 whitespace-nowrap">{name}</span>
+                  <span className="type-h5 min-w-0 text-center">{name}</span>
                   <span aria-hidden className="min-w-0 flex-1" />
                 </span>
                 <span
