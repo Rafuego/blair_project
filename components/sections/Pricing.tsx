@@ -88,7 +88,7 @@ export function Pricing({
                           {tooltip && (
                             <span
                               role="tooltip"
-                              className="pointer-events-none absolute top-full left-0 z-20 mt-2 block w-max max-w-[400px] rounded-small bg-espresso-dark px-4 py-3 opacity-0 shadow-[0_12px_32px_rgba(41,11,18,0.25)] transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100"
+                              className="pointer-events-none absolute top-full right-0 left-0 z-20 mt-2 block rounded-small bg-espresso-dark px-4 py-3 opacity-0 shadow-[0_12px_32px_rgba(41,11,18,0.25)] transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100"
                             >
                               <span className="type-body-sm block text-white">
                                 {tooltip}
