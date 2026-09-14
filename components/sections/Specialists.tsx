@@ -35,6 +35,9 @@ const SPECIALISTS = [
     name: "Dr. Pooja Singhal",
     credentials: "MD, FACG, DABOM",
     image: "/images/specialists/pooja.png",
+    // New 831x900 headshot covers the 415x450 card exactly (top-anchored),
+    // same framing family as Sarah's.
+    imgClass: "inset-0 h-full w-full object-cover object-top",
     bio: "Nutrition and weight management lead. Board-certified gastroenterologist and Diplomate of the American Board of Obesity Medicine, trained at Georgetown, founder of Oklahoma Gastro Health and Wellness.",
   },
 ];
